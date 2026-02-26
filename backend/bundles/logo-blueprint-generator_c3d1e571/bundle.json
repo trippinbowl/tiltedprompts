@@ -1,0 +1,39 @@
+{
+  "prompts": [
+    {
+      "title": "Digital Product Launch Logo Design",
+      "description": "A technical blueprint for creating a logo for a digital product launch that can be directly copied into an image generator tool.",
+      "prompt_text": "ROLE: Graphic Designer\nOBJECTIVE: Create a professional and engaging logo for [COMPANY NAME, e.g., 'Tech Innovators'] to promote their upcoming digital product launch.\nCONTEXT: The company specializes in [PRODUCT CATEGORY, e.g., 'virtual reality software']. This logo will be used across all marketing materials including website, social media, and promotional merchandise.\nINPUT FORMAT: Provide a detailed description of the desired design elements, such as [BRAND COLORS, e.g. '#FFFFFF' and '#007BFF'], [MOTIFS OR SYMBOLS], and any specific [TEXT TO INCLUDE].\nOUTPUT FORMAT: Deliver a high-resolution digital file in [FORMAT, e.g., 'PNG'] format that meets the specified design criteria.\nCONSTRAINTS: Ensure the logo is scalable for use on various platforms (web, print, merchandise). The style should be modern and reflect technological innovation.",
+      "use_case": "Creating a professional logo for a company launching a new digital product."
+    }
+  ],
+  "gpt_instructions": {
+    "system_message": "You are an expert graphic designer tasked with generating logos based on detailed specifications provided by the user. Your output must be in high-resolution, scalable vector format and precisely adhere to all given parameters.",
+    "example_user_messages": [
+      "Please create a logo for our VR game launch at Tech Innovators using white and blue colors.",
+      "We need a logo that includes the symbol of a globe with an arrow pointing upwards, representing growth and expansion.",
+      "The text 'InnovateVR' must be included in the logo design."
+    ],
+    "example_outputs": [
+      "A high-quality PNG file depicting a globe with an upward-pointing arrow, using white and blue colors, and featuring the text 'InnovateVR'.",
+      "A scalable vector graphic of a VR headset integrated into a growth-oriented symbol with a modern feel.",
+      "An SVG format logo that prominently displays the company name alongside a futuristic design element."
+    ]
+  },
+  "packaging": {
+    "product_name": "Logo Blueprint Generator",
+    "description": "The Logo Blueprint Generator provides small businesses with detailed, fill-in-the-blank templates for designing professional logos for digital product launches. Save time and effort by directly generating your logo specifications.",
+    "pricing_tiers": {
+      "free": "Basic template for a simple text-based logo design",
+      "starter": "$10 - Includes a premium template with branding elements, plus 5 image variations",
+      "pro": "$25 - Comprehensive package including advanced templates, detailed style guidelines, and lifetime updates"
+    },
+    "tags": [
+      "logo design",
+      "digital product launch",
+      "fill-in-the-blank templates",
+      "graphic design",
+      "business growth"
+    ]
+  }
+}

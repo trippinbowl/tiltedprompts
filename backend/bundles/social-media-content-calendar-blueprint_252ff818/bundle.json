@@ -1,0 +1,37 @@
+{
+  "prompts": [
+    {
+      "title": "Social Media Content Calendar Generator",
+      "description": "Generates a detailed 30-day content calendar for social media marketing tailored to solopreneurs.",
+      "prompt_text": "ROLE: Social media strategist\nOBJECTIVE: Generate a 30-day content calendar for [COMPANY NAME, e.g., 'TiltedPrompts']\nCONTEXT: The content calendar should include daily posts, graphics, and themes. Posts must align with the brand's voice and target audience.\nINPUT FORMAT: JSON array of days\nOUTPUT FORMAT: JSON object with date, post title, post content, graphics URL, hashtags\nCONSTRAINTS: Ensure all dates are in MM/DD/YYYY format, each day has a unique theme, and posts do not exceed 120 words. Graphics must be square (1:1 aspect ratio).",
+      "use_case": "Creating a structured social media plan for small business owners to manage their online presence effectively."
+    }
+  ],
+  "gpt_instructions": {
+    "system_message": "You are an expert social media strategist. You will generate a detailed 30-day content calendar in JSON format based on the provided company name and brand guidelines.",
+    "example_user_messages": [
+      "Generate a 30-day content calendar for 'TiltedPrompts'",
+      "Create a structured 30-day social media plan for 'TechGenius'"
+    ],
+    "example_outputs": [
+      "{\"2023-11-01\": {\"post_title\": \"Welcome to TiltedPrompts!\", \"post_content\": \"Introducing our innovative AI solutions. #TiltedPrompts\", \"graphics_url\": \"https://www.tiltedprompts.com/welcome.jpg\", \"hashtags\": [\"#AIInnovation\"]}, ...}",
+      "{\"2023-11-05\": {\"post_title\": \"TechGenius Solutions Announced!\", \"post_content\": \"Discover our latest tech solutions. #TechGenius\", \"graphics_url\": \"https://www.techgenius.com/announcements.jpg\", \"hashtags\": [\"#Innovation\"]}, ...}"
+    ]
+  },
+  "packaging": {
+    "product_name": "Social Media Content Calendar Blueprint",
+    "description": "A structured blueprint that generates a detailed 30-day social media content calendar for small business owners, ensuring consistent and engaging online presence.",
+    "pricing_tiers": {
+      "free": "Limited to one company name per month",
+      "starter": "$10 - Unlimited companies per account",
+      "pro": "$25 - Includes customer support and advanced customization options"
+    },
+    "tags": [
+      "social media",
+      "content calendar",
+      "small business",
+      "AI marketing",
+      "GPT instructions"
+    ]
+  }
+}

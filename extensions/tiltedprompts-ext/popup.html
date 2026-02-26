@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TiltedPrompts</title>
+    <link rel="stylesheet" href="popup-styles.css">
+</head>
+
+<body>
+    <div class="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">⚡ tiltedprompts</div>
+            <div class="header-actions">
+                <button id="refreshBtn" class="icon-btn" title="Refresh bundles">🔄</button>
+                <button id="settingsBtn" class="icon-btn" title="Settings">⚙️</button>
+            </div>
+        </header>
+
+        <!-- Settings Panel (hidden by default) -->
+        <div id="settingsPanel" class="settings-panel hidden">
+            <h3>Settings</h3>
+            <label>API URL</label>
+            <input type="text" id="apiUrl" placeholder="http://localhost:5000">
+            <label>License Key (Pro)</label>
+            <input type="text" id="licenseKey" placeholder="Enter Gumroad license key">
+            <div class="settings-actions">
+                <button id="saveSettings" class="btn btn-primary">Save</button>
+                <button id="verifyLicense" class="btn btn-secondary">Verify License</button>
+            </div>
+            <div id="licenseStatus" class="license-status"></div>
+        </div>
+
+        <!-- Search & Filter -->
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search prompts...">
+            <select id="categoryFilter">
+                <option value="">All Categories</option>
+                <option value="instagram">Instagram</option>
+                <option value="whatsapp">WhatsApp</option>
+                <option value="email">Email</option>
+                <option value="linkedin">LinkedIn</option>
+                <option value="seo">SEO</option>
+                <option value="sales">Sales</option>
+            </select>
+        </div>
+
+        <!-- Bundle List -->
+        <div id="bundleList" class="bundle-list">
+            <div class="loading">Loading prompts...</div>
+        </div>
+
+        <!-- Prompt Detail View (hidden by default) -->
+        <div id="promptDetail" class="prompt-detail hidden">
+            <button id="backBtn" class="back-btn">← Back</button>
+            <h2 id="promptTitle"></h2>
+            <p id="promptDesc" class="prompt-desc"></p>
+            <div class="prompt-box">
+                <pre id="promptText"></pre>
+                <button id="copyBtn" class="btn btn-copy">📋 Copy Prompt</button>
+            </div>
+            <div id="useCase" class="use-case"></div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <span id="proStatus" class="pro-badge hidden">PRO</span>
+            <a href="https://tiltedprompts.gumroad.com" target="_blank">Get More Prompts</a>
+        </footer>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+
+</html>

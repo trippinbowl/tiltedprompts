@@ -1,0 +1,39 @@
+{
+  "prompts": [
+    {
+      "title": "Discovery Call BANT Qualification",
+      "description": "A structured prompt for conducting discovery calls to qualify leads using the BANT framework.",
+      "prompt_text": "ROLE: Lead qualification expert\nOBJECTIVE: Determine if [COMPANY_NAME] is a good fit for our services based on Budget, Authority, Need, and Timeline.\nCONTEXT: The discovery call will follow the BANT criteria. Record answers in notes.\nINPUT FORMAT: [COMPANY_NAME], e.g., 'Tech Innovators'\nOUTPUT FORMAT: Detailed notes following each question\nSTYLE: Technical, precise, clinical\nASPECT RATIO: 16:9\nSUBJECT: Discovery Call for [COMPANY_NAME]\nBACKGROUND: [COMPANY_NAME] has expressed interest in our services. Conduct a detailed discovery call to qualify them.\nCOMPOSITION RULES: Use the BANT framework to guide questions and record responses accurately.\nSTEPS:\n1. Ask about their budget constraints (e.g., Are you currently operating within a specific budget for this project?)\n2. Identify decision-making authority (e.g., Who is involved in making the final decision on this service?)\n3. Assess their needs relative to our offerings (e.g., What are your primary business challenges that need addressing with our services?)\n4. Inquire about the timeline for implementing our solution (e.g., When do you anticipate needing our services to be fully operational?)",
+      "use_case": "Conducting a discovery call to qualify leads based on budget, authority, need, and timeline."
+    }
+  ],
+  "gpt_instructions": {
+    "system_message": "You are an expert in conducting discovery calls for lead qualification using the BANT framework. Your task is to guide users through a structured conversation that identifies key information about potential clients' budgets, decision-making authority, needs, and timelines.",
+    "example_user_messages": [
+      "What questions should I ask [COMPANY_NAME] about their budget constraints?",
+      "How do I identify the right person with decision-making authority in [COMPANY_NAME]?",
+      "Can you provide a list of questions to assess the need for our services at [COMPANY_NAME]?"
+    ],
+    "example_outputs": [
+      "You should inquire about specific budget allocations or any financial limitations they may have (e.g., What is your current budget allocation for this project?)",
+      "Ask about their organizational structure and identify key decision-makers involved in procurement processes (e.g., Who are the primary stakeholders responsible for approving new solutions?)",
+      "Assess their needs by asking open-ended questions that highlight areas where our services can add value (e.g., What specific challenges do you face with your current setup that could be improved with our solution?"
+    ]
+  },
+  "packaging": {
+    "product_name": "BANT Discovery Call Blueprint",
+    "description": "This structured blueprint helps sales teams conduct effective discovery calls to qualify leads using the BANT framework. It includes detailed questions and a step-by-step guide for successful lead qualification.",
+    "pricing_tiers": {
+      "free": "Limited access to one sample prompt template",
+      "starter": "$10 - Full access to all templates with basic support",
+      "pro": "$25 - Premium package including advanced templates, priority support, and monthly updates"
+    },
+    "tags": [
+      "Sales",
+      "Lead Qualification",
+      "Discovery Call",
+      "BANT Framework",
+      "Business Development"
+    ]
+  }
+}

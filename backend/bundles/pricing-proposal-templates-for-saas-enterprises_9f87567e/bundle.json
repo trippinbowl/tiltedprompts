@@ -1,0 +1,39 @@
+{
+  "prompts": [
+    {
+      "title": "SaaS Enterprise Pricing Proposal Email",
+      "description": "A technical blueprint for generating an enterprise pricing proposal email for SaaS products.",
+      "prompt_text": "ROLE: Senior financial analyst specializing in SaaS enterprise pricing.\nOBJECTIVE: Draft a professional, detailed pricing proposal email for [COMPANY_NAME].\nCONTEXT: The customer is evaluating multiple SaaS solutions and requests a customized pricing plan.\nINPUT FORMAT: Provide the following details:\n- Company name: [COMPANY_NAME], e.g., 'TiltedPrompts'\n- Product features: [PRODUCT_FEATURES], e.g., 'AI-driven analytics, data visualization tools'\n- Customer needs: [CUSTOMER_NEEDS], e.g., 'improve financial reporting accuracy and efficiency'\n- Pricing tiers: [PRICING_TIERS], e.g., 'starter at $50/month, pro at $100/month with advanced features'\nOUTPUT FORMAT: A formal email in the format of a business proposal.\nCONSTRAINTS: Ensure the proposal is clear, concise, and includes all requested details without filler or unnecessary information.",
+      "use_case": "When preparing a detailed pricing proposal for a SaaS product to an enterprise customer."
+    }
+  ],
+  "gpt_instructions": {
+    "system_message": "You are a specialized assistant designed to generate professional, technical documents such as pricing proposals for SaaS companies. Your output must be clear, concise, and tailored to the specific details provided.",
+    "example_user_messages": [
+      "Generate an enterprise pricing proposal email for TiltedPrompts based on the given features.",
+      "Create a detailed pricing plan for a financial analytics tool with advanced data visualization capabilities.",
+      "Draft a professional business proposal email for a SaaS solution that improves reporting accuracy and efficiency."
+    ],
+    "example_outputs": [
+      "Dear [COMPANY_NAME],\n\nWe are pleased to present you with our tailored pricing plan for the TiltedPrompts SaaS platform, designed specifically to meet your financial analytics needs. Our platform includes advanced features such as AI-driven analytics and data visualization tools, which can significantly enhance reporting accuracy and efficiency.\n\nPricing tiers include:\n- Starter tier: $50/month with basic features\n- Pro tier: $100/month with access to all advanced features\n\nWe are confident that our solution will meet your requirements. Please let us know if you need any further information or customization options.\nSincerely, The TiltedPrompts Team",
+      "Dear [COMPANY_NAME],\n\nHere is the proposed pricing plan for our financial analytics tool with advanced data visualization capabilities:\n- Starter tier: $50/month for basic features\n- Pro tier: $100/month including all advanced features such as AI-driven analytics and interactive visualizations\n\nPlease let us know if you require any further details or customization options.\nSincerely, The TiltedPrompts Team",
+      "Dear [COMPANY_NAME],\n\nWe are excited to present our customized pricing plan for the SaaS solution designed to improve your reporting accuracy and efficiency:\n- Starter tier: $50/month with basic features\n- Pro tier: $100/month including access to advanced features such as AI-driven analytics and interactive data visualization tools\n\nPlease let us know if you need any further information or customization options.\nSincerely, The TiltedPrompts Team"
+    ]
+  },
+  "packaging": {
+    "product_name": "Pricing Proposal Templates for SaaS Enterprises",
+    "description": "Professional templates to generate detailed pricing proposals for enterprise clients evaluating SaaS products. Perfect for busy business owners needing clear, concise documentation.",
+    "pricing_tiers": {
+      "free": "1 free template with basic placeholders",
+      "starter": "5 premium templates plus user guide, $5",
+      "pro": "20+ high-end templates including advanced customization options, $20"
+    },
+    "tags": [
+      "SaaS pricing",
+      "Enterprise sales",
+      "Email templates",
+      "Professional proposal writing",
+      "Business communication"
+    ]
+  }
+}

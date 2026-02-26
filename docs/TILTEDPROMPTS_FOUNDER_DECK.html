@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TiltedPrompts — Founder Deck & Operating Plan (Feb 2026)</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+  :root {
+    --primary: #6C5CE7;
+    --primary-dark: #5A4BD1;
+    --bg: #0F0F13;
+    --surface: #1A1A24;
+    --surface-2: #22222E;
+    --text: #E8E8ED;
+    --text-muted: #9494A8;
+    --border: #2A2A3A;
+    --green: #00D68F;
+    --red: #FF6B6B;
+    --yellow: #FFCB57;
+    --blue: #4DA6FF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 14px;
+  }
+
+  .page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 50px;
+    page-break-after: always;
+  }
+
+  .cover {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+    background: linear-gradient(135deg, var(--bg) 0%, #1A1030 50%, var(--bg) 100%);
+  }
+
+  .cover h1 {
+    font-size: 48px;
+    font-weight: 900;
+    letter-spacing: -2px;
+    background: linear-gradient(135deg, var(--primary), #A29BFE);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 12px;
+  }
+
+  .cover .tagline {
+    font-size: 20px;
+    color: var(--text-muted);
+    font-weight: 300;
+    margin-bottom: 40px;
+  }
+
+  .cover .meta {
+    font-size: 13px;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+    padding-top: 20px;
+    margin-top: 40px;
+  }
+
+  .badge {
+    display: inline-block;
+    background: var(--primary);
+    color: white;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+  }
+
+  h2 {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 8px;
+    letter-spacing: -1px;
+    color: white;
+  }
+
+  h2 .num {
+    color: var(--primary);
+    font-size: 14px;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 4px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 28px 0 10px;
+    color: white;
+  }
+
+  h4 {
+    font-size: 15px;
+    font-weight: 600;
+    margin: 20px 0 8px;
+    color: var(--primary);
+  }
+
+  p, li { color: var(--text); margin-bottom: 10px; }
+
+  .section-intro {
+    font-size: 15px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+    border-left: 3px solid var(--primary);
+    padding-left: 16px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0 24px;
+    font-size: 13px;
+  }
+
+  th {
+    background: var(--surface-2);
+    color: var(--primary);
+    text-align: left;
+    padding: 10px 14px;
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+  }
+
+  tr:hover td { background: rgba(108, 92, 231, 0.05); }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin: 16px 0;
+  }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 16px 0;
+  }
+
+  .stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .stat-card .number {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--primary);
+    line-height: 1;
+  }
+
+  .stat-card .label {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 6px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .flow-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    line-height: 1.8;
+    color: var(--text-muted);
+    white-space: pre-wrap;
+  }
+
+  .flow-box .hl { color: var(--primary); font-weight: 600; }
+  .flow-box .ok { color: var(--green); }
+  .flow-box .warn { color: var(--yellow); }
+
+  .check { color: var(--green); }
+  .cross { color: var(--red); }
+  .pending { color: var(--yellow); }
+
+  ul { padding-left: 20px; margin: 10px 0; }
+  li { margin-bottom: 6px; }
+
+  .todo-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+  }
+
+  .todo-item .box {
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--border);
+    border-radius: 4px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .todo-item.done .box {
+    background: var(--green);
+    border-color: var(--green);
+  }
+
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 30px 0;
+  }
+
+  .callout {
+    background: rgba(108, 92, 231, 0.1);
+    border: 1px solid rgba(108, 92, 231, 0.3);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 16px 0;
+    font-size: 14px;
+  }
+
+  .callout-red {
+    background: rgba(255, 107, 107, 0.1);
+    border-color: rgba(255, 107, 107, 0.3);
+  }
+
+  .callout-green {
+    background: rgba(0, 214, 143, 0.1);
+    border-color: rgba(0, 214, 143, 0.3);
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  @media print {
+    body { background: white; color: #222; font-size: 11px; }
+    .page { padding: 30px; }
+    .cover { min-height: auto; padding: 60px 0; background: white; }
+    .cover h1 { color: #6C5CE7; -webkit-text-fill-color: #6C5CE7; }
+    h2 { color: #222; }
+    h3, h4 { color: #333; }
+    p, li, td { color: #444; }
+    .card, .stat-card, .flow-box { border: 1px solid #ddd; background: #f9f9fc; }
+    th { background: #f0f0f5; color: #6C5CE7; }
+    td { border-color: #e0e0e0; }
+    .callout { border: 1px solid #ccc; background: #f5f3ff; }
+    .badge { background: #6C5CE7; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════ COVER -->
+<div class="page cover">
+  <div class="badge">CONFIDENTIAL — FOUNDER DOCUMENT</div>
+  <h1>TiltedPrompts</h1>
+  <p class="tagline">Compress the distance between human intent<br>and functional architecture.</p>
+
+  <div style="margin: 30px 0;">
+    <div class="card-grid" style="max-width:500px;">
+      <div class="stat-card"><div class="number">4</div><div class="label">Product Verticals</div></div>
+      <div class="stat-card"><div class="number">2</div><div class="label">Target Markets</div></div>
+      <div class="stat-card"><div class="number">$100-300K</div><div class="label">Year 1 Target</div></div>
+      <div class="stat-card"><div class="number">Feb 28</div><div class="label">Soft Launch</div></div>
+    </div>
+  </div>
+
+  <div class="meta">
+    <strong>Operating Plan & Investor Brief</strong><br>
+    Version 1.0 &mdash; February 2026<br>
+    Founder: [Your Name] &mdash; hello@tiltedprompts.com
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ WHY THIS IS UNIQUE -->
+<div class="page">
+  <h2><span class="num">Section 01</span>Why TiltedPrompts Is Unique</h2>
+  <p class="section-intro">There are prompt marketplaces. There are template stores. There are MCP servers. Nobody has stitched them into a single AI-native product studio that prints its own inventory with zero marginal cost.</p>
+
+  <h3>The Core Thesis</h3>
+  <p>AI-assisted development has created a new class of builder &mdash; technical directors who orchestrate autonomous agents to ship software at unprecedented velocity. These builders need hardened infrastructure, not prototypes. TiltedPrompts exists to serve them.</p>
+  <p>Simultaneously, 63M+ Indian MSMEs are undergoing rapid digital adoption. They need automation but cannot afford custom development. TiltedPrompts serves both markets without diluting either.</p>
+
+  <h3>5 Structural Moats</h3>
+
+  <div class="card">
+    <h4>1. Zero-Cost Inventory Generation</h4>
+    <p>Our OpenClaw agents generate <strong>350 premium assets per week</strong> autonomously overnight. Every asset is validated against quality gates, HMAC-signed, and ingested directly into the production database. Competitors hire writers. We run cron jobs.</p>
+  </div>
+
+  <div class="card">
+    <h4>2. Dual-Market Architecture</h4>
+    <p>Agent 1 speaks to Indian bakery owners in Pune. Agent 2 speaks to SaaS CTOs in San Francisco. Same infrastructure, different directives. The "Zero-Thinking Philosophy" for MSMEs and the "Framework Laws" for engineers are not just branding &mdash; they are enforced programmatically in every LLM call.</p>
+  </div>
+
+  <div class="card">
+    <h4>3. Production-Grade MCP (Coming March)</h4>
+    <p>The MCP ecosystem is flooded with demo-grade reference implementations. TiltedMCP will ship benchmarked, monitored, SLA-backed servers. The gap between "works in a demo" and "works at scale" is the entire opportunity.</p>
+  </div>
+
+  <div class="card">
+    <h4>4. Indian Language Voice AI (Coming Q3)</h4>
+    <p>Western voice AI platforms treat Hindi, Tamil, and Telugu as afterthoughts. TiltedVoice makes them first-class citizens with native WhatsApp Business API integration &mdash; the channel where Indian SMBs actually operate.</p>
+  </div>
+
+  <div class="card">
+    <h4>5. Agentic Template Design</h4>
+    <p>TiltedCode templates aren't built for humans to edit. They're built for AI agents (Cursor, Claude Code, Copilot) to extend. As "vibe coding" becomes the dominant development pattern, templates designed for agentic editing beat templates designed for human editing.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ TECHNICAL ARCHITECTURE -->
+<div class="page">
+  <h2><span class="num">Section 02</span>Technical Architecture</h2>
+  <p class="section-intro">Fully decoupled microservices. Every component communicates via REST APIs and can be replaced independently. Built for a founder-led team that ships with AI agents.</p>
+
+  <h3>System Architecture</h3>
+  <div class="flow-box"><span class="hl">FRONTEND</span>  Next.js 16 (App Router) + React 19 + Tailwind + Framer Motion
+           Deployed on <span class="hl">Vercel</span> (target: tiltedprompts.com)
+           Dark-mode first, mobile responsive, animated
+
+<span class="hl">DATABASE</span>  Supabase (PostgreSQL + Auth + RLS + Realtime)
+           Tables: profiles (users), library_assets (content)
+           Row-Level Security gates Free vs Pro content
+
+<span class="hl">BACKEND</span>   Python Flask API (bundle_generator.py) on port 5000
+           LLM abstraction: Local (LM Studio/Ollama) or DeepSeek API
+           JSON extraction from model output, retry logic
+
+<span class="hl">AGENTS</span>    OpenClaw Agent Framework (Slack-connected)
+           Agent 1: tilted_generator (MSME templates)
+           Agent 2: tilted_framework_generator (Premium frameworks)
+           Both use HMAC-SHA256 signed ingestion
+
+<span class="hl">PAYMENTS</span>  Stripe (global) + Razorpay (India, planned)
+           Checkout API + Webhook auto-upgrades tier
+
+<span class="hl">FUTURE</span>    n8n (self-hosted workflow automation)
+           TiltedMCP (Node.js/TypeScript MCP servers)
+           TiltedVoice (WebRTC + Deepgram/ElevenLabs)</div>
+
+  <h3>Asset Generation Pipeline</h3>
+  <div class="flow-box"><span class="hl">Trigger</span> (Slack @Claw OR Cron 10PM IST)
+    <span class="ok">|</span>
+    <span class="ok">v</span>
+<span class="hl">OpenClaw</span> routes to correct agent (MSME or Framework)
+    <span class="ok">|</span>
+    <span class="ok">v</span>
+<span class="hl">tools.py</span> calls Flask API /generate
+    <span class="ok">|</span>  Directive injected: SIMPLICITY_DIRECTIVE (MSME)
+    <span class="ok">|</span>                   or FRAMEWORK_DIRECTIVE (Framework)
+    <span class="ok">v</span>
+<span class="hl">Flask API</span> sends to LLM (local or DeepSeek)
+    <span class="ok">|</span>  JSON extracted, validated
+    <span class="ok">v</span>
+<span class="hl">Validation Gate</span>
+    <span class="ok">|</span>  MSME: No meta-prompts, [BRACKET] placeholders, min 30 chars
+    <span class="ok">|</span>  Framework: 3+ CAPS HEADERS, no filler, 200+ chars, [BRACKETS]
+    <span class="ok">v</span>
+<span class="hl">HMAC Signing</span> (timestamp + body signed with shared secret)
+    <span class="ok">|</span>
+    <span class="ok">v</span>
+<span class="hl">Next.js /api/ingest-bundle</span> verifies HMAC, rate limits (20/hr)
+    <span class="ok">|</span>
+    <span class="ok">v</span>
+<span class="hl">Supabase library_assets</span> table (JSONB content)
+    <span class="ok">|</span>
+    <span class="ok">v</span>
+<span class="ok">LIVE</span> at tiltedprompts.com/members</div>
+
+  <h3>Overnight Batch Engine (Framework Agent)</h3>
+  <div class="flow-box"><span class="hl">10:00 PM IST</span>  Cron triggers: python tools.py --cron
+
+<span class="hl">Schedule:</span>
+  Monday    = Content & Copywriting     (20 sub-niches x 25 industries = 500 combos)
+  Tuesday   = Marketing & Advertising   (500 combos)
+  Wednesday = Image Gen / Midjourney     (500 combos)
+  Thursday  = Sales & Cold Outreach      (500 combos)
+  Friday    = Logo & Graphic Design      (500 combos)
+  Saturday  = Education & Course Creation(500 combos)
+  Sunday    = Resume & Job Tools         (500 combos)
+
+<span class="hl">Per Night:</span>
+  50 unique tasks sampled from 500 combos (random.sample, no repeats)
+  Adaptive sleep: (7h * 3600 - 50 * 180s) / 49 = ~330s between generations
+  Total: ~7 hours, 50 assets, all validated + ingested
+
+<span class="hl">Weekly Output:</span> 350 premium framework assets
+<span class="hl">Before Repeat:</span> 3,500 unique combos / 350 per week = <span class="ok">10+ weeks</span></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ PRODUCT SUITE -->
+<div class="page">
+  <h2><span class="num">Section 03</span>Product Suite & Pricing</h2>
+  <p class="section-intro">Four verticals, each targeting a different buyer persona. Digital products launch first (immediate cash), SaaS launches second (compounding MRR).</p>
+
+  <table>
+    <tr>
+      <th>Product</th>
+      <th>What It Is</th>
+      <th>Pricing</th>
+      <th>Margin</th>
+      <th>Status</th>
+    </tr>
+    <tr>
+      <td><strong>The Laboratory</strong></td>
+      <td>AI prompt bundles + n8n workflows for Indian MSMEs and global engineers</td>
+      <td>$5-15/bundle or $29 All Access</td>
+      <td>~95%</td>
+      <td><span class="pending">LAUNCHING FEB 28</span></td>
+    </tr>
+    <tr>
+      <td><strong>TiltedMCP</strong></td>
+      <td>Production-hardened MCP servers as SaaS</td>
+      <td>Free / $29/mo Pro / $99/mo Team</td>
+      <td>~80%</td>
+      <td><span class="cross">MARCH 2026</span></td>
+    </tr>
+    <tr>
+      <td><strong>TiltedCode</strong></td>
+      <td>Agentic Next.js templates pre-wired for AI dev</td>
+      <td>$49-199/template or $299 All Access</td>
+      <td>~95%</td>
+      <td><span class="cross">MARCH 2026</span></td>
+    </tr>
+    <tr>
+      <td><strong>TiltedVoice</strong></td>
+      <td>Low-latency Voice AI with Indian languages</td>
+      <td>$49/mo Starter / $149/mo Growth</td>
+      <td>~65%</td>
+      <td><span class="cross">Q3 2026</span></td>
+    </tr>
+    <tr>
+      <td><strong>Agency Services</strong></td>
+      <td>Custom AI solutions, automations, consulting</td>
+      <td>$2K-10K per project</td>
+      <td>~55%</td>
+      <td><span class="check">ONGOING</span></td>
+    </tr>
+  </table>
+
+  <h3>Revenue Mix Targets</h3>
+  <div class="two-col">
+    <div>
+      <h4>Year 1 ($100-300K)</h4>
+      <table>
+        <tr><th>Stream</th><th>Share</th></tr>
+        <tr><td>The Laboratory</td><td>20-25%</td></tr>
+        <tr><td>TiltedMCP</td><td>20-25%</td></tr>
+        <tr><td>TiltedCode</td><td>25-30%</td></tr>
+        <tr><td>Agency</td><td>20-25%</td></tr>
+        <tr><td>TiltedVoice</td><td>5-10%</td></tr>
+      </table>
+    </div>
+    <div>
+      <h4>Year 2 ($500K-1M)</h4>
+      <table>
+        <tr><th>Stream</th><th>Share</th></tr>
+        <tr><td>TiltedMCP</td><td>30-35%</td></tr>
+        <tr><td>TiltedVoice</td><td>20-25%</td></tr>
+        <tr><td>TiltedCode</td><td>20-25%</td></tr>
+        <tr><td>Laboratory</td><td>10-15%</td></tr>
+        <tr><td>Agency</td><td>10-15%</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <h3>Competitive Positioning</h3>
+  <table>
+    <tr><th>vs.</th><th>Their Weakness</th><th>Our Edge</th></tr>
+    <tr><td>PromptBase / AIPRM</td><td>Generic prompts, no localization, no workflows</td><td>India-specific, bundled with n8n, copy-paste ready</td></tr>
+    <tr><td>Anthropic MCP Refs</td><td>Demo-grade, no monitoring, no SLA</td><td>Benchmarked, production SLA, monitoring built-in</td></tr>
+    <tr><td>Bland AI / Vapi</td><td>Expensive at scale, no Indian languages</td><td>Lower cost, native Hindi/Tamil/Telugu, WhatsApp native</td></tr>
+    <tr><td>Vercel Templates</td><td>Not designed for AI agents to extend</td><td>Agentic-first: context files, agent-parseable docs</td></tr>
+    <tr><td>Generic AI agencies</td><td>Hourly billing, no products</td><td>Product-led: products drive leads, agency upsells</td></tr>
+  </table>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ MARKETING PLAN -->
+<div class="page">
+  <h2><span class="num">Section 04</span>Marketing Plan & Go-To-Market</h2>
+  <p class="section-intro">Two distinct GTM motions for two distinct markets. Developer ecosystem is content-driven. Indian MSME is platform-native and community-driven.</p>
+
+  <h3>Global Developer Market</h3>
+
+  <h4>Channel Strategy: Developer-First, Content-Driven</h4>
+  <table>
+    <tr><th>Channel</th><th>Action</th><th>Timeline</th></tr>
+    <tr><td><strong>Technical Blog / SEO</strong></td><td>2 posts/week: MCP patterns, voice AI arch, agentic dev, vibe coding. Each subtly positions TiltedPrompts products.</td><td>Week 1 onwards</td></tr>
+    <tr><td><strong>Twitter/X (Founder)</strong></td><td>Daily threads: building in public, AI dev patterns, product insights. Substantive technical content, not engagement farming.</td><td>Immediate</td></tr>
+    <tr><td><strong>YouTube</strong></td><td>Weekly: product demos, technical walkthroughs, dev process. Discovery (search) + conversion (showing value).</td><td>Week 2 onwards</td></tr>
+    <tr><td><strong>Product Hunt</strong></td><td>Timed launches for each product milestone. Concentrated awareness spikes feeding sustained organic traffic.</td><td>Launch day + milestones</td></tr>
+    <tr><td><strong>GitHub Presence</strong></td><td>Open-source MCP utilities, contributions to ecosystem. Stars and forks = social proof.</td><td>March onwards</td></tr>
+    <tr><td><strong>Free Tier (TiltedMCP)</strong></td><td>Top-of-funnel. Devs discover, evaluate free, upgrade at production. No commitment barrier.</td><td>March onwards</td></tr>
+  </table>
+
+  <h4>Developer Acquisition Funnel</h4>
+  <div class="flow-box"><span class="hl">Discovery</span> (Blog, X threads, YouTube, Product Hunt, GitHub)
+  <span class="ok">v</span>
+<span class="hl">Evaluation</span> (Free tier, docs, demos, sample assets)
+  <span class="ok">v</span>
+<span class="hl">Activation</span> (First successful deployment or asset download)
+  <span class="ok">v</span>
+<span class="hl">Conversion</span> (Pro tier subscription or product purchase)
+  <span class="ok">v</span>
+<span class="hl">Expansion</span> (Team tier, additional products, agency engagement)</div>
+
+  <h3>Indian MSME Market</h3>
+
+  <h4>Channel Strategy: Platform-Native, Community-Driven</h4>
+  <table>
+    <tr><th>Channel</th><th>Action</th><th>Timeline</th></tr>
+    <tr><td><strong>WhatsApp Marketing</strong></td><td>Promote Laboratory bundles in WhatsApp Business channels and entrepreneur groups. Product IS the channel.</td><td>Launch week</td></tr>
+    <tr><td><strong>Instagram Reels</strong></td><td>Short-form: before/after automation demos, ROI calculations, workflow walkthroughs. Reels for discovery, Stories for engagement.</td><td>Week 1 onwards</td></tr>
+    <tr><td><strong>Vernacular Content</strong></td><td>Marketing in Hindi and regional languages. English-only misses the majority of the MSME audience.</td><td>Month 2 onwards</td></tr>
+    <tr><td><strong>Community Building</strong></td><td>WhatsApp groups and Telegram channels for customers. Peer support reduces burden, creates network effects.</td><td>Post-launch</td></tr>
+    <tr><td><strong>Micro-Influencers</strong></td><td>Partner with Indian business/tech creators (10K-100K followers) who speak directly to MSME audience.</td><td>Month 2 onwards</td></tr>
+  </table>
+
+  <h3>Launch Week Marketing (Feb 28)</h3>
+  <div class="callout">
+    <strong>Pre-Launch (Feb 24-27):</strong> Teaser posts on X/LinkedIn. "Something is coming" with product screenshots. Build anticipation.<br><br>
+    <strong>Launch Day (Feb 28):</strong> Announce on X, LinkedIn, Product Hunt "Upcoming". 3-minute Loom walkthrough video. Direct friends/network to sign up + share.<br><br>
+    <strong>Post-Launch (Mar 1-7):</strong> Daily X threads about the build journey. First blog post: "How We Built an AI Agent That Generates 350 Assets Per Week." Collect testimonials from early users.
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ COSTS & SCALING -->
+<div class="page">
+  <h2><span class="num">Section 05</span>Cost of Tools & Scaling Plan</h2>
+  <p class="section-intro">Capital-efficient by design. Near-zero marginal cost for digital products. Infrastructure scales with revenue.</p>
+
+  <h3>Current Monthly Costs (Pre-Launch)</h3>
+  <table>
+    <tr><th>Tool / Service</th><th>Cost</th><th>Purpose</th></tr>
+    <tr><td>Supabase (Free tier)</td><td>$0</td><td>Database, Auth, RLS (500MB, 50K rows)</td></tr>
+    <tr><td>Vercel (Hobby)</td><td>$0</td><td>Website hosting (100GB bandwidth)</td></tr>
+    <tr><td>Stripe</td><td>2.9% + 30c per txn</td><td>Payment processing</td></tr>
+    <tr><td>Local LLM (LM Studio)</td><td>$0</td><td>Asset generation (runs on your hardware)</td></tr>
+    <tr><td>DeepSeek API (backup)</td><td>~$0.14/M tokens</td><td>Cloud LLM fallback (extremely cheap)</td></tr>
+    <tr><td>Domain (tiltedprompts.com)</td><td>~$12/year</td><td>Custom domain</td></tr>
+    <tr><td>Gmail (existing)</td><td>$0</td><td>Transactional emails via app password</td></tr>
+    <tr><td><strong>TOTAL</strong></td><td><strong>~$1/month + txn fees</strong></td><td></td></tr>
+  </table>
+
+  <h3>Scaling Costs by Phase</h3>
+  <table>
+    <tr><th>Category</th><th>Month 1-3</th><th>Month 4-6</th><th>Month 7-12</th></tr>
+    <tr><td>Infrastructure (hosting, APIs, LLM)</td><td>$200-500</td><td>$500-1,500</td><td>$1,500-5,000</td></tr>
+    <tr><td>Contract engineering</td><td>$0-2,000</td><td>$2,000-5,000</td><td>$3,000-8,000</td></tr>
+    <tr><td>Contract design/content</td><td>$500-1,000</td><td>$1,000-2,000</td><td>$1,500-3,000</td></tr>
+    <tr><td>Marketing/ads</td><td>$200-500</td><td>$500-1,500</td><td>$1,000-3,000</td></tr>
+    <tr><td>Tools/subscriptions</td><td>$100-300</td><td>$200-500</td><td>$300-700</td></tr>
+    <tr><td><strong>TOTAL BURN</strong></td><td><strong>$1,000-4,300</strong></td><td><strong>$4,200-10,500</strong></td><td><strong>$7,300-19,700</strong></td></tr>
+  </table>
+
+  <h3>Infrastructure Scaling Triggers</h3>
+  <table>
+    <tr><th>Trigger</th><th>Action</th><th>Cost</th></tr>
+    <tr><td>50K rows in Supabase</td><td>Upgrade to Pro ($25/mo)</td><td>$25/mo</td></tr>
+    <tr><td>100GB bandwidth on Vercel</td><td>Upgrade to Pro ($20/mo)</td><td>$20/mo</td></tr>
+    <tr><td>LLM generation >50/night</td><td>Switch to DeepSeek API full-time</td><td>~$5-20/mo</td></tr>
+    <tr><td>TiltedMCP launch</td><td>Docker + cloud compute (Railway/Fly.io)</td><td>$50-200/mo</td></tr>
+    <tr><td>TiltedVoice launch</td><td>WebRTC infra + Deepgram/ElevenLabs APIs</td><td>$500-2,000/mo</td></tr>
+    <tr><td>100+ concurrent users</td><td>Supabase Pro + edge caching</td><td>$100-300/mo</td></tr>
+    <tr><td>Email volume >500/month</td><td>Switch from Gmail to Resend ($20/mo)</td><td>$20/mo</td></tr>
+  </table>
+
+  <div class="callout-green callout">
+    <strong>Key Insight:</strong> The Laboratory's marginal cost per asset is effectively $0 (local LLM) or ~$0.002 (DeepSeek). Selling at $5-29 per bundle means <strong>95%+ gross margin</strong> from day one. The business is profitable at just 5-10 sales per month.
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ TEAM BUILDING -->
+<div class="page">
+  <h2><span class="num">Section 06</span>Team Building & Hiring Plan</h2>
+  <p class="section-intro">Lean, founder-led. Hire for capability gaps that directly bottleneck revenue, not for organizational completeness. AI agents handle what used to require 3 content writers.</p>
+
+  <h3>Phase 1: Solo Founder + AI Agents (Month 1-3)</h3>
+  <div class="card">
+    <p><strong>Founder handles:</strong> Product strategy, core architecture, content (X/blog/YouTube), customer relationships, financial oversight.</p>
+    <p><strong>AI agents handle:</strong> Asset generation (350/week), content validation, database ingestion, overnight batch operations.</p>
+    <p><strong>Headcount:</strong> 1 (founder) &mdash; <strong>Cost:</strong> $0 additional</p>
+  </div>
+
+  <h3>Phase 2: First Contractors (Month 3-6)</h3>
+  <table>
+    <tr><th>Role</th><th>Type</th><th>Why</th><th>Budget</th></tr>
+    <tr><td>Backend Engineer</td><td>Contract (part-time)</td><td>TiltedMCP server development, API optimization</td><td>$2,000-4,000/mo</td></tr>
+    <tr><td>UI/UX Designer</td><td>Project-based</td><td>Dashboard polish, template visual design</td><td>$1,000-2,000/project</td></tr>
+    <tr><td>SEO Content Writer</td><td>Contract (part-time)</td><td>Technical blog posts, documentation</td><td>$500-1,500/mo</td></tr>
+  </table>
+
+  <h3>Phase 3: Core Team (Month 7-12)</h3>
+  <table>
+    <tr><th>Role</th><th>Type</th><th>Why</th><th>Budget</th></tr>
+    <tr><td>Full-Stack Engineer</td><td>Full-time or contract</td><td>TiltedVoice WebSocket infra, MCP scaling</td><td>$4,000-8,000/mo</td></tr>
+    <tr><td>Social Media / Community</td><td>Part-time (India-based)</td><td>WhatsApp/Instagram marketing for MSME segment</td><td>$500-1,500/mo</td></tr>
+    <tr><td>Video Editor</td><td>Project-based</td><td>YouTube content, product demos, Reels</td><td>$500-1,000/mo</td></tr>
+  </table>
+
+  <h3>Phase 4: Year 2 Expansion (Month 12+)</h3>
+  <div class="card">
+    <p>Only expand if revenue justifies it. Target: <strong>team cost should never exceed 40% of MRR.</strong></p>
+    <p>Potential hires: DevOps engineer, customer success manager, additional engineers for Voice AI and enterprise MCP features.</p>
+    <p><strong>Projected team size by Month 18:</strong> 4-6 people (mix of full-time and contract).</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ FINANCIALS -->
+<div class="page">
+  <h2><span class="num">Section 07</span>Financial Projections</h2>
+  <p class="section-intro">Conservative bottom, ambitious top. Digital products provide immediate cash flow while SaaS compounds monthly.</p>
+
+  <h3>Year 1 Revenue Projection ($100-300K)</h3>
+  <table>
+    <tr><th>Quarter</th><th>Revenue Range</th><th>Primary Drivers</th></tr>
+    <tr><td>Q1 (Feb-Apr)</td><td>$3-15K</td><td>Laboratory sales, early blog traffic, launch buzz</td></tr>
+    <tr><td>Q2 (May-Jul)</td><td>$15-45K</td><td>TiltedMCP subscriptions + Laboratory growth</td></tr>
+    <tr><td>Q3 (Aug-Oct)</td><td>$30-90K</td><td>TiltedCode launch spike, MCP scaling, first agency clients</td></tr>
+    <tr><td>Q4 (Nov-Jan)</td><td>$50-150K</td><td>TiltedVoice revenue, full ecosystem, cross-sell</td></tr>
+  </table>
+
+  <h3>Year 1 Assumptions</h3>
+  <table>
+    <tr><th>Stream</th><th>Volume</th><th>Price</th><th>Revenue Range</th></tr>
+    <tr><td>The Laboratory</td><td>500-2,000 bundles</td><td>$5-29 avg</td><td>$5-58K</td></tr>
+    <tr><td>TiltedMCP</td><td>50-200 subscribers by M12</td><td>$29-99/mo</td><td>$10-80K (cumulative)</td></tr>
+    <tr><td>TiltedCode</td><td>100-500 templates</td><td>$49-599</td><td>$10-100K</td></tr>
+    <tr><td>TiltedVoice</td><td>20-80 customers by M12</td><td>$49-149/mo</td><td>$5-40K (cumulative)</td></tr>
+    <tr><td>Agency Services</td><td>5-15 projects</td><td>$2K-10K</td><td>$10-75K</td></tr>
+  </table>
+
+  <h3>Unit Economics</h3>
+  <table>
+    <tr><th>Metric</th><th>Year 1</th><th>Year 2</th></tr>
+    <tr><td>Customer Acquisition Cost (CAC)</td><td>&lt; $50 (organic-first)</td><td>&lt; $75 (with paid channels)</td></tr>
+    <tr><td>Lifetime Value (LTV) - MCP</td><td>&gt; $300</td><td>&gt; $500</td></tr>
+    <tr><td>LTV:CAC Ratio</td><td>&gt; 4:1</td><td>&gt; 5:1</td></tr>
+    <tr><td>Blended Gross Margin</td><td>75-85%</td><td>78-88%</td></tr>
+    <tr><td>Monthly Burn Rate</td><td>$3-10K</td><td>$8-20K</td></tr>
+    <tr><td>Months to Breakeven</td><td>4-6 months</td><td>Sustained profit</td></tr>
+  </table>
+
+  <h3>Year 2 Projection ($500K-1M)</h3>
+  <div class="card-grid">
+    <div class="stat-card"><div class="number">$15-30K</div><div class="label">Target MRR by M12</div></div>
+    <div class="stat-card"><div class="number">75-85%</div><div class="label">Blended Gross Margin</div></div>
+    <div class="stat-card"><div class="number">4-6</div><div class="label">Months to Breakeven</div></div>
+    <div class="stat-card"><div class="number">&lt;$50</div><div class="label">Target CAC</div></div>
+  </div>
+
+  <h3>Key KPI Targets</h3>
+  <table>
+    <tr><th>Metric</th><th>Month 3</th><th>Month 6</th><th>Month 12</th></tr>
+    <tr><td>Website visitors/month</td><td>2,000</td><td>8,000</td><td>20,000</td></tr>
+    <tr><td>Email list size</td><td>500</td><td>2,000</td><td>5,000</td></tr>
+    <tr><td>X/Twitter followers</td><td>1,000</td><td>4,000</td><td>10,000</td></tr>
+    <tr><td>Library assets</td><td>100</td><td>500</td><td>2,000+</td></tr>
+    <tr><td>Paying customers (total)</td><td>20</td><td>100</td><td>500</td></tr>
+  </table>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ IMMEDIATE TODO -->
+<div class="page">
+  <h2><span class="num">Section 08</span>Immediate To-Do: Soft Launch (Feb 22-28)</h2>
+  <p class="section-intro">6 days to launch. 5 critical-path items. Everything else waits.</p>
+
+  <h3>Day 1 (Feb 22 &mdash; TODAY): Auth & Database</h3>
+  <div class="todo-item"><div class="box"></div><div>Deploy supabase_schema.sql to production (tables, RLS, triggers)</div></div>
+  <div class="todo-item"><div class="box"></div><div>Verify Supabase Auth: signup, login, session management</div></div>
+  <div class="todo-item"><div class="box"></div><div>Confirm .env.local maps correctly to production Supabase</div></div>
+  <div class="todo-item"><div class="box"></div><div>Run supabase_seed.sql to insert 5 starter assets</div></div>
+
+  <h3>Day 2 (Feb 23): Live Dashboard</h3>
+  <div class="todo-item"><div class="box"></div><div>Refactor /members/page.tsx to Server Components fetching from Supabase</div></div>
+  <div class="todo-item"><div class="box"></div><div>Wire up search and filter functionality</div></div>
+  <div class="todo-item"><div class="box"></div><div>Seed 15-20 real bundles from backend/bundles/ into Supabase</div></div>
+  <div class="todo-item"><div class="box"></div><div>Verify Free/Pro gating visually and at RLS level</div></div>
+
+  <h3>Day 3 (Feb 24): Payments</h3>
+  <div class="todo-item"><div class="box"></div><div>Test Stripe Checkout E2E in sandbox (create, redirect, pay, callback)</div></div>
+  <div class="todo-item"><div class="box"></div><div>Test Stripe Webhook: checkout.session.completed auto-upgrades tier</div></div>
+  <div class="todo-item"><div class="box"></div><div>Add "Upgrade to Pro" button in members dashboard</div></div>
+  <div class="todo-item"><div class="box"></div><div>Verify Pro users can access premium assets after payment</div></div>
+
+  <h3>Day 4 (Feb 25): Content Pipeline</h3>
+  <div class="todo-item"><div class="box"></div><div>Test HMAC ingestion: tools.py generate --niche "..." pushes to live Supabase</div></div>
+  <div class="todo-item"><div class="box"></div><div>Generate 10-15 assets to populate the library</div></div>
+  <div class="todo-item"><div class="box"></div><div>Verify assets appear in members dashboard after ingestion</div></div>
+
+  <h3>Day 5 (Feb 26): Polish</h3>
+  <div class="todo-item"><div class="box"></div><div>Mobile responsiveness pass on all pages</div></div>
+  <div class="todo-item"><div class="box"></div><div>Fix broken navigation links</div></div>
+  <div class="todo-item"><div class="box"></div><div>Loading states and error handling on dashboard</div></div>
+  <div class="todo-item"><div class="box"></div><div>Asset detail pages render correctly for each type</div></div>
+
+  <h3>Day 6 (Feb 27): Deploy & QA</h3>
+  <div class="todo-item"><div class="box"></div><div>Push to GitHub, connect to Vercel</div></div>
+  <div class="todo-item"><div class="box"></div><div>Set all env vars in Vercel dashboard</div></div>
+  <div class="todo-item"><div class="box"></div><div>Full E2E test: Signup &rarr; Browse &rarr; Pay &rarr; Access Pro</div></div>
+  <div class="todo-item"><div class="box"></div><div>Test on mobile (Chrome + Safari)</div></div>
+
+  <h3>Day 7 (Feb 28): LAUNCH</h3>
+  <div class="todo-item"><div class="box"></div><div>Final smoke test on production</div></div>
+  <div class="todo-item"><div class="box"></div><div>Launch tweet + LinkedIn post</div></div>
+  <div class="todo-item"><div class="box"></div><div>Record 3-minute Loom walkthrough</div></div>
+  <div class="todo-item"><div class="box"></div><div><strong>GO LIVE</strong></div></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ LONG-TERM ROADMAP -->
+<div class="page">
+  <h2><span class="num">Section 09</span>Long-Term Roadmap</h2>
+  <p class="section-intro">12-month phased execution. Each phase builds on the last. Revenue before features.</p>
+
+  <h3>Phase 1: Foundation (Month 1-2)</h3>
+  <table>
+    <tr><th>Deliverable</th><th>Target</th></tr>
+    <tr><td>Website live with auth + payments</td><td>Feb 28</td></tr>
+    <tr><td>Laboratory launched with 20+ assets</td><td>Feb 28</td></tr>
+    <tr><td>Content engine: 2 blog posts/week, daily X</td><td>March</td></tr>
+    <tr><td>Analytics tracking (PostHog/GA)</td><td>Week 1 post-launch</td></tr>
+    <tr><td><strong>Revenue target:</strong> $1-5K</td><td></td></tr>
+  </table>
+
+  <h3>Phase 2: MCP Infrastructure (Month 3-4)</h3>
+  <table>
+    <tr><th>Deliverable</th><th>Target</th></tr>
+    <tr><td>TiltedMCP free tier live (3-5 server types)</td><td>April</td></tr>
+    <tr><td>Pro tier ($29/mo) with monitoring</td><td>April</td></tr>
+    <tr><td>Product Hunt launch</td><td>April</td></tr>
+    <tr><td>Razorpay integration for India</td><td>March</td></tr>
+    <tr><td>Email verification + password reset</td><td>March</td></tr>
+    <tr><td>OAuth (Google/GitHub)</td><td>March</td></tr>
+    <tr><td><strong>Revenue target:</strong> $5-15K/month</td><td></td></tr>
+  </table>
+
+  <h3>Phase 3: Template Engine (Month 5-6)</h3>
+  <table>
+    <tr><th>Deliverable</th><th>Target</th></tr>
+    <tr><td>3-5 production-ready Next.js templates</td><td>June</td></tr>
+    <tr><td>All Access + Agency License tiers</td><td>June</td></tr>
+    <tr><td>YouTube series: "Building with TiltedCode"</td><td>May-June</td></tr>
+    <tr><td><strong>Revenue target:</strong> $10-25K/month</td><td></td></tr>
+  </table>
+
+  <h3>Phase 4: Voice AI (Month 7-9)</h3>
+  <table>
+    <tr><th>Deliverable</th><th>Target</th></tr>
+    <tr><td>TiltedVoice Starter tier (English + Hindi)</td><td>August</td></tr>
+    <tr><td>Growth tier (Tamil, Telugu, Bengali)</td><td>September</td></tr>
+    <tr><td>WhatsApp Business API integration</td><td>September</td></tr>
+    <tr><td><strong>Revenue target:</strong> $20-40K/month</td><td></td></tr>
+  </table>
+
+  <h3>Phase 5: Ecosystem Flywheel (Month 10-12)</h3>
+  <table>
+    <tr><th>Deliverable</th><th>Target</th></tr>
+    <tr><td>Agency services page live</td><td>November</td></tr>
+    <tr><td>TiltedMCP Team tier</td><td>November</td></tr>
+    <tr><td>Cross-product integrations (MCP + Voice + Code)</td><td>December</td></tr>
+    <tr><td>Year 2 roadmap finalized</td><td>January 2027</td></tr>
+    <tr><td><strong>Revenue target:</strong> $30-60K/month</td><td></td></tr>
+  </table>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ RISK ANALYSIS -->
+<div class="page">
+  <h2><span class="num">Section 10</span>Risk Analysis & Mitigations</h2>
+  <p class="section-intro">Every plan has failure modes. These are ours, and how we address them.</p>
+
+  <h3>Market Risks</h3>
+  <table>
+    <tr><th>Risk</th><th>Severity</th><th>Mitigation</th></tr>
+    <tr><td>MCP spec changes breaking compatibility</td><td><span class="cross">HIGH</span></td><td>Modular architecture with abstraction layers; active community participation</td></tr>
+    <tr><td>Anthropic launches competing managed MCP</td><td><span class="cross">HIGH</span></td><td>Differentiate on DX and specialized integrations; maintain lower pricing</td></tr>
+    <tr><td>Voice AI market consolidation</td><td><span class="pending">MED</span></td><td>Multi-provider arch; Indian language niche as defensible position</td></tr>
+    <tr><td>Indian MSME adoption slower than projected</td><td><span class="pending">MED</span></td><td>Laboratory is low-investment; pivot to broader emerging markets</td></tr>
+    <tr><td>AI coding assistants reduce template demand</td><td><span class="pending">MED</span></td><td>Templates evolve to "AI-native starter kits" with agent configs</td></tr>
+  </table>
+
+  <h3>Operational Risks</h3>
+  <table>
+    <tr><th>Risk</th><th>Severity</th><th>Mitigation</th></tr>
+    <tr><td>Founder bandwidth bottleneck</td><td><span class="cross">HIGH</span></td><td>Ruthless prioritization; hire first contractor by Month 3; automate everything</td></tr>
+    <tr><td>Infrastructure cost overruns (Voice AI)</td><td><span class="pending">MED</span></td><td>Usage-based pricing ensures costs scale with revenue; hard spending limits</td></tr>
+    <tr><td>Security incident with MCP servers</td><td><span class="cross">HIGH</span></td><td>Security audit before launch; automated scanning; incident response plan</td></tr>
+  </table>
+
+  <h3>Financial Risks</h3>
+  <table>
+    <tr><th>Risk</th><th>Severity</th><th>Mitigation</th></tr>
+    <tr><td>Revenue ramp slower than projected</td><td><span class="pending">MED</span></td><td>Minimal burn rate; digital products provide baseline; agency as cash backstop</td></tr>
+    <tr><td>Payment processing issues (India)</td><td><span class="check">LOW</span></td><td>Multiple processors (Stripe + Razorpay); USD and INR pricing</td></tr>
+    <tr><td>Currency fluctuation (INR/USD)</td><td><span class="check">LOW</span></td><td>Indian products priced in INR; natural hedge through diversification</td></tr>
+  </table>
+
+  <hr class="divider">
+
+  <h3>The Bottom Line</h3>
+  <div class="callout">
+    <p>TiltedPrompts is a <strong>near-zero-cost operation</strong> that generates its own inventory using AI agents. The worst-case scenario is a $1-4K/month burn rate with immediate digital product revenue. The best case is $30-60K/month MRR within 12 months across four compounding product lines.</p>
+    <p style="margin-top:12px;">The founder's job for the next 6 days: <strong>wire the dashboard to Supabase, test Stripe, deploy to Vercel, launch.</strong> Everything else is noise.</p>
+  </div>
+
+  <div style="text-align: center; margin-top: 50px; color: var(--text-muted); font-size: 13px;">
+    <p><em>TiltedPrompts. Ship software at the speed of thought.</em></p>
+    <p style="margin-top: 8px;">hello@tiltedprompts.com &mdash; tiltedprompts.com</p>
+    <p style="margin-top: 16px; font-size: 11px; color: var(--border);">CONFIDENTIAL &mdash; Not for distribution without founder approval</p>
+  </div>
+</div>
+
+</body>
+</html>

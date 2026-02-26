@@ -1,0 +1,87 @@
+{
+  "prompts": [
+    {
+      "title": "Instagram Reel Hook Generator",
+      "description": "Creates attention-grabbing opening lines for Instagram Reels that stop the scroll for Indian D2C brands.",
+      "prompt_text": "You are an Instagram content strategist for Indian D2C brands. Generate 5 scroll-stopping opening hooks for a Reel about [PRODUCT/TOPIC]. Each hook should be under 10 words, use curiosity or shock value, and feel natural in Indian English or Hinglish. Format: numbered list with the hook and a brief note on why it works.",
+      "use_case": "When creating Instagram Reels and you need the first 1-2 seconds to grab attention"
+    },
+    {
+      "title": "WhatsApp Broadcast Sale Announcement",
+      "description": "Generates a WhatsApp broadcast message for flash sales that feels personal, not spammy.",
+      "prompt_text": "Write a WhatsApp broadcast message for [BRAND NAME]'s flash sale on [PRODUCT CATEGORY]. The sale is [X]% off for [DURATION]. Include: a friendly greeting, urgency without being pushy, a clear CTA with a link placeholder [LINK], and 2-3 relevant emojis. Keep it under 150 words. Tone: like a friend sharing a genuine deal, not a corporate announcement.",
+      "use_case": "Sending sale announcements via WhatsApp Business without getting blocked or ignored"
+    },
+    {
+      "title": "Google My Business Post Writer",
+      "description": "Creates engaging Google My Business posts that improve local SEO for Indian businesses.",
+      "prompt_text": "Write a Google My Business post for [BUSINESS NAME], a [BUSINESS TYPE] located in [CITY, INDIA]. The post should highlight [OFFER/EVENT/UPDATE]. Include: a compelling headline (under 60 chars), description (under 300 chars), a CTA button suggestion (LEARN_MORE/BOOK/ORDER/CALL), and 3 relevant keywords for local SEO. Make it sound authentic and local.",
+      "use_case": "Keeping your Google Business Profile active with regular, SEO-optimized posts"
+    },
+    {
+      "title": "Customer Testimonial Request Email",
+      "description": "Generates a polite, high-conversion email asking customers for testimonials after purchase.",
+      "prompt_text": "Write an email from [BRAND NAME] to a customer who recently purchased [PRODUCT]. Ask them for a short testimonial or review. Include: a warm thank you, make the ask easy (suggest 2-3 specific questions they can answer), offer a small incentive like [10% off next order], and provide a direct link placeholder [REVIEW_LINK]. Keep it under 120 words, warm and genuine tone.",
+      "use_case": "Building social proof by collecting authentic customer reviews after delivery"
+    },
+    {
+      "title": "LinkedIn Company Update Post",
+      "description": "Creates professional LinkedIn posts for Indian SMBs to build brand authority and attract B2B leads.",
+      "prompt_text": "Write a LinkedIn post for [COMPANY NAME], a [INDUSTRY] company. The post should share [INSIGHT/MILESTONE/CASE STUDY]. Structure: hook line (question or bold statement), 3-4 short paragraphs with real value, end with a soft CTA (no hard sell). Include 3-5 relevant hashtags. Tone: knowledgeable but approachable, suitable for Indian business audience. Under 200 words.",
+      "use_case": "Regular LinkedIn posting to build brand authority and generate B2B inquiries"
+    },
+    {
+      "title": "Product Description for E-commerce",
+      "description": "Writes compelling product descriptions optimized for Indian e-commerce platforms like Amazon India, Flipkart, or Shopify stores.",
+      "prompt_text": "Write a product description for [PRODUCT NAME] in the [CATEGORY] category, sold on [PLATFORM: Amazon India/Flipkart/own website]. Include: a benefit-driven title (under 200 chars), 5 bullet points highlighting features AND benefits (not just specs), a short paragraph description for SEO, and 5 backend search keywords. Consider Indian buyer concerns: value for money, durability, delivery, and trust signals.",
+      "use_case": "Listing new products on e-commerce platforms with descriptions that convert"
+    },
+    {
+      "title": "Email Newsletter Content Planner",
+      "description": "Plans a month of email newsletter topics with subject lines that get opened.",
+      "prompt_text": "Create a 4-week email newsletter plan for [BRAND NAME] in the [INDUSTRY] space. For each week, provide: a subject line (under 50 chars, use curiosity/benefit), the main topic, 2-3 content bullet points, and a CTA. Mix content types: 1 educational, 1 promotional, 1 storytelling, 1 community/engagement. Target audience: Indian SMB owners and decision-makers. Include a tip to avoid spam filters for each email.",
+      "use_case": "Planning consistent email marketing without spending hours on content ideation each week"
+    },
+    {
+      "title": "Facebook Ad Copy Generator",
+      "description": "Creates high-performing Facebook/Meta ad copy variations for testing with Indian audiences.",
+      "prompt_text": "Generate 3 Facebook ad copy variations for [PRODUCT/SERVICE] by [BRAND NAME], targeting [AUDIENCE DESCRIPTION] in [CITIES/REGIONS in India]. For each variation provide: headline (under 40 chars), primary text (under 125 words), description (under 30 words), and CTA button choice. Variation 1: pain-point focused, Variation 2: benefit/aspiration focused, Variation 3: social proof/FOMO focused. Use natural Indian English, avoid jargon.",
+      "use_case": "A/B testing Facebook ads without hiring a copywriter"
+    },
+    {
+      "title": "Sales Follow-up Sequence",
+      "description": "Creates a 3-email follow-up sequence for leads who showed interest but didn't buy.",
+      "prompt_text": "Write a 3-email follow-up sequence for [BRAND NAME] targeting leads who [VISITED WEBSITE/DOWNLOADED RESOURCE/ATTENDED WEBINAR] but haven't purchased [PRODUCT/SERVICE]. Email 1 (Day 1): Value reminder + soft CTA. Email 2 (Day 3): Address common objection + case study/testimony. Email 3 (Day 7): Limited-time offer + urgency. Each email: subject line, body under 100 words, clear CTA. Tone: helpful, not desperate. For Indian B2B/B2C context.",
+      "use_case": "Converting warm leads to customers with automated email follow-ups"
+    },
+    {
+      "title": "Competitive Analysis Prompt",
+      "description": "Helps SMB owners analyze their competitors and find positioning opportunities using ChatGPT.",
+      "prompt_text": "I run [BUSINESS TYPE] called [BUSINESS NAME] in [CITY, INDIA]. My top 3 competitors are: [COMPETITOR 1], [COMPETITOR 2], [COMPETITOR 3]. Analyze each competitor's strengths and weaknesses based on their online presence (website, social media, reviews). Then suggest: 3 positioning opportunities I can exploit, 2 content angles they're missing, 1 pricing strategy insight, and a one-line unique value proposition for my business. Be specific to the Indian market context.",
+      "use_case": "Quick competitive intelligence without expensive market research tools"
+    }
+  ],
+  "gpt_instructions": {
+    "system_message": "You are the AI Marketing Assistant for Indian SMBs, built by tiltedprompts. Your role is to help small business owners in India create professional marketing content quickly and affordably. You understand Indian business culture, festivals (Diwali, Holi, Independence Day sales), regional nuances, Hinglish communication style, and the specific challenges of Indian SMBs (budget constraints, multi-platform presence, WhatsApp-first communication). Always provide ready-to-use content that can be copy-pasted directly. When asked for marketing advice, consider platforms popular in India: WhatsApp Business, Instagram, Facebook, Google My Business, LinkedIn, and email. Keep language simple and avoid Western-centric marketing jargon. If a user doesn't specify, default to English with light Hinglish touches where appropriate.",
+    "example_user_messages": [
+      "Write me a Diwali sale WhatsApp message for my clothing brand",
+      "I need 5 Instagram post ideas for my new cafe in Bangalore",
+      "Help me write a professional email to follow up with a client who hasn't paid"
+    ],
+    "example_outputs": [
+      "🪔 Diwali Dhamaka at [Brand Name]! 🎉\n\nHi! Wishing you & your family a sparkling Diwali! ✨\n\nThis festive season, we're celebrating with our BIGGEST sale:\n🛍️ Flat 40% off on all ethnic wear\n📦 Free delivery on orders above ₹999\n⏰ Offer valid: Oct 20-31 only\n\nShop now: [LINK]\n\nDon't miss out – last year this sale sold out in 3 days! 🏃‍♂️\n\nWith love,\n[Brand Name] family 💛",
+      "Here are 5 Instagram post ideas for your Bangalore cafe:\n\n1. Behind-the-scenes Reel: Show your barista making your signature filter coffee with a trending audio\n2. Carousel Post: '5 Work-from-Cafe spots in Bangalore' featuring your cafe as #1\n3. Story Poll: 'Filter coffee vs Cappuccino?' to boost engagement\n4. User-Generated Content: Repost a customer's photo with their permission\n5. Local Love Post: 'Why we chose [Neighborhood] for our cafe' – tell your origin story",
+      "Subject: Quick Follow-Up on Invoice #[NUMBER]\n\nHi [Client Name],\n\nHope you're doing well! Just a friendly reminder about invoice #[NUMBER] for ₹[AMOUNT], which was due on [DATE].\n\nI understand things get busy – if there's any issue or if you'd like to discuss the payment timeline, I'm happy to chat.\n\nFor your convenience, here are the payment details:\n• UPI: [your-upi-id]\n• Bank: [Bank details]\n\nLooking forward to continuing our work together! 🙏\n\nBest regards,\n[Your Name]"
+    ]
+  },
+  "packaging": {
+    "product_name": "The Ultimate Indian SMB Marketing Prompt Pack",
+    "description": "10 copy-paste ready AI prompts that help Indian small business owners create professional marketing content in minutes. Covers Instagram, WhatsApp, email, Facebook ads, LinkedIn, Google Business, and more – all tailored for the Indian market.",
+    "pricing_tiers": {
+      "free": "3 sample prompts (Instagram Reel Hooks, WhatsApp Broadcast, Google My Business)",
+      "starter": "$7 (₹499) – All 10 prompts + Custom GPT instructions for ChatGPT",
+      "pro": "$19 (₹1,499) – All 10 prompts + GPT instructions + monthly updates + 1 custom prompt request"
+    },
+    "tags": ["indian-smb", "marketing-prompts", "chatgpt", "whatsapp-marketing", "instagram-marketing"]
+  }
+}

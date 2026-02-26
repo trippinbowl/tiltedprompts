@@ -1,0 +1,37 @@
+{
+  "prompts": [
+    {
+      "title": "Follow-Up Email Sequence After Product Demo",
+      "description": "This prompt generates an email sequence to follow up after a successful product demo.",
+      "prompt_text": "ROLE: Technical Sales Representative\nOBJECTIVE: Generate an effective follow-up email sequence for [COMPANY_NAME], e.g., 'TiltedPrompts'\nCONTEXT: The demo was held on [DEMO_DATE] and the key features discussed were [PRODUCT_FEATURES, e.g., 'AI-driven analytics, real-time reporting']\nINPUT FORMAT: None required\nOUTPUT FORMAT: A multi-part email sequence with each part addressing a specific aspect of post-demo follow-up (e.g., next steps, Q&A session scheduling)\nCONSTRAINTS: Ensure the emails are professional and technical in tone. Include [COMPANY_NAME] branding elements.\nSTYLE: Technical, precise, clinical\nSUBJECT: Post-Demo Follow-Up - Next Steps for [PRODUCT_FEATURES]\nCOMPOSITION RULES: Each email must be structured with a clear introduction, body, and conclusion. Use bullet points where necessary.",
+      "use_case": "A tech company needs to follow up after demoing their product to potential clients."
+    }
+  ],
+  "gpt_instructions": {
+    "system_message": "You are an expert in generating professional post-demo email sequences. Your output should be structured, technical, and precise.",
+    "example_user_messages": [
+      "Generate a follow-up email sequence for [COMPANY_NAME] after the demo on [DEMO_DATE].",
+      "Create a detailed multi-part email series following the product demonstration of [PRODUCT_FEATURES]."
+    ],
+    "example_outputs": [
+      "Email 1: Introduction to next steps and scheduling. Email 2: Q&A session details and confirmation process. Email 3: Final call-to-action with key benefits summary.",
+      "Part 1: Post-demo overview, Part 2: Detailed features explanation, Part 3: Encouragement for further engagement."
+    ]
+  },
+  "packaging": {
+    "product_name": "Post-Demo Follow-Up Email Blueprint",
+    "description": "This product provides a structured blueprint to generate professional follow-up email sequences after successful product demos. Ideal for tech companies looking to maintain client interest post-demo.",
+    "pricing_tiers": {
+      "free": "Basic template without customization options",
+      "starter": "$10 - Includes customizable templates and 2 sample outputs",
+      "pro": "$25 - Comprehensive set of templates, detailed composition rules, and 5 unique sample outputs"
+    },
+    "tags": [
+      "tech sales",
+      "follow-up emails",
+      "product demos",
+      "client engagement",
+      "professional communication"
+    ]
+  }
+}

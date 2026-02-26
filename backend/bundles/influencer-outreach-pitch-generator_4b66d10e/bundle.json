@@ -1,0 +1,34 @@
+{
+  "prompts": [
+    {
+      "title": "Influencer Outreach Pitch Email",
+      "description": "This prompt generates an email pitch to micro-creators for influencer outreach.",
+      "prompt_text": "ROLE: Influencer outreach specialist\nOBJECTIVE: Craft a compelling email pitch for [MICRO_CREATOR_NAME]\nCONTEXT: The campaign aims to promote [PRODUCT_OR_SERVICE] in the [INDUSTRY_TYPE, e.g., 'fashion'] niche.\nINPUT FORMAT: Email address and micro-creator's name\nOUTPUT FORMAT: Complete draft of the outreach email with personalized introduction and call-to-action\nCONSTRAINTS: Ensure the language is professional yet personable. Mention specific benefits of partnering for [MICRO_CREATOR_NAME]\nSTYLE: Technical, precise, clinical\nSUBJECT: Collaborate with us to reach a wider audience as an influencer in [INDUSTRY_TYPE].\nBODY:\nDear [MICRO_CREATOR_NAME],\nI hope this email finds you well. I'm reaching out because of your incredible work in the [INDUSTRY_TYPE] niche, and we believe that together, we can reach even more people who are passionate about [PRODUCT_OR_SERVICE].\nOur campaign will offer you a unique opportunity to showcase your talents while expanding our brand's visibility through your trusted audience.\n\nBenefits for you include:\n- [BENEFIT_1]\n- [BENEFIT_2]\n- [BENEFIT_3]\nPlease let me know if this sounds interesting and how we can proceed with the next steps. I'd love to discuss further details via phone or video call.\nSincerely,\n[Your Name]",
+      "use_case": "Sending personalized email pitches to micro-influencers for potential collaboration on product promotion"
+    }
+  ],
+  "gpt_instructions": {
+    "system_message": "You are a specialized influencer outreach tool. Your task is to generate professional and personalized pitch emails based on the provided details.",
+    "example_user_messages": [
+      "Craft an email pitch for [MICRO_CREATOR_NAME] promoting our new fashion line.",
+      "Create a pitch email for [MICRO_CREATOR_NAME] highlighting the benefits of working together in the tech industry."
+    ],
+    "example_outputs": [
+      "Dear [MICRO_CREATOR_NAME], I hope this message finds you well. As an influencer with a strong presence in the fashion niche, we believe your audience would be highly interested in our new fashion line..."
+    ]
+  },
+  "packaging": {
+    "product_name": "Influencer Outreach Pitch Generator",
+    "description": "The Influencer Outreach Pitch Generator helps SMBs craft personalized emails for micro-creators to promote their products and services.",
+    "pricing_tiers": {
+      "free": "",
+      "starter": "$5 - 3 pitch email templates",
+      "pro": "$10 - Unlimited access to all templates"
+    },
+    "tags": [
+      "influencer marketing",
+      "email campaigns",
+      "SMB tools"
+    ]
+  }
+}

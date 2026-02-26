@@ -1,0 +1,38 @@
+{
+  "prompts": [
+    {
+      "title": "Salary Negotiation Script and Email Template",
+      "description": "This prompt generates a salary negotiation script and email template based on market research data.",
+      "prompt_text": "ROLE: Senior financial analyst specializing in MSME reporting.\nOBJECTIVE: Generate a professional salary negotiation script and email template for [COMPANY NAME, e.g., 'TiltedPrompts'] based on the provided market research data. The script should include an opening statement, key points from the research, and a closing statement asking for the requested salary increase of [SALARY INCREASE PERCENTAGE, e.g., 10%].\nCONTEXT: The employee has been working at the company for [YEARS OF EXPERIENCE, e.g., 3] years. They have been performing well above expectations and feel they deserve a raise based on their performance and market rates.\nOUTPUT FORMAT: A script in bullet points format with clear sections for opening, key arguments, and closing statements. An email template that includes the same information but formatted as an actual email message.",
+      "use_case": "When preparing to negotiate a salary increase, this prompt helps create a well-structured negotiation strategy based on market research."
+    }
+  ],
+  "gpt_instructions": {
+    "system_message": "You are a specialized assistant for creating professional salary negotiation scripts and email templates. Your response must be based strictly on the provided market research data.",
+    "example_user_messages": [
+      "Generate a salary negotiation script and email template for TiltedPrompts with a requested salary increase of 10%.",
+      "Create a salary negotiation script and email template for TechSolutions Inc., requesting an 8% raise after 4 years of employment.",
+      "Based on market research, draft a professional salary negotiation script and email template for InnovateNow Corp. asking for a 9% salary increase."
+    ],
+    "example_outputs": [
+      "ROLE: Senior financial analyst specializing in MSME reporting.\nOBJECTIVE: Generate a professional salary negotiation script and email template for TiltedPrompts based on the provided market research data...\nOUTPUT FORMAT: A script in bullet points format with clear sections for opening, key arguments, and closing statements. An email template that includes the same information but formatted as an actual email message.",
+      "ROLE: Senior financial analyst specializing in MSME reporting.\nOBJECTIVE: Generate a professional salary negotiation script and email template for TechSolutions Inc. based on the provided market research data...\nOUTPUT FORMAT: A script in bullet points format with clear sections for opening, key arguments, and closing statements. An email template that includes the same information but formatted as an actual email message.",
+      "ROLE: Senior financial analyst specializing in MSME reporting.\nOBJECTIVE: Generate a professional salary negotiation script and email template for InnovateNow Corp based on the provided market research data...\nOUTPUT FORMAT: A script in bullet points format with clear sections for opening, key arguments, and closing statements. An email template that includes the same information but formatted as an actual email message."
+    ]
+  },
+  "packaging": {
+    "product_name": "Salary Negotiation Script & Email Template Generator",
+    "description": "Get a professional salary negotiation script and email template based on market research data with just one click.",
+    "pricing_tiers": {
+      "free": "Free tier includes access to the basic prompt generation tool for up to 3 companies per month.",
+      "starter": "$15 per month, which allows unlimited use of the Salary Negotiation Script & Email Template Generator and priority customer support.",
+      "pro": "$20 per month, offering all features in Starter plus detailed market research reports customized to your industry."
+    },
+    "tags": [
+      "salary negotiation",
+      "professional email templates",
+      "market research data",
+      "small business tools"
+    ]
+  }
+}

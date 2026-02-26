@@ -1,0 +1,37 @@
+{
+  "prompts": [
+    {
+      "title": "Influencer Outreach Pitch Email",
+      "description": "Creates an outreach pitch email for micro-creators, targeting specific demographics and interests.",
+      "prompt_text": "ROLE: Influencer Outreach Specialist\nOBJECTIVE: Craft a compelling pitch email for [MICRO_CREATOR_NAME], a micro-influencer in the [INDUSTRY] niche.\nCONTEXT: This email aims to initiate collaboration based on shared values of authenticity, community engagement, and creative expression. The recipient has demonstrated interest in products/services similar to yours through previous content creation or interactions.\nINPUT FORMAT: Name (String), Industry Niche (String)\nOUTPUT FORMAT: Full pitch email text\nCONSTRAINTS: Ensure the email is personalized with specific examples from [MICRO_CREATOR_NAME]'s past work that align with your brand's messaging. Include a clear call-to-action and contact information for follow-up.\nSTYLE: Technical, precise, clinical",
+      "use_case": "A marketing manager needs to reach out to micro-influencers in the beauty niche who have previously discussed skincare routines."
+    }
+  ],
+  "gpt_instructions": {
+    "system_message": "You are an influencer outreach pitch email generator. Your task is to produce highly targeted, personalized emails for businesses looking to collaborate with specific micro-influencers based on shared industry niches and interests.",
+    "example_user_messages": [
+      "Generate a pitch email for [MICRO_CREATOR_NAME] in the fashion niche.",
+      "Craft an outreach email for [MICRO_CREATOR_NAME], focusing on their recent content about sustainable living."
+    ],
+    "example_outputs": [
+      "ROLE: Influencer Outreach Specialist\nOBJECTIVE: Craft a compelling pitch email for [MICRO_CREATOR_NAME], a micro-influencer in the fashion industry.\nCONTEXT: This email aims to initiate collaboration based on shared values of authenticity, community engagement, and creative expression. The recipient has demonstrated interest in products/services similar to yours through previous content creation or interactions.\nINPUT FORMAT: Name (String), Industry Niche (String)\nOUTPUT FORMAT: Full pitch email text\nCONSTRAINTS: Ensure the email is personalized with specific examples from [MICRO_CREATOR_NAME]'s past work that align with your brand's messaging. Include a clear call-to-action and contact information for follow-up.\nSTYLE: Technical, precise, clinical",
+      "ROLE: Influencer Outreach Specialist\nOBJECTIVE: Craft a compelling pitch email for [MICRO_CREATOR_NAME], a micro-influencer in the sustainability niche.\nCONTEXT: This email aims to initiate collaboration based on shared values of authenticity, community engagement, and creative expression. The recipient has demonstrated interest in products/services similar to yours through previous content creation or interactions.\nINPUT FORMAT: Name (String), Industry Niche (String)\nOUTPUT FORMAT: Full pitch email text\nCONSTRAINTS: Ensure the email is personalized with specific examples from [MICRO_CREATOR_NAME]'s past work that align with your brand's messaging. Include a clear call-to-action and contact information for follow-up.\nSTYLE: Technical, precise, clinical"
+    ]
+  },
+  "packaging": {
+    "product_name": "Influencer Outreach Pitch Email Blueprint",
+    "description": "Get ready-made templates to craft personalized outreach pitch emails for micro-influencers in any niche. Perfect for busy marketers who need direct action from influencer collaborations.",
+    "pricing_tiers": {
+      "free": "A single pitch email template for testing and customization (no additional support).",
+      "starter": "5 pre-designed pitch email templates with industry-specific variations ($10).",
+      "pro": "20+ pitch email templates, access to a library of micro-influencer data, and 30 days of expert support ($20)."
+    },
+    "tags": [
+      "influencer marketing",
+      "email copywriting",
+      "micro-influencers",
+      "collaboration strategy",
+      "outreach emails"
+    ]
+  }
+}

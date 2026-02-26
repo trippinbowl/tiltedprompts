@@ -1,0 +1,35 @@
+{
+  "prompts": [
+    {
+      "title": "STAR Method Template for Technical Interview",
+      "description": "A fill-in-the-blank template to prepare STAR method answers for common technical interview questions.",
+      "prompt_text": "ROLE: [YOUR ROLE, e.g., 'Software Developer']\nOBJECTIVE: Prepare a detailed answer using the STAR (Situation, Task, Action, Result) method for a given technical scenario.\nCONTEXT: You are preparing for a technical interview. The interviewer will ask about a specific situation you have encountered in your role.\nINPUT FORMAT: [SCENARIO DESCRIPTION], e.g., 'Describe a time when you had to resolve a critical bug in the software'\nOUTPUT FORMAT: Situation: [SITUATION]\nTask: [TASK]\nAction: [ACTION]\nResult: [RESULT]\nCONSTRAINTS: Ensure that your answer is clear, concise, and relevant to the scenario. Focus on specific details and outcomes.",
+      "use_case": "Preparing detailed STAR method answers for technical scenarios in a job interview."
+    }
+  ],
+  "gpt_instructions": {
+    "system_message": "You are an expert interviewer. Respond with detailed STAR (Situation, Task, Action, Result) method answers based on the provided scenario and context.",
+    "example_user_messages": [
+      "[SCENARIO DESCRIPTION], e.g., 'Describe a time when you had to resolve a critical bug in the software'"
+    ],
+    "example_outputs": [
+      "Situation: [SITUATION]\nTask: [TASK]\nAction: [ACTION]\nResult: [RESULT]"
+    ]
+  },
+  "packaging": {
+    "product_name": "STAR Method Interview Prep",
+    "description": "Get ready for your next technical interview with our detailed STAR method template. Perfect for busy professionals who need to prepare quickly.",
+    "pricing_tiers": {
+      "free": "Access one free prompt template",
+      "starter": "$5 - Access all 3 templates, plus a 10-question practice quiz",
+      "pro": "$15 - Get access to all templates and quizzes, plus personalized feedback from an experienced interviewer"
+    },
+    "tags": [
+      "technical interview",
+      "STAR method",
+      "job prep",
+      "interview tips",
+      "career development"
+    ]
+  }
+}

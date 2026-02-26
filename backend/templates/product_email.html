@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your order from {brand_name}</title>
+  <style>
+    body { margin: 0; padding: 0; background: #f4f4f7; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+    .container { max-width: 580px; margin: 0 auto; padding: 20px; }
+    .card { background: #ffffff; border-radius: 12px; padding: 40px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+    .header { text-align: center; margin-bottom: 30px; }
+    .logo { font-size: 24px; font-weight: 800; color: #6c5ce7; letter-spacing: -0.5px; }
+    .emoji-hero { font-size: 48px; margin: 20px 0; }
+    h1 { color: #2d3436; font-size: 22px; margin: 0 0 8px; }
+    p { color: #636e72; font-size: 15px; line-height: 1.6; margin: 0 0 16px; }
+    .product-name { display: inline-block; background: #dfe6e9; color: #2d3436; padding: 6px 14px; border-radius: 6px; font-weight: 600; font-size: 14px; margin: 8px 0 20px; }
+    .cta-button { display: inline-block; background: #6c5ce7; color: #ffffff !important; text-decoration: none; padding: 14px 32px; border-radius: 8px; font-weight: 600; font-size: 16px; margin: 16px 0; }
+    .cta-button:hover { background: #5a4bd1; }
+    .divider { border: none; border-top: 1px solid #eee; margin: 28px 0; }
+    .footer { text-align: center; color: #b2bec3; font-size: 12px; margin-top: 20px; }
+    .footer a { color: #6c5ce7; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="header">
+        <div class="logo">{brand_name}</div>
+        <div class="emoji-hero">🎉</div>
+        <h1>Your product is ready!</h1>
+      </div>
+
+      <p>Hey {buyer_name},</p>
+
+      <p>Thank you for your purchase! Your product is ready to download:</p>
+
+      <div style="text-align: center;">
+        <span class="product-name">📦 {product_name}</span>
+        <br>
+        <a href="{download_link}" class="cta-button">⬇️ Download Now</a>
+      </div>
+
+      <hr class="divider">
+
+      <p><strong>What you got:</strong></p>
+      <ul style="color: #636e72; font-size: 14px; line-height: 1.8;">
+        <li>Copy-paste ready AI prompts tailored to your business</li>
+        <li>Custom GPT instructions you can load into ChatGPT</li>
+        <li>Ready in both JSON (for automation) and Markdown (for reading)</li>
+      </ul>
+
+      <p><strong>Quick tip:</strong> Open the markdown file for the best reading experience. Load the GPT instructions into ChatGPT → Settings → Custom Instructions for instant results!</p>
+
+      <hr class="divider">
+
+      <p style="font-size: 13px;">Need help or have a custom request? Just reply to this email or reach out at <a href="mailto:{support_email}" style="color: #6c5ce7;">{support_email}</a>.</p>
+    </div>
+
+    <div class="footer">
+      <p>{brand_name} · {tagline}</p>
+      <p>You received this email because you purchased from {brand_name}.</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+{
+  "prompts": [
+    {
+      "title": "Google Search Ad Headline and Description Generator",
+      "description": "Generates optimized headlines and descriptions for Google Search Ads targeting local services.",
+      "prompt_text": "ROLE: Copywriter specializing in digital marketing.\nOBJECTIVE: Create a compelling headline and description for a Google Search Ad that targets local services.\nCONTEXT: The ad is for [SERVICE_NAME, e.g., 'plumbing'] located in [CITY_NAME, e.g., 'Mumbai']. The service offers [SPECIAL_FEATURE, e.g., '24/7 emergency response'] and has a customer satisfaction rating of [RATING, e.g., '5 stars out of 5'].\nINPUT FORMAT: Provide the name of the service, city, special feature, and customer satisfaction rating in the format specified above.\nOUTPUT FORMAT: Return two separate sentences - one for the headline and another for the description. The headline should be concise (less than 30 characters) while the description should provide more details about the service offered.",
+      "use_case": "Generating optimized Google Search Ad headlines and descriptions for local services businesses."
+    }
+  ],
+  "gpt_instructions": {
+    "system_message": "You are a digital marketing expert specializing in copywriting. Your task is to generate compelling ad content based on specific guidelines provided by the user.",
+    "example_user_messages": [
+      "ROLE: Copywriter specializing in digital marketing.\nOBJECTIVE: Create a headline and description for a Google Search Ad targeting local plumbing services in Mumbai.\nCONTEXT: The service offers 24/7 emergency response and has a customer satisfaction rating of 5 stars out of 5.\nINPUT FORMAT: Provide the name of the service, city, special feature, and customer satisfaction rating in the format specified above.\nOUTPUT FORMAT: Return two separate sentences - one for the headline and another for the description. The headline should be concise (less than 30 characters) while the description should provide more details about the service offered."
+    ],
+    "example_outputs": [
+      "Headline: Emergency Plumbing Mumbai\nDescription: Get reliable 24/7 emergency plumbing services in Mumbai with a perfect customer satisfaction rating of 5 stars."
+    ]
+  },
+  "packaging": {
+    "product_name": "Local Services Ad Generator",
+    "description": "Optimize your Google Search Ads for local services businesses. This tool provides compelling headlines and descriptions to attract more customers.",
+    "pricing_tiers": {
+      "free": "Limited access with one-time use of the generator.",
+      "starter": "$5 - Unlimited use of the generator, basic customer support through email.",
+      "pro": "$15 - Unlimited use of the generator, priority customer support via chat and phone."
+    },
+    "tags": [
+      "digital marketing",
+      "google ads",
+      "local services",
+      "ad copywriting"
+    ]
+  }
+}

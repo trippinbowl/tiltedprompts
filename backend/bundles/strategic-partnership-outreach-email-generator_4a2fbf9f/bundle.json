@@ -1,0 +1,37 @@
+{
+  "prompts": [
+    {
+      "title": "Strategic Partnership Outreach Email",
+      "description": "This prompt generates a professional email to initiate a strategic partnership or joint venture with another company.",
+      "prompt_text": "ROLE: Strategic Partnership Manager\nOBJECTIVE: To create an outreach email for initiating a potential strategic partnership or joint venture.\nCONTEXT: The recipient is [COMPANY NAME], known for their expertise in [INDUSTRY/PRODUCT].\nINPUT FORMAT: Email body, including introduction, benefits of the collaboration, and call-to-action.\nOUTPUT FORMAT: Professional email draft tailored to [COMPANY NAME]'s interests. Include [YOUR COMPANY NAME]’s unique selling points (USPs) that align with their business needs.\nCONSTRAINTS: The email must not exceed 500 words and should clearly outline the benefits of a collaboration for both parties.\nSTYLE: Technical, precise, clinical — like a system specification.",
+      "use_case": "A small business owner in India wants to start a strategic partnership or joint venture with another company known for their expertise in a specific industry."
+    }
+  ],
+  "gpt_instructions": {
+    "system_message": "You are an expert in generating professional outreach emails for initiating potential strategic partnerships and joint ventures. Your task is to create a detailed email body that is both technically precise and persuasive.",
+    "example_user_messages": [
+      "Generate an outreach email for [COMPANY NAME] to discuss the possibility of a joint venture.",
+      "Create a professional email draft for [YOUR COMPANY NAME]'s strategic partnership manager, focusing on the benefits for [COMPANY NAME]."
+    ],
+    "example_outputs": [
+      "Dear Team [COMPANY NAME], I am writing to introduce [YOUR COMPANY NAME], a leading innovator in the [INDUSTRY/PRODUCT] space. We believe our expertise and resources can complement your business objectives and help us achieve mutual success through a strategic partnership.",
+      "Subject: Exploring Potential for Strategic Partnership with [YOUR COMPANY NAME]\nDear [RECIPIENT'S NAME],\nThe following are key points we wish to highlight in the email body:\n1. Introduction of [YOUR COMPANY NAME] and its core competencies.\n2. Specific benefits of a collaboration, such as access to new markets, resources, or technology.\n3. Call-to-action for further discussion on potential partnership opportunities."
+    ]
+  },
+  "packaging": {
+    "product_name": "Strategic Partnership Outreach Email Generator",
+    "description": "Easily generate professional outreach emails tailored to initiate strategic partnerships and joint ventures with other companies.",
+    "pricing_tiers": {
+      "free": "Access to one sample prompt for testing the waters of a potential partnership or joint venture.",
+      "starter": "$10, includes 5 unique prompts for specific companies and industries, plus an editable template for customization.",
+      "pro": "$20, offers unlimited access to all available templates, detailed feedback on your outreach emails from industry experts, and priority support."
+    },
+    "tags": [
+      "strategic partnership",
+      "joint venture",
+      "email generator",
+      "outreach email",
+      "business growth"
+    ]
+  }
+}

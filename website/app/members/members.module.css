@@ -1,0 +1,744 @@
+/* =================================================================
+   Members Dashboard — HuggingFace-inspired
+   Sidebar · Stats · Card Grid · GPTs · Courses
+   ================================================================= */
+
+/* ─── LAYOUT ─── */
+.dashboard {
+    min-height: 100vh;
+    background: var(--bg-0);
+    display: flex;
+}
+
+/* ─── SIDEBAR ─── */
+.sidebar {
+    width: 260px;
+    background: var(--bg-1);
+    border-right: 1px solid var(--border-1);
+    padding: 24px 0;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 50;
+    transition: transform 0.3s var(--ease-out);
+}
+
+.sidebarLogo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 24px;
+    margin-bottom: 32px;
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 1.25rem;
+}
+
+.sidebarLogoIcon {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    background: var(--gradient-brand);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    box-shadow: var(--shadow-glow-sm);
+}
+
+.sidebarLogoText {
+    background: var(--gradient-brand);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.sidebarNav {
+    flex: 1;
+    padding: 0 12px;
+}
+
+.sidebarSection {
+    margin-bottom: 24px;
+}
+
+.sidebarLabel {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--text-3);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 0 12px;
+    margin-bottom: 8px;
+}
+
+.sidebarLink {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: var(--radius-md);
+    color: var(--text-2);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.sidebarLink:hover {
+    background: var(--bg-3);
+    color: var(--text-0);
+}
+
+.sidebarLinkActive {
+    background: rgba(124, 58, 237, 0.1);
+    color: var(--primary-light);
+    font-weight: 600;
+}
+
+.sidebarLinkIcon {
+    font-size: 1.15rem;
+    width: 24px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.sidebarLinkBadge {
+    margin-left: auto;
+    padding: 2px 8px;
+    border-radius: var(--radius-pill);
+    background: rgba(124, 58, 237, 0.15);
+    color: var(--primary-light);
+    font-size: 0.7rem;
+    font-weight: 700;
+}
+
+.sidebarFooter {
+    padding: 16px 24px;
+    border-top: 1px solid var(--border-1);
+}
+
+.sidebarUser {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.sidebarAvatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--gradient-brand);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 0.8rem;
+    color: white;
+    flex-shrink: 0;
+}
+
+.sidebarUserName {
+    font-weight: 600;
+    font-size: 0.88rem;
+    color: var(--text-0);
+}
+
+.sidebarUserEmail {
+    font-size: 0.75rem;
+    color: var(--text-3);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 160px;
+}
+
+.sidebarLogout {
+    margin-left: auto;
+    color: var(--text-3);
+    font-size: 0.78rem;
+    cursor: pointer;
+    transition: color 0.2s;
+    background: none;
+    border: none;
+    font-family: var(--font-body);
+}
+
+.sidebarLogout:hover {
+    color: #f87171;
+}
+
+/* ─── MAIN CONTENT ─── */
+.main {
+    flex: 1;
+    margin-left: 260px;
+    padding: 32px 40px;
+    min-height: 100vh;
+}
+
+/* ─── TOPBAR ─── */
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 36px;
+}
+
+.topbarLeft {}
+
+.greeting {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--text-0);
+    margin-bottom: 4px;
+}
+
+.greetingSub {
+    color: var(--text-3);
+    font-size: 0.9rem;
+}
+
+.topbarRight {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.searchBox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border: 1px solid var(--border-1);
+    border-radius: var(--radius-md);
+    background: var(--bg-2);
+    width: 280px;
+    transition: border-color 0.3s;
+}
+
+.searchBox:focus-within {
+    border-color: var(--primary);
+}
+
+.searchIcon {
+    color: var(--text-3);
+    font-size: 0.9rem;
+}
+
+.searchInput {
+    background: none;
+    border: none;
+    outline: none;
+    color: var(--text-0);
+    font-size: 0.88rem;
+    flex: 1;
+    font-family: var(--font-body);
+}
+
+.searchInput::placeholder {
+    color: var(--text-3);
+}
+
+.upgradePill {
+    padding: 10px 22px;
+    border-radius: var(--radius-pill);
+    background: var(--gradient-brand);
+    color: white;
+    font-weight: 700;
+    font-size: 0.85rem;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.upgradePill:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-glow-sm);
+}
+
+/* ─── STATS ROW ─── */
+.statsRow {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 40px;
+}
+
+.statCard {
+    background: var(--bg-2);
+    border: 1px solid var(--border-1);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    transition: all 0.3s;
+}
+
+.statCard:hover {
+    border-color: var(--border-2);
+    box-shadow: var(--shadow-glow-sm);
+}
+
+.statCardTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.statCardIcon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.statCardChange {
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: var(--radius-pill);
+    background: rgba(6, 214, 160, 0.1);
+    color: var(--accent);
+}
+
+.statCardNum {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--text-0);
+    letter-spacing: -0.03em;
+    margin-bottom: 4px;
+}
+
+.statCardLabel {
+    color: var(--text-3);
+    font-size: 0.82rem;
+}
+
+/* ─── SECTION HEADER ─── */
+.sectionHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.sectionTitle {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-0);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.sectionViewAll {
+    color: var(--primary-light);
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: color 0.2s;
+    cursor: pointer;
+}
+
+.sectionViewAll:hover {
+    color: var(--accent);
+}
+
+/* ─── CATEGORY PILLS ─── */
+.categories {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.catPill {
+    padding: 7px 18px;
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--border-1);
+    background: transparent;
+    color: var(--text-2);
+    font-size: 0.82rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s;
+    font-family: var(--font-body);
+}
+
+.catPill:hover {
+    border-color: var(--primary);
+    color: var(--primary-light);
+}
+
+.catPillActive {
+    background: rgba(124, 58, 237, 0.12);
+    border-color: var(--primary);
+    color: var(--primary-light);
+    font-weight: 600;
+}
+
+/* ─── PROMPT CARD GRID ─── */
+.promptGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 48px;
+}
+
+.promptCard {
+    background: var(--bg-2);
+    border: 1px solid var(--border-1);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: all 0.4s var(--ease-out);
+    cursor: pointer;
+}
+
+.promptCard:hover {
+    border-color: var(--border-2);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-glow-sm);
+}
+
+.promptCardCover {
+    height: 48px;
+    position: relative;
+    overflow: hidden;
+}
+
+.promptCardShimmer {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(110deg, transparent 25%, rgba(255, 255, 255, 0.04) 50%, transparent 75%);
+    background-size: 200% 100%;
+    animation: shimmer 3s linear infinite;
+}
+
+.promptCardBody {
+    padding: 20px;
+}
+
+.promptCardTop {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 12px;
+}
+
+.promptCardEmoji {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    background: rgba(124, 58, 237, 0.08);
+    border: 1px solid var(--border-1);
+}
+
+.promptCardInfo {
+    flex: 1;
+    min-width: 0;
+}
+
+.promptCardName {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--text-0);
+    margin-bottom: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.promptCardMeta {
+    color: var(--text-3);
+    font-size: 0.78rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.promptCardDesc {
+    color: var(--text-2);
+    font-size: 0.82rem;
+    line-height: 1.5;
+    margin-bottom: 14px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.promptCardBottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.promptCardBadge {
+    padding: 4px 10px;
+    border-radius: var(--radius-pill);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.badgeNew {
+    background: rgba(6, 214, 160, 0.1);
+    color: var(--accent);
+    border: 1px solid rgba(6, 214, 160, 0.2);
+}
+
+.badgeHot {
+    background: rgba(251, 146, 60, 0.1);
+    color: var(--accent-orange);
+    border: 1px solid rgba(251, 146, 60, 0.2);
+}
+
+.badgePro {
+    background: rgba(124, 58, 237, 0.1);
+    color: var(--primary-light);
+    border: 1px solid rgba(124, 58, 237, 0.2);
+}
+
+.badgeLocked {
+    background: rgba(107, 107, 141, 0.1);
+    color: var(--text-3);
+    border: 1px solid var(--border-1);
+}
+
+.promptCardStars {
+    color: #fbbf24;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+}
+
+.promptCardOpen {
+    color: var(--primary-light);
+    font-size: 0.82rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: gap 0.2s;
+}
+
+.promptCard:hover .promptCardOpen {
+    gap: 8px;
+}
+
+/* ─── GPTs GRID ─── */
+.gptsGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-bottom: 48px;
+}
+
+.gptCard {
+    background: var(--bg-2);
+    border: 1px solid var(--border-1);
+    border-radius: var(--radius-lg);
+    padding: 24px 20px;
+    text-align: center;
+    transition: all 0.4s var(--ease-out);
+    cursor: pointer;
+}
+
+.gptCard:hover {
+    border-color: var(--border-2);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-glow-sm);
+}
+
+.gptEmoji {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.gptName {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--text-0);
+    margin-bottom: 4px;
+}
+
+.gptDesc {
+    color: var(--text-3);
+    font-size: 0.75rem;
+    margin-bottom: 10px;
+}
+
+.gptStatus {
+    font-size: 0.72rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px;
+    border-radius: var(--radius-pill);
+}
+
+.gptRunning {
+    background: rgba(6, 214, 160, 0.1);
+    color: var(--accent);
+}
+
+.gptLocked {
+    background: rgba(107, 107, 141, 0.08);
+    color: var(--text-3);
+}
+
+.gptDot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+}
+
+/* ─── COURSES CAROUSEL ─── */
+.coursesCarousel {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 48px;
+}
+
+.coursesCarousel::-webkit-scrollbar {
+    height: 4px;
+}
+
+.coursesCarousel::-webkit-scrollbar-track {
+    background: var(--bg-2);
+    border-radius: 2px;
+}
+
+.coursesCarousel::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 2px;
+}
+
+.courseCard {
+    min-width: 280px;
+    background: var(--bg-2);
+    border: 1px solid var(--border-1);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    transition: all 0.4s var(--ease-out);
+}
+
+.courseCard:hover {
+    border-color: var(--border-2);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-glow-sm);
+}
+
+.courseCover {
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    position: relative;
+}
+
+.courseBody {
+    padding: 18px;
+}
+
+.courseTag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: var(--radius-pill);
+    background: rgba(124, 58, 237, 0.1);
+    color: var(--primary-light);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 8px;
+}
+
+.courseName {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--text-0);
+    margin-bottom: 4px;
+}
+
+.courseDuration {
+    color: var(--text-3);
+    font-size: 0.78rem;
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 1024px) {
+    .promptGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gptsGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .statsRow {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+
+    .sidebarOpen {
+        transform: translateX(0);
+    }
+
+    .main {
+        margin-left: 0;
+        padding: 24px 16px;
+    }
+
+    .promptGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .gptsGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .statsRow {
+        grid-template-columns: 1fr;
+    }
+
+    .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .searchBox {
+        width: 100%;
+    }
+}

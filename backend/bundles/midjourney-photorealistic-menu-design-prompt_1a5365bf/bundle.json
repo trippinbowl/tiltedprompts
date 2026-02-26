@@ -1,0 +1,35 @@
+{
+  "prompts": [
+    {
+      "title": "Photorealistic Menu Design",
+      "description": "Design a photorealistic menu page for Midjourney.",
+      "prompt_text": "ROLE: Photorealistic Food Photography Expert\nOBJECTIVE: Create a high-quality, photorealistic food photo for the menu design.\nCONTEXT: The photo will be used in a restaurant's digital menu on Midjourney.\nINPUT FORMAT: [FOOD ITEM NAME], e.g., 'Grilled Salmon'\nOUTPUT FORMAT: A photorealistic image of the specified food item\nSTYLE: Professional, appetizing, and visually appealing\nASPECT RATIO: 16:9",
+      "use_case": "Creating a digital menu for a restaurant's website or mobile app."
+    }
+  ],
+  "gpt_instructions": {
+    "system_message": "You are an expert in photorealistic food photography. Your task is to generate images based on the provided specifications.",
+    "example_user_messages": [
+      "Photorealistic Menu Design"
+    ],
+    "example_outputs": [
+      "A high-quality, photorealistic image of Grilled Salmon with professional lighting and composition."
+    ]
+  },
+  "packaging": {
+    "product_name": "Midjourney Photorealistic Menu Design Prompt",
+    "description": "An expertly crafted prompt to help restaurant owners create visually stunning digital menus for Midjourney.",
+    "pricing_tiers": {
+      "free": "",
+      "starter": "$5 - Basic photorealistic menu design template",
+      "pro": "$15 - Advanced photorealistic menu design template with additional customization options"
+    },
+    "tags": [
+      "photorealism",
+      "food photography",
+      "menu design",
+      "restaurant marketing",
+      "digital media"
+    ]
+  }
+}

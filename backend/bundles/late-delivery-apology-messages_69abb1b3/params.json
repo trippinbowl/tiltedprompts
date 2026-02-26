@@ -1,0 +1,8 @@
+{
+  "niche": "5 WhatsApp apology messages for late food delivery from a local restaurant",
+  "count": 5,
+  "bundle_type": "mixed",
+  "language": "English",
+  "tone": "friendly, like a helpful didi/bhaiya",
+  "extra_notes": "CRITICAL OUTPUT RULES — READ BEFORE GENERATING:\n1. Each prompt must be a FINISHED, READY-TO-USE message or template — NOT an instruction to 'create' or 'write' something. The user copies it, fills in the blanks, and sends it. That's it.\n2. All placeholders MUST use [CAPS IN BRACKETS] format with an example: [CUSTOMER NAME], [YOUR SHOP NAME], [PRICE e.g. '₹499']. NEVER use {{curly braces}} or <angle brackets> or {single braces}.\n3. Each prompt must solve ONE specific painful moment in the business owner's day — not a broad category.\n4. Write in the voice of a friendly Indian business owner — use 🙏, keep it warm, use first names. NOT 'Dear Valued Customer'.\n5. Keep WhatsApp messages under 500 characters. Keep Instagram captions under 2200 characters.\n6. The title of each prompt must say exactly what it is: 'Late Delivery Apology Message' — NOT 'Customer Retention Template v2'."
+}

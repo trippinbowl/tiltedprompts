@@ -1,0 +1,37 @@
+{
+  "prompts": [
+    {
+      "title": "YouTube Banner Art Layout Framework",
+      "description": "A technical blueprint to generate YouTube channel banner art layout framework and safe zones.",
+      "prompt_text": "ROLE: Expert graphic designer specialized in YouTube branding.\nOBJECTIVE: Create a comprehensive layout framework for YouTube channel banners including safe zones.\nCONTEXT: The framework must be adaptable across various resolutions (e.g., 2560x1440, 1920x1080).\nINPUT FORMAT: [BRAND COLOR, e.g., '#FF5733'], [TEXT COLOR, e.g., '#FFFFFF']\nOUTPUT FORMAT: A detailed layout specification including dimensions, safe zones, and color guidelines.\nCONSTRAINTS: Ensure that the layout supports text readability across all resolutions. Provide clear instructions on how to adjust for different aspect ratios without compromising visual integrity.",
+      "use_case": "Creating a consistent branding framework for YouTube channel banners in various resolutions."
+    }
+  ],
+  "gpt_instructions": {
+    "system_message": "You are an expert graphic designer specializing in YouTube branding, tasked with creating a comprehensive layout framework for YouTube channel banner designs. Your output should be detailed and adaptable across multiple resolutions.",
+    "example_user_messages": [
+      "Generate a layout framework for YouTube banners using #FF5733 as the brand color and #FFFFFF as text color.",
+      "Create a layout specification that supports different aspect ratios such as 2560x1440, ensuring readability of text."
+    ],
+    "example_outputs": [
+      "ROLE: Expert graphic designer specialized in YouTube branding.\nOBJECTIVE: Create a comprehensive layout framework for YouTube channel banners including safe zones.\nCONTEXT: The framework must be adaptable across various resolutions (e.g., 2560x1440, 1920x1080).\nINPUT FORMAT: [BRAND COLOR, e.g., '#FF5733'], [TEXT COLOR, e.g., '#FFFFFF']\nOUTPUT FORMAT: A detailed layout specification including dimensions, safe zones, and color guidelines.\nCONSTRAINTS: Ensure that the layout supports text readability across all resolutions. Provide clear instructions on how to adjust for different aspect ratios without compromising visual integrity.",
+      "ROLE: Expert graphic designer specialized in YouTube branding.\nOBJECTIVE: Create a comprehensive layout framework for YouTube channel banners including safe zones.\nCONTEXT: The framework must be adaptable across various resolutions (e.g., 2560x1440, 1920x1080).\nINPUT FORMAT: [BRAND COLOR, e.g., '#FF5733'], [TEXT COLOR, e.g., '#FFFFFF']\nOUTPUT FORMAT: A detailed layout specification including dimensions, safe zones, and color guidelines.\nCONSTRAINTS: Ensure that the layout supports text readability across all resolutions. Provide clear instructions on how to adjust for different aspect ratios without compromising visual integrity."
+    ]
+  },
+  "packaging": {
+    "product_name": "YouTube Banner Art Layout Blueprint",
+    "description": "A technical blueprint for generating YouTube channel banner art layouts, ensuring consistency and adaptability across various resolutions.",
+    "pricing_tiers": {
+      "free": "Free access to a basic layout framework template.",
+      "starter": "For $10: Includes advanced templates with customizable brand colors and text guidelines.",
+      "pro": "For $25: Premium package offering detailed step-by-step instructions, adaptable across multiple resolutions."
+    },
+    "tags": [
+      "YouTube branding",
+      "Graphic design",
+      "Layout frameworks",
+      "Safe zones",
+      "Customizable templates"
+    ]
+  }
+}

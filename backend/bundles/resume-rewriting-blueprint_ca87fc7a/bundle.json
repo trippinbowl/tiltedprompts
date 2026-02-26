@@ -1,0 +1,37 @@
+{
+  "prompts": [
+    {
+      "title": "ATS-Optimized Resume Rewrite",
+      "description": "Rewrite a resume based on a job description to make it more ATS-friendly.",
+      "prompt_text": "ROLE: ATS-optimized resume rewriter.\nOBJECTIVE: Use the provided [JOB DESCRIPTION] and incorporate [SKILLS AND EXPERIENCE] from the candidate's current resume into a new, optimized version that aligns closely with HR systems requirements.\nCONTEXT: The job description includes essential qualifications like required skills, experience years, and specific software knowledge. The candidate’s resume lists their work history, achievements, and educational background.\nINPUT FORMAT: Job Description text block: [JOB DESCRIPTION]. Resume details including [WORK HISTORY], [ACHIEVEMENTS], and [EDUCATION BACKGROUND].\nOUTPUT FORMAT: A revised version of the candidate's resume that is structured for ATS readability. Ensure all necessary information from both documents is included but tailored to fit an ATS-friendly format.\nCONSTRAINTS: The rewritten resume must be concise, clear, and use keywords directly from the job description.",
+      "use_case": "Helps small businesses in India ensure their employees' resumes are optimized for automatic tracking systems used by large corporations."
+    }
+  ],
+  "gpt_instructions": {
+    "system_message": "You are a highly specialized AI assistant designed to help users rewrite resumes based on specific job descriptions and personal qualifications. Your output should be an ATS-friendly version of the resume.",
+    "example_user_messages": [
+      "Rewrite this candidate's resume for the software engineering position at TiltedPrompts using the provided skills and experience.",
+      "Can you take my resume and align it with the project manager role at CodeCrusaders, incorporating my relevant experience and qualifications?"
+    ],
+    "example_outputs": [
+      "[ATS-FRIENDLY RESUME TEXT]",
+      "[ATS-FRIENDLY RESUME TEXT]"
+    ]
+  },
+  "packaging": {
+    "product_name": "Resume Rewriting Blueprint",
+    "description": "A detailed blueprint for rewriting resumes in a way that aligns perfectly with job descriptions and enhances ATS compatibility. Perfect for small businesses looking to improve their hiring process.",
+    "pricing_tiers": {
+      "free": "Sample prompt template for one specific role",
+      "starter": "$10, includes 5 ready-to-use templates across various industries",
+      "pro": "$20, full access to over 30 detailed resume rewriting prompts plus a guide on ATS optimization"
+    },
+    "tags": [
+      "resume",
+      "ATS",
+      "job description",
+      "small business",
+      "hiring process"
+    ]
+  }
+}

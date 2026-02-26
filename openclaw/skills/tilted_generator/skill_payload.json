@@ -1,0 +1,66 @@
+{
+  "asset_type": "openclaw_skill",
+  "skill_name": "tilted_asset_generator",
+  "description": "Autonomous agent that generates new prompt bundles and skills for Indian MSMEs based on Slack commands or daily cron triggers. Generates expert-level content via the Flask bundle generator, validates quality, transforms to database schema, and pushes directly to the Supabase production database through the HMAC-authenticated Next.js ingestion API.",
+  "version": "1.0.0",
+  "author": "TiltedPrompts Engineering",
+  "requires": {
+    "env": [
+      "TILTEDPROMPTS_API_URL",
+      "TILTEDPROMPTS_INGEST_URL",
+      "TILTEDPROMPTS_INGEST_KEY",
+      "TILTEDPROMPTS_INGEST_SECRET"
+    ],
+    "python_packages": [
+      "requests>=2.31.0"
+    ],
+    "services": [
+      "Flask bundle generator (localhost:5000)",
+      "Next.js app with /api/ingest-bundle endpoint",
+      "Supabase project with library_assets table"
+    ]
+  },
+  "files": [
+    {
+      "path": "skills/tilted_generator/instructions.md",
+      "content": "See instructions.md — Full OpenClaw skill definition with trigger parsing, execution protocol, quality standards, niche-specific requirements for Indian MSMEs, error handling matrix, and niche rotation schedule for automated cron mode."
+    },
+    {
+      "path": "skills/tilted_generator/tools.py",
+      "content": "See tools.py — Production Python module with: generate_bundle() calls Flask API, validate_bundle() enforces quality gates, transform_to_db_payload() converts to Supabase schema, ingest_to_database() POSTs with HMAC-SHA256 auth, run_full_pipeline() orchestrates end-to-end, run_cron_schedule() handles daily niche rotation. CLI interface supports --cron, generate, and health commands."
+    }
+  ],
+  "example_triggers": [
+    "@Claw generate 5 new prompts for Indian Real Estate",
+    "@Claw generate Shopify marketing prompt bundle",
+    "@Claw generate 10 WhatsApp templates for CA firms",
+    "@Claw create Instagram Reels scripts for D2C brands",
+    "@Claw run daily asset generation"
+  ],
+  "cron_schedule": {
+    "frequency": "daily",
+    "time": "09:00 IST (03:30 UTC)",
+    "command": "python tools.py --cron",
+    "weekly_output": "31+ assets across 7 niches"
+  },
+  "security": {
+    "authentication": "HMAC-SHA256 request signing",
+    "replay_prevention": "300-second timestamp window",
+    "rate_limiting": "20 ingestions per hour (client + server enforced)",
+    "transport": "HTTPS (Vercel TLS)"
+  },
+  "data_flow": [
+    "1. Slack command or cron trigger activates OpenClaw agent",
+    "2. Agent parses niche, count, type parameters from trigger",
+    "3. tools.py calls Flask POST /generate with parameters",
+    "4. Flask routes to LLM provider (local or DeepSeek) for generation",
+    "5. LLM returns structured JSON (prompts + GPT instructions + packaging)",
+    "6. tools.py validates: prompt count, field completeness, payload size",
+    "7. tools.py transforms Flask output to Supabase library_assets schema",
+    "8. tools.py computes HMAC-SHA256 signature over timestamp + body",
+    "9. tools.py POSTs to Next.js /api/ingest-bundle with auth headers",
+    "10. Next.js verifies HMAC, validates schema, checks duplicates",
+    "11. Next.js inserts into Supabase via service role admin client",
+    "12. Agent reports success/failure back to Slack with asset details"
+  ]
+}

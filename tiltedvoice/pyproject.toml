@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tiltedvoice"
+version = "0.1.0"
+description = "Windows desktop voice-to-text floating overlay — powered by faster-whisper"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "TiltedPrompts AI Product Studio"}]
+
+dependencies = [
+    "faster-whisper",
+    "ctranslate2",
+    "onnxruntime",
+    "sounddevice",
+    "numpy",
+    "customtkinter",
+    "pystray",
+    "Pillow",
+    "keyboard",
+    "pyperclip",
+    "huggingface_hub",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-cov",
+    "ruff",
+    "pyinstaller",
+]
+
+[project.gui-scripts]
+tilted-voice = "tiltedvoice.gui:main"
+
+[tool.setuptools.packages.find]
+include = ["tiltedvoice*"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

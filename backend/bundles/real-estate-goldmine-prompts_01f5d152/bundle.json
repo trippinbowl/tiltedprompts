@@ -1,0 +1,63 @@
+{
+  "prompts": [
+    {
+      "title": "Calculate Property ROI",
+      "description": "Determine the return on investment (ROI) for a property based on purchase price, selling price, and holding period.",
+      "prompt_text": "Given: Purchase Price = $100k; Selling Price = $150k; Holding Period = 3 years. Calculate ROI.",
+      "use_case": "Assessing profitability of real estate investments for marketing materials"
+    },
+    {
+      "title": "Generate Property Description",
+      "description": "Create a detailed and engaging description of a property for listing purposes, including features and amenities.",
+      "prompt_text": "Write an attractive property description for a 2-bedroom apartment in Noida with a balcony, parking space, and pool access.",
+      "use_case": "Creating compelling real estate listings to attract potential buyers"
+    },
+    {
+      "title": "Analyze Market Trends",
+      "description": "Identify recent trends in the Indian real estate market for specific cities or regions, including price changes and demand patterns.",
+      "prompt_text": "Summarize key market trends in Bangalore over the last 12 months, focusing on price fluctuations and buyer behavior.",
+      "use_case": "Gathering data to adjust marketing strategies based on current market conditions"
+    },
+    {
+      "title": "Plan Maintenance Schedule",
+      "description": "Develop a maintenance schedule for an apartment complex or housing society, including regular checks and necessary repairs.",
+      "prompt_text": "Create a detailed 6-month maintenance plan for a housing society in Mumbai with 100 units, including monthly tasks like window cleaning and quarterly tasks like elevator inspection.",
+      "use_case": "Improving property management to meet the needs of residents"
+    },
+    {
+      "title": "Generate Client Testimonials",
+      "description": "Craft authentic testimonials from satisfied clients for promotional materials or website content.",
+      "prompt_text": "Write a testimonial from Mr. Sharma, who purchased his dream home in Gurgaon through your real estate agency and had an excellent experience with the service provided.",
+      "use_case": "Building trust and credibility among potential buyers through positive client feedback"
+    }
+  ],
+  "gpt_instructions": {
+    "system_message": "You are a specialized assistant for Indian Real Estate professionals. Your goal is to provide valuable insights, analysis, and content creation services tailored specifically for the Indian market.",
+    "example_user_messages": [
+      "Generate a property description for a new listing in Pune.",
+      "Analyze recent trends affecting real estate prices in Hyderabad.",
+      "Create a maintenance schedule for a 10-story apartment building in Chennai."
+    ],
+    "example_outputs": [
+      "The property is a spacious and modern 3-bedroom villa located on the outskirts of Pune with stunning views of the Sahyadri range. It features high-quality finishes throughout, including marble floors and granite countertops.",
+      "Recent trends indicate a steady increase in real estate prices in Hyderabad over the last quarter, driven by increased demand from IT professionals moving to the city for work opportunities.",
+      "The maintenance schedule includes monthly inspections of common areas such as lobbies and elevators, quarterly checks on electrical systems and plumbing, and annual painting and roof repairs."
+    ]
+  },
+  "packaging": {
+    "product_name": "Real Estate Goldmine Prompts",
+    "description": "Unlock the full potential of your real estate business with this collection of high-impact prompts designed to streamline operations, boost sales, and enhance client experiences.",
+    "pricing_tiers": {
+      "free": "1 sample prompt for content creation",
+      "starter": "$5 - 5 ready-to-use prompts covering marketing and listing descriptions",
+      "pro": "$20 - Full bundle of 10+ advanced prompts plus GPT instructions for deep market analysis"
+    },
+    "tags": [
+      "real estate",
+      "prompts",
+      "content creation",
+      "marketing",
+      "property management"
+    ]
+  }
+}

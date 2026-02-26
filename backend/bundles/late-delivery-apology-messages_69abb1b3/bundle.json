@@ -1,0 +1,63 @@
+{
+  "prompts": [
+    {
+      "title": "Late Delivery Apology Message",
+      "description": "Apologize for delayed food delivery and offer a discount on next order.",
+      "prompt_text": "Hey [CUSTOMER_NAME] 🙏 Sorry your meal was late. We value you as our customer! Here's 10% off your next order at [YOUR_SHOP_NAME].",
+      "use_case": "Apologizing for a delayed food delivery and offering compensation."
+    },
+    {
+      "title": "Late Delivery Apology Message",
+      "description": "Express regret and offer an incentive to make up for the delay.",
+      "prompt_text": "[CUSTOMER_NAME], we're really sorry your order was late. As an apology, enjoy [DISCOUNT AMOUNT] off your next visit at [YOUR_SHOP_NAME].",
+      "use_case": "Conveying sincere apologies and providing a discount for late deliveries."
+    },
+    {
+      "title": "Late Delivery Apology Message",
+      "description": "Acknowledge the inconvenience and offer a make-up order.",
+      "prompt_text": "[CUSTOMER_NAME], sorry your food was delayed. We're offering you one free meal at [YOUR_SHOP_NAME] to make it up to you 🙏",
+      "use_case": "Acknowledging customer inconvenience due to late delivery and providing compensation."
+    },
+    {
+      "title": "Late Delivery Apology Message",
+      "description": "Offer a discount on next order and promise to improve service.",
+      "prompt_text": "[CUSTOMER_NAME], sorry your meal was delayed. As an apology, enjoy 10% off your next order at [YOUR_SHOP_NAME]. We'll make sure this doesn't happen again 🙏",
+      "use_case": "Providing a discount and ensuring better service in the future."
+    },
+    {
+      "title": "Late Delivery Apology Message",
+      "description": "Express regret for the delay and offer a complimentary item.",
+      "prompt_text": "[CUSTOMER_NAME], we're sorry your food was late. As an apology, enjoy one free [COMPLIMENTARY ITEM] at [YOUR_SHOP_NAME]. 🙏",
+      "use_case": "Offering a free item as compensation for the customer's inconvenience."
+    }
+  ],
+  "gpt_instructions": {
+    "system_message": "Act as a friendly Indian business owner. Your task is to provide ready-to-use WhatsApp apology messages for late food deliveries from local restaurants.",
+    "example_user_messages": [
+      "I need an apology message for a delayed delivery.",
+      "Can you give me a template to apologize when the food is delivered late?",
+      "My customer received their meal very late, I need a text to send them an apology."
+    ],
+    "example_outputs": [
+      "Hey [CUSTOMER_NAME] 🙏 Sorry your meal was late. We value you as our customer! Here's 10% off your next order at [YOUR_SHOP_NAME].",
+      "[CUSTOMER_NAME], we're really sorry your order was late. As an apology, enjoy ₹50 off your next visit at [YOUR_SHOP_NAME].",
+      "Hey [CUSTOMER_NAME] 🙏 Sorry your food was delayed. We're offering you one free meal at [YOUR_SHOP_NAME] to make it up to you 🙏"
+    ]
+  },
+  "packaging": {
+    "product_name": "Late Delivery Apology Messages",
+    "description": "5 ready-to-use WhatsApp apology messages for late food delivery from local restaurants, designed to solve day-to-day business problems with warmth and sincerity.",
+    "pricing_tiers": {
+      "free": "No cost. Get 1 sample message free.",
+      "starter": "$5 - Get all 5 unique templates to handle angry customers due to late deliveries.",
+      "pro": "$20 - Includes all 5 templates plus a detailed guide on how to use them effectively."
+    },
+    "tags": [
+      "Indian Business",
+      "Customer Service",
+      "WhatsApp Templates",
+      "Apology Messages",
+      "Food Delivery"
+    ]
+  }
+}

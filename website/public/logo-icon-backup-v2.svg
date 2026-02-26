@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <!-- The Tilted T Mark — Geometric monogram tilted -12° -->
+  <!-- Crossbar = connection/protocol layer (lighter) -->
+  <!-- Stem = infrastructure pillar (deeper, on top) -->
+  <g transform="rotate(-12 16 16)">
+    <rect x="3" y="4" width="26" height="8" rx="3" fill="#818cf8"/>
+    <rect x="11" y="4" width="10" height="25" rx="3" fill="#4f46e5"/>
+  </g>
+</svg>

@@ -1,0 +1,39 @@
+{
+  "prompts": [
+    {
+      "title": "Live Webinar Presentation Script",
+      "description": "This prompt generates a detailed live webinar presentation script and sales pitch flow.",
+      "prompt_text": "ROLE: Live webinar presenter\nOBJECTIVE: Engage audience, present product/service benefits, close sale\nCONTEXT: [PRODUCT_NAME], [TARGET_AUDIENCE]\nINPUT FORMAT: [SCRIPT_TEMPLATE], [PRESENTATION_OUTLINE]\nOUTPUT FORMAT: Detailed live webinar presentation script including opening remarks, product/service features, customer testimonials, Q&A session, and closing remarks.\nCONSTRAINTS: Focus on technical aspects of the product/service, include clear call-to-action for sales pitch flow.",
+      "use_case": "Preparing a comprehensive live webinar presentation script and sales pitch flow for a new product launch."
+    }
+  ],
+  "gpt_instructions": {
+    "system_message": "You are an expert in creating detailed live webinar presentation scripts and sales pitch flows. Your task is to generate content based on the provided parameters.",
+    "example_user_messages": [
+      "Generate a live webinar presentation script for [PRODUCT_NAME] targeting [TARGET_AUDIENCE].",
+      "Provide a detailed outline for a live webinar presentation that includes product features, customer testimonials, and a clear call-to-action.",
+      "Create a sales pitch flow for a live webinar including an opening statement, main body content with key benefits, and a strong closing remark to encourage conversions."
+    ],
+    "example_outputs": [
+      "[OPENING_REMARKS], [PRODUCT_FEATURES_DESCRIPTION], [CUSTOMER_TESTIMONIALS], [Q_A_SESSION_GUIDELINES], [CLOSING_REMARKS_WITH_CALL_TO_ACTION].",
+      "[OUTLINE_FOR_LIVE_WEBINAR]: 1. Opening Remarks, 2. Product Features and Benefits, 3. Customer Testimonials, 4. Q&A Session Guidelines, 5. Closing Remarks with Call to Action.",
+      "[SALES_PITCH_FLOW]: 1. Engaging opening statement highlighting product/service benefits, 2. Detailed explanation of key features, 3. Use of customer testimonials for social proof, 4. Clear call-to-action during closing remarks encouraging immediate action."
+    ]
+  },
+  "packaging": {
+    "product_name": "Webinar Wizard",
+    "description": "Webinar Wizard provides a comprehensive live webinar presentation script and sales pitch flow template to ensure your next product launch or service introduction is both engaging and effective.",
+    "pricing_tiers": {
+      "free": "Example prompt template for live webinars",
+      "starter": "$5 - Detailed webinar presentation script template with customizable placeholders, ideal for small businesses starting out.",
+      "pro": "$15 - Includes a comprehensive guide on creating compelling live webinar presentations, advanced customization options, and unlimited use."
+    },
+    "tags": [
+      "webinar",
+      "presentation",
+      "sales pitch",
+      "template",
+      "script"
+    ]
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "prompts": [
+    {
+      "title": "Facebook Ad Copy with Strong CTA",
+      "description": "This prompt helps generate an effective Facebook ad copy for direct-to-consumer brands, focusing on a strong call to action.",
+      "prompt_text": "ROLE: Professional Copywriter\nOBJECTIVE: Write a compelling Facebook ad copy for [COMPANY NAME]\nCONTEXT: The product is [PRODUCT_NAME], priced at [PRODUCT_PRICE]. The target audience are customers interested in [TARGET_AUDIENCE_INTERESTS].\nINPUT FORMAT: Product name, price, and target audience interests\nOUTPUT FORMAT: Ad headline (20 words max), image description (35 words max), body text (100 words max), call-to-action button text (7 words max)\nCONSTRAINTS: Ensure the ad copy is concise yet persuasive with a clear CTA",
+      "use_case": "Creating an effective Facebook ad for direct-to-consumer products that includes a strong call to action."
+    }
+  ],
+  "gpt_instructions": {
+    "system_message": "You are a professional copywriter. Your task is to generate compelling and concise Facebook ad copies with clear calls to action.",
+    "example_user_messages": [
+      "Write an effective Facebook ad for [COMPANY NAME] selling [PRODUCT_NAME].",
+      "Create a persuasive Facebook ad for [PRODUCT_NAME], priced at [PRODUCT_PRICE].",
+      "Generate a strong CTA Facebook ad copy for [PRODUCT_NAME] targeting customers interested in [TARGET_AUDIENCE_INTERESTS]."
+    ],
+    "example_outputs": [
+      "Ad headline: Get your [PRODUCT_NAME] now and enjoy the benefits!\nImage description: High-quality image of [PRODUCT_NAME]\nBody text: Discover why [COMPANY NAME]'s [PRODUCT_NAME] is a must-have. With its unique features, you'll wonder how you ever lived without it.\nCall-to-action button text: Shop Now",
+      "Ad headline: [PRODUCT_NAME] - Experience the Difference!\nImage description: Close-up of [PRODUCT_NAME]\nBody text: [COMPANY NAME]'s [PRODUCT_NAME] is more than just a product. It's an experience that promises quality and reliability at an unbeatable price.\nCall-to-action button text: Buy Now",
+      "Ad headline: Transform Your Life with [PRODUCT_NAME]!\nImage description: Lifestyle image featuring [PRODUCT_NAME]\nBody text: At [COMPANY NAME], we understand the importance of having a product that truly makes a difference. That's why our [PRODUCT_NAME] is designed to enhance your lifestyle effortlessly.\nCall-to-action button text: Get Your [PRODUCT_NAME] Now"
+    ]
+  },
+  "packaging": {
+    "product_name": "Facebook Ad Copy Framework",
+    "description": "Get ready-made templates for crafting effective Facebook ad copies with strong call-to-actions. Perfect for busy D2C brand managers.",
+    "pricing_tiers": {
+      "free": "No free tier available at this time.",
+      "starter": "$5 - Includes 1 template for generating a basic Facebook ad copy with a simple CTA.",
+      "pro": "$15 - Includes unlimited access to all templates and priority support."
+    },
+    "tags": [
+      "Facebook Ad Copy",
+      "Direct-to-Consumer Brands",
+      "Strong Call To Action",
+      "Professional Copywriting",
+      "Marketing Templates"
+    ]
+  }
+}

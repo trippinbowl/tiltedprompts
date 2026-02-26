@@ -1,0 +1,2 @@
+timestamp,buyer_email,product_name,price,currency,gumroad_sale_id,status
+2026-02-19T21:35:44.254733+00:00,test@example.com,The Ultimate Indian SMB Marketing Prompt Pack,9.99,usd,test-001,email_failed

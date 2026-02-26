@@ -1,0 +1,131 @@
+/* TiltedPrompts – Content Script Styles */
+
+#tp-fab {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+    color: #fff;
+    font-size: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 999999;
+    box-shadow: 0 4px 16px rgba(108, 92, 231, 0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+    user-select: none;
+}
+
+#tp-fab:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 24px rgba(108, 92, 231, 0.6);
+}
+
+#tp-overlay {
+    position: fixed;
+    bottom: 84px;
+    right: 24px;
+    z-index: 999998;
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+#tp-overlay.tp-hidden {
+    display: none;
+}
+
+.tp-panel {
+    width: 320px;
+    max-height: 420px;
+    background: #0f0f23;
+    border-radius: 14px;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    border: 1px solid rgba(108, 92, 231, 0.3);
+    display: flex;
+    flex-direction: column;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.tp-panel-header {
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, #1a1a3e, #2d1b69);
+    border-bottom: 1px solid rgba(108, 92, 231, 0.2);
+}
+
+.tp-panel-title {
+    font-size: 14px;
+    font-weight: 800;
+    color: #a29bfe;
+}
+
+.tp-close-btn {
+    background: none;
+    border: none;
+    color: #94a3b8;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.tp-close-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.tp-prompt-list {
+    padding: 8px;
+    overflow-y: auto;
+    max-height: 320px;
+}
+
+.tp-prompt-card {
+    padding: 10px 12px;
+    background: #1e1e3f;
+    border-radius: 8px;
+    margin-bottom: 6px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.2s;
+}
+
+.tp-prompt-card:hover {
+    border-color: rgba(108, 92, 231, 0.4);
+    background: #252552;
+}
+
+.tp-prompt-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: #e2e8f0;
+    margin-bottom: 3px;
+}
+
+.tp-prompt-preview {
+    font-size: 11px;
+    color: #94a3b8;
+    line-height: 1.3;
+}
+
+.tp-footer {
+    padding: 8px 16px;
+    text-align: center;
+    border-top: 1px solid rgba(108, 92, 231, 0.1);
+}
+
+.tp-footer a {
+    font-size: 11px;
+    color: #a29bfe;
+    text-decoration: none;
+}
+
+.tp-footer a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,37 @@
+{
+  "prompts": [
+    {
+      "title": "Technical Logo Design Prompt",
+      "description": "A technical blueprint to design a logo for a company launching a digital product.",
+      "prompt_text": "ROLE: Graphic designer specialized in creating logos for digital product launches.\nOBJECTIVE: Create a unique, professional logo that accurately represents [COMPANY NAME] and their new digital product launch.\nCONTEXT: The logo will be used on the website, social media platforms, business cards, and promotional materials to increase brand recognition and establish credibility with potential customers.\nINPUT FORMAT: Provide [BRAND COLOR HEX CODE], [COMPANY NAME], and a brief description of the digital product being launched. Use these inputs as the sole information sources for the logo design.\nOUTPUT FORMAT: A detailed technical specification document outlining the logo design process, including but not limited to color theory application, typography choices, visual representation of the company's core values in the logo, and alignment with industry standards for digital products logos.\nCONSTRAINTS: Ensure that the final logo is scalable for various sizes from business cards to large banners. It must be legible at small scales and maintain its clarity when viewed on high-resolution screens such as retina displays.",
+      "use_case": "Designing a professional logo for a company launching a digital product, ensuring it represents the brand effectively across multiple platforms."
+    }
+  ],
+  "gpt_instructions": {
+    "system_message": "You are a specialized graphic designer AI that creates logos based on technical blueprints. Your primary function is to interpret the provided inputs and generate detailed logo designs according to the constraints.",
+    "example_user_messages": [
+      "Provide [BRAND COLOR HEX CODE], [COMPANY NAME] = TiltedPrompts, and describe their digital product launch as an innovative AI tool for businesses.",
+      "Inputs: [BRAND COLOR HEX CODE] = #FF5733, [COMPANY NAME] = TechSolutions, digital product is a secure cloud storage platform."
+    ],
+    "example_outputs": [
+      "ROLE: Graphic designer specializing in logos for tech startups.\nOBJECTIVE: Design a logo for TiltedPrompts that aligns with their innovative AI tool for businesses.\n... (technical specification document follows) ...\nThe final logo adheres to the provided constraints and is scalable from business card size up to large banners.",
+      "ROLE: Graphic designer specializing in logos for secure cloud storage platforms.\nOBJECTIVE: Design a logo for TechSolutions that reflects the security and reliability of their cloud storage platform.\n... (technical specification document follows) ...\nThe final logo adheres to the provided constraints and is scalable from business card size up to large banners."
+    ]
+  },
+  "packaging": {
+    "product_name": "Logo Blueprint Generator",
+    "description": "Generate professional logos for digital product launches with this specialized technical blueprint generator. Perfect for startups and small businesses.",
+    "pricing_tiers": {
+      "free": "Free basic template access, no support or updates included.",
+      "starter": "$5 - Includes 3 unique logo templates with detailed specifications, customer support via email.",
+      "pro": "$10 - Includes unlimited logo templates, priority customer support, and regular updates based on user feedback."
+    },
+    "tags": [
+      "logo design",
+      "digital product launch",
+      "business branding",
+      "professional graphics",
+      "technical blueprint"
+    ]
+  }
+}

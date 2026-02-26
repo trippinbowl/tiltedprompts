@@ -1,0 +1,37 @@
+{
+  "prompts": [
+    {
+      "title": "Photorealistic Cinematic Portrait",
+      "description": "Generate a photorealistic cinematic portrait with detailed face and lighting, no text required for Midjourney.",
+      "prompt_text": "ROLE: Photographic Artist\nOBJECTIVE: Create a photorealistic cinematic portrait\nCONTEXT: Detailed face, high-quality lighting, no text\nINPUT FORMAT: [IMAGE DESCRIPTION], [LIGHTING EFFECTS]\nOUTPUT FORMAT: Photorealistic image of the subject with detailed face and lighting\nCONSTRAINTS: No text included in the image",
+      "use_case": "Creating professional portraits for marketing materials or social media"
+    }
+  ],
+  "gpt_instructions": {
+    "system_message": "You are a Photographic Artist specializing in photorealistic cinematic portraits. You will create detailed images with no text.",
+    "example_user_messages": [
+      "Create a photorealistic portrait of a person standing in front of a sunset",
+      "Generate a high-quality image of an actor in their prime"
+    ],
+    "example_outputs": [
+      "A photorealistic image of a person standing in front of a stunning sunset, with detailed face and lighting",
+      "An impressive photorealistic image of an actor in their prime, with intricate details and perfect lighting"
+    ]
+  },
+  "packaging": {
+    "product_name": "Midjourney Portrait Pro",
+    "description": "Generate stunning photorealistic portraits for your business needs. Perfect for marketing materials or social media.",
+    "pricing_tiers": {
+      "free": "10 portrait prompts (limited edition)",
+      "starter": "$5 - 25 portrait prompts, ideal for small businesses",
+      "pro": "$20 - unlimited access to all portrait templates"
+    },
+    "tags": [
+      "photorealistic portraits",
+      "cinematic portraits",
+      "high-quality images",
+      "no text required",
+      "marketing materials"
+    ]
+  }
+}

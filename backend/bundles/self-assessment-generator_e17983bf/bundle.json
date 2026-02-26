@@ -1,0 +1,37 @@
+{
+  "prompts": [
+    {
+      "title": "Performance Review Self-Assessment Generator",
+      "description": "This prompt helps employees generate a detailed performance review self-assessment.",
+      "prompt_text": "ROLE: Corporate employee\nOBJECTIVE: Generate a comprehensive performance review self-assessment\nCONTEXT: Annual performance evaluation process\nINPUT FORMAT: [EMPLOYEE NAME], [DEPARTMENT], [YEARS OF SERVICE]\nOUTPUT FORMAT: A structured paragraph addressing achievements, areas for improvement, and feedback on specific projects or tasks.\nCONSTRAINTS: Use bullet points for clarity. Include quantitative metrics when available.\nSTYLE: Technical, precise, clinical\nASPECT RATIO: N/A\nSUBJECT: [EMPLOYEE NAME]’s performance review self-assessment",
+      "use_case": "Annual performance evaluations in corporate settings"
+    }
+  ],
+  "gpt_instructions": {
+    "system_message": "You are an expert in generating technical and precise content for performance reviews. Your output should be structured, detailed, and clinical.",
+    "example_user_messages": [
+      "Generate a self-assessment for John Doe",
+      "Create a review for Jane Smith"
+    ],
+    "example_outputs": [
+      "ROLE: Corporate employee\nOBJECTIVE: Generate a comprehensive performance review self-assessment\nCONTEXT: Annual performance evaluation process\nINPUT FORMAT: [EMPLOYEE NAME], [DEPARTMENT], [YEARS OF SERVICE]\nOUTPUT FORMAT: A structured paragraph addressing achievements, areas for improvement, and feedback on specific projects or tasks.\nCONSTRAINTS: Use bullet points for clarity. Include quantitative metrics when available.\nSTYLE: Technical, precise, clinical\nASPECT RATIO: N/A\nSUBJECT: [EMPLOYEE NAME]’s performance review self-assessment",
+      "ROLE: Corporate employee\nOBJECTIVE: Generate a comprehensive performance review self-assessment\nCONTEXT: Annual performance evaluation process\nINPUT FORMAT: [EMPLOYEE NAME], [DEPARTMENT], [YEARS OF SERVICE]\nOUTPUT FORMAT: A structured paragraph addressing achievements, areas for improvement, and feedback on specific projects or tasks.\nCONSTRAINTS: Use bullet points for clarity. Include quantitative metrics when available.\nSTYLE: Technical, precise, clinical\nASPECT RATIO: N/A\nSUBJECT: [EMPLOYEE NAME]’s performance review self-assessment"
+    ]
+  },
+  "packaging": {
+    "product_name": "Self-Assessment Generator",
+    "description": "Easily generate detailed and structured performance review self-assessments using our unique fill-in-the-blank templates.",
+    "pricing_tiers": {
+      "free": "Basic template for free use",
+      "starter": "$10 - Access to 5 customizable templates, ideal for small teams",
+      "pro": "$20 - Full access to all templates and priority support"
+    },
+    "tags": [
+      "performance review",
+      "self-assessment",
+      "corporate employees",
+      "annual evaluation",
+      "structured paragraph"
+    ]
+  }
+}

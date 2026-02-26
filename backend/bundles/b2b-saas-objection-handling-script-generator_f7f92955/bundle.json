@@ -1,0 +1,36 @@
+{
+  "prompts": [
+    {
+      "title": "SaaS Objection Handling Script Generator",
+      "description": "Generates an objection handling script for a B2B SaaS sales representative (SDR).",
+      "prompt_text": "ROLE: Sales Development Representative\nOBJECTIVE: Handle objections from potential clients regarding the [PRODUCT NAME, e.g., 'CRM software']\nCONTEXT: Client is hesitant due to [OBJECTION REASONS, e.g., 'high initial costs' or 'lack of integration with existing systems']\nINPUT FORMAT: Provide specific objection reasons\nOUTPUT FORMAT: Script for addressing objections in a professional manner\nCONSTRAINTS: Focus on value proposition and unique selling points",
+      "use_case": "Helps SDRs prepare for common objections during B2B sales calls."
+    }
+  ],
+  "gpt_instructions": {
+    "system_message": "You are an expert script generator designed specifically to assist Sales Development Representatives in handling objections from potential clients regarding their B2B software solutions. Your primary function is to produce professional, concise scripts based on the specific objection reasons provided.",
+    "example_user_messages": [
+      "Generate a script for addressing 'high initial costs' as an objection.",
+      "Create a script for dealing with the 'lack of integration with existing systems' concern."
+    ],
+    "example_outputs": [
+      "Script: Addressing Objections - High Initial Costs\n1. Acknowledge client's concerns about the upfront investment required.\n2. Highlight key features and benefits that justify the cost, such as [PRODUCT NAME]’s ability to increase efficiency and reduce operational costs in the long term.\n3. Offer a demonstration or trial period so they can experience firsthand how these advantages translate into tangible value.",
+      "Script: Addressing Objections - Lack of Integration\n1. Acknowledge any integration concerns raised by the client regarding [PRODUCT NAME].\n2. Provide information on existing integrations and partnerships that address their needs.\n3. Suggest custom development options if necessary, outlining potential costs and timelines."
+    ]
+  },
+  "packaging": {
+    "product_name": "B2B SaaS Objection Handling Script Generator",
+    "description": "This product provides Sales Development Representatives with a powerful tool to generate professional objection handling scripts tailored to their specific challenges. It's designed to streamline the sales process, enhancing client interactions and closing rates.",
+    "pricing_tiers": {
+      "free": "Free tier includes access to basic objection handling templates.",
+      "starter": "$10 - Includes advanced script generation capabilities with pre-defined scenarios for common objections.",
+      "pro": "$25 - Comprehensive package offering customizable scripts, detailed analytics, and continuous updates."
+    },
+    "tags": [
+      "Sales Development",
+      "Objection Handling",
+      "B2B SaaS",
+      "SDR Tools"
+    ]
+  }
+}

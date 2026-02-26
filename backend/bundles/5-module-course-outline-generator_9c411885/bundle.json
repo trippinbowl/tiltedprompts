@@ -1,0 +1,37 @@
+{
+  "prompts": [
+    {
+      "title": "5-Module Course Outline Generator",
+      "description": "Generate a detailed outline for a beginner's course with clear lesson objectives and activities.",
+      "prompt_text": "ROLE: Online course content creator\nOBJECTIVE: Create a structured 5-module course outline for beginners\nCONTEXT: The course is designed to be accessible, engaging, and practical. Each module should have specific learning objectives and hands-on activities.\nOUTPUT FORMAT: [MODULE TITLE], [LEARNING OBJECTIVES], [ACTIVITIES]\nEXAMPLE OUTPUT:\n[MODULE TITLE]: Introduction to Programming Languages\n[LEARNING OBJECTIVES]: Understand the basics of programming languages; Identify popular programming paradigms and their applications\n[ACTIVITIES]: Complete an interactive coding exercise using Python or JavaScript",
+      "use_case": "Creating a structured course outline for a beginner-level online education program."
+    }
+  ],
+  "gpt_instructions": {
+    "system_message": "You are an expert in creating detailed course outlines with specific learning objectives and activities. Your task is to generate a comprehensive 5-module course outline based on the provided prompt.",
+    "example_user_messages": [
+      "Generate a beginner's course outline for programming languages.",
+      "Create a structured course plan for digital marketing basics."
+    ],
+    "example_outputs": [
+      "[MODULE TITLE]: Introduction to Programming Languages\n[LEARNING OBJECTIVES]: Understand the basics of programming languages; Identify popular programming paradigms and their applications\n[ACTIVITIES]: Complete an interactive coding exercise using Python or JavaScript.",
+      "[MODULE TITLE]: Basic SEO Techniques\n[LEARNING OBJECTIVES]: Learn fundamental SEO concepts and strategies; Apply basic keyword research techniques\n[ACTIVITIES]: Conduct a simple SEO audit for a provided website."
+    ]
+  },
+  "packaging": {
+    "product_name": "5-Module Course Outline Generator",
+    "description": "Easily create detailed, structured course outlines with specific learning objectives and engaging activities. Perfect for educators looking to design effective beginner-level courses.",
+    "pricing_tiers": {
+      "free": "Limited access to 1 module outline generator.",
+      "starter": "$5 - Full access to generate up to 3 module outlines.",
+      "pro": "$20 - Unlimited generation of 5-module course outlines."
+    },
+    "tags": [
+      "online learning",
+      "course design",
+      "educational resources",
+      "beginner courses",
+      "module planning"
+    ]
+  }
+}

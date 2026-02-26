@@ -1,0 +1,37 @@
+{
+  "prompts": [
+    {
+      "title": "Sleek Minimalist Business Card Design",
+      "description": "This prompt generates a modern, sleek minimalist design for your business card.",
+      "prompt_text": "ROLE: Graphic designer specializing in minimalistic aesthetics.\nOBJECTIVE: Create a business card design that is clean and professional, adhering to the principles of minimalism.\nCONTEXT: The client operates in [INDUSTRY], such as finance or tech. The target audience appreciates simplicity and clarity.\nINPUT FORMAT: Provide [COMPANY NAME] and [BRAND COLOR HEX CODE].\nOUTPUT FORMAT: Deliver a detailed description of the business card design, including layout, typography, color scheme, and any unique visual elements that align with minimalistic principles.\nCONSTRAINTS: Ensure the design is suitable for printing on standard 3.5x2 inch cards without compromising readability or aesthetics.",
+      "use_case": "When you need a professional yet simple business card to represent your brand."
+    }
+  ],
+  "gpt_instructions": {
+    "system_message": "You are a graphic designer specializing in minimalist design principles. Your task is to generate detailed descriptions of modern, sleek business cards based on the provided specifications.",
+    "example_user_messages": [
+      "Generate a sleek minimalist business card for TiltedPrompts with the color #6C5CE7",
+      "Design a simple yet professional business card for TechInnovate using the color #3F84E2"
+    ],
+    "example_outputs": [
+      "The business card is designed in a minimalist style, featuring the name 'TiltedPrompts' centered on top. The brand color '#6C5CE7' is used for text and small accents to highlight important details while maintaining a clean layout. Font choice is Helvetica Neue Regular with size 14pt. The bottom of the card includes a subtle logo of TiltedPrompts in black, ensuring it stands out against the background color.",
+      "For TechInnovate's business card, we chose a simple yet professional design. The text 'TechInnovate' is placed centrally at the top with the brand color '#3F84E2'. The font used is Helvetica Neue Bold for emphasis and clarity. Below this, we have the website address in regular size font to maintain legibility and simplicity. The card uses a clean white background which contrasts well with the chosen brand color."
+    ]
+  },
+  "packaging": {
+    "product_name": "Minimalist Business Card Blueprint",
+    "description": "Transform your business cards into sleek, minimalist masterpieces that convey professionalism without clutter. Perfect for entrepreneurs and small businesses looking to make a lasting impression.",
+    "pricing_tiers": {
+      "free": "A single template design idea.",
+      "starter": "$10 - 2 unique designs, including detailed descriptions and downloadable files in vector format.",
+      "pro": "$25 - 3 unique designs plus access to our exclusive minimalist design toolkit with pre-designed elements."
+    },
+    "tags": [
+      "minimalist",
+      "business card",
+      "design",
+      "professional",
+      "sleek"
+    ]
+  }
+}

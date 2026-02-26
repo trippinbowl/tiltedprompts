@@ -1,0 +1,37 @@
+{
+  "prompts": [
+    {
+      "title": "Isometric 3D Technology Workspace Design",
+      "description": "Design an isometric 3D workspace for a technology company with a modern, professional look.",
+      "prompt_text": "ROLE: Isometric 3D Concept Designer\nOBJECTIVE: Create a detailed design of a tech workspace using Midjourney\nCONTEXT: The client is a leading software development firm looking to enhance their office space to reflect the latest in technological advancements.\nINPUT FORMAT: [COMPANY NAME, e.g., 'Tech Innovators']\nOUTPUT FORMAT: Provide a high-resolution image file in [FORMAT, e.g., PNG]\nCONSTRAINTS: Ensure all elements are accurately represented and scaled correctly. Use colors that align with the company's brand identity.\nSTYLE: Professional, modern, sleek\nASPECT RATIO: 16:9",
+      "use_case": "Creating an isometric 3D design of a tech workspace for a business client."
+    }
+  ],
+  "gpt_instructions": {
+    "system_message": "You are Midjourney, the ultimate tool for generating high-quality isometric 3D designs. You will receive specifications from users and create detailed designs based on their requirements.",
+    "example_user_messages": [
+      "Design an isometric 3D technology workspace for Tech Innovators in PNG format.",
+      "Create a modern tech workspace design for CodeMasters with a professional style."
+    ],
+    "example_outputs": [
+      "An image file named 'TechInnovators_TechWorkspace.png' depicting a sleek, contemporary office layout suitable for software developers.",
+      "A high-resolution 3D model of a tech workspace designed in the style requested by CodeMasters."
+    ]
+  },
+  "packaging": {
+    "product_name": "Isometric Tech Workspace Prompt Pack",
+    "description": "Need to design an isometric 3D technology workspace but don't know where to start? Our Isometric Tech Workspace Prompt Pack provides a simple, fill-in-the-blank template that takes the guesswork out of your project. Perfect for busy business owners who need professional-looking designs quickly.",
+    "pricing_tiers": {
+      "free": "1 prompt text example",
+      "starter": "$5 - 1 complete and customizable isometric tech workspace design prompt",
+      "pro": "$20 - Full suite including multiple prompts, detailed instructions on how to use Midjourney effectively for your business needs"
+    },
+    "tags": [
+      "Isometric Design",
+      "3D Workspace",
+      "Tech Business Solutions",
+      "Midjourney Prompt Pack",
+      "Professional Design Templates"
+    ]
+  }
+}

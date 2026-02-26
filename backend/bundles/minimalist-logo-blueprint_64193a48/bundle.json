@@ -1,0 +1,37 @@
+{
+  "prompts": [
+    {
+      "title": "Minimalist Vector Logo Design",
+      "description": "Design a minimalist vector logo for your brand with scalable primary colors and no text distortion.",
+      "prompt_text": "ROLE: Graphic designer specializing in minimalistic logos.\nOBJECTIVE: Create a minimalist vector logo that uses scalable primary colors without any text distortion.\nCONTEXT: The logo will be used across various platforms including social media, business cards, and website headers. It should be easily recognizable and represent the brand's values of simplicity and modernity.\nINPUT FORMAT: [BRAND NAME], [PRIMARY COLOR 1 (HEX)], [PRIMARY COLOR 2 (HEX)]\nOUTPUT FORMAT: SVG file of the logo\nCONSTRAINTS: Ensure that the text is not distorted under any scaling. Use only primary colors provided as inputs for a clean look.\nSTYLE: Minimalist, professional, clean lines and shapes without excessive detail or complexity.",
+      "use_case": "Designing a minimalist vector logo for a brand with scalable primary colors."
+    }
+  ],
+  "gpt_instructions": {
+    "system_message": "You are an AI specialized in generating minimalist vector logos based on user-provided inputs. Your output will be SVG files suitable for use across multiple platforms.",
+    "example_user_messages": [
+      "[BRAND NAME, e.g., 'TiltedPrompts'], [PRIMARY COLOR 1 (HEX), e.g., '#FFFFFF'], [PRIMARY COLOR 2 (HEX), e.g., '#000000']",
+      "[BRAND NAME, e.g., 'EcoFriendlyLife'], [PRIMARY COLOR 1 (HEX), e.g., '#8BC34A'], [PRIMARY COLOR 2 (HEX), e.g., '#FFEB3B']"
+    ],
+    "example_outputs": [
+      "SVG file of a minimalist vector logo for TiltedPrompts using white and black primary colors.",
+      "SVG file of a minimalist vector logo for EcoFriendlyLife using green and yellow primary colors."
+    ]
+  },
+  "packaging": {
+    "product_name": "Minimalist Logo Blueprint",
+    "description": "Quickly design professional minimalist logos with scalable primary colors without text distortion. Perfect for businesses needing clean, modern branding.",
+    "pricing_tiers": {
+      "free": "1 free logo blueprint template",
+      "starter": "$5 - 3 logo blueprints and detailed instructions",
+      "pro": "$20 - Unlimited access to all templates and expert support"
+    },
+    "tags": [
+      "logo design",
+      "minimalist branding",
+      "scalable primary colors",
+      "text distortion prevention",
+      "SVG file"
+    ]
+  }
+}

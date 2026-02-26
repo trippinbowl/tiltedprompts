@@ -1,0 +1,37 @@
+{
+  "prompts": [
+    {
+      "title": "Digital Marketing Strategy for Home Baker",
+      "description": "This prompt helps create a digital marketing strategy for a home baker, including social media content and customer engagement plans.",
+      "prompt_text": "ROLE: Digital Marketing Consultant\nOBJECTIVE: Develop a comprehensive digital marketing strategy for [HOME_BAKER_NAME]\nCONTEXT: [HOME_BAKER_NAME] is a home baker specializing in artisan breads. The goal is to increase brand awareness, drive traffic to the website, and boost sales through social media.\nINPUT FORMAT: [SOCIAL_MEDIA_PLATFORMS], e.g., Instagram, Facebook\nOUTPUT FORMAT: A 4-week marketing calendar including daily posts with images and descriptions for each platform, influencer partnerships, customer engagement strategies, and analytics tracking. Ensure content is tailored to the respective platforms' strengths.\nCONSTRAINTS: Content must be unique, engaging, and aligned with [HOME_BAKER_NAME]'s brand values.",
+      "use_case": "Creating a detailed digital marketing plan for a home baker looking to expand their online presence."
+    }
+  ],
+  "gpt_instructions": {
+    "system_message": "You are a specialized assistant focusing on creating digital marketing strategies for home bakers. Your output must be structured, detailed, and tailored to the specific needs of small businesses.",
+    "example_user_messages": [
+      "Develop a comprehensive digital marketing strategy for Sweet Home Breads.",
+      "Create a 4-week social media content calendar for The Artisan Baker."
+    ],
+    "example_outputs": [
+      "ROLE: Digital Marketing Consultant\nOBJECTIVE: Develop a comprehensive digital marketing strategy for Sweet Home Breads.\n...\nCONSTRAINTS: Content must be unique, engaging, and aligned with Sweet Home Breads' brand values.",
+      "ROLE: Social Media Manager\nOBJECTIVE: Create a 4-week social media content calendar for The Artisan Baker.\n...\nCONSTRAINTS: Content must be visually appealing, engaging, and aligned with The Artisan Baker's brand identity."
+    ]
+  },
+  "packaging": {
+    "product_name": "BakerBoost Digital Marketing Blueprint",
+    "description": "Maximize your home baking business with our specialized digital marketing blueprint designed to elevate your online presence and drive sales.",
+    "pricing_tiers": {
+      "free": "A sample marketing plan for a fictional home baker, including 1 week of content.",
+      "starter": "$5 - A detailed 4-week social media calendar tailored specifically to your business needs.",
+      "pro": "$20 - Includes the starter package plus personalized strategy sessions and continuous support."
+    },
+    "tags": [
+      "home baking",
+      "digital marketing",
+      "business growth",
+      "social media",
+      "online presence"
+    ]
+  }
+}

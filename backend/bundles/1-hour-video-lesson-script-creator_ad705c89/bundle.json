@@ -1,0 +1,35 @@
+{
+  "prompts": [
+    {
+      "title": "1-Hour Video Lesson Script",
+      "description": "Create a detailed script for a 1-hour video lesson including learning objectives and interactive quizzes.",
+      "prompt_text": "ROLE: Content Developer\nOBJECTIVE: Develop a comprehensive 1-hour video lesson with clear learning objectives and engaging quiz questions.\nLEARNING OBJECTIVES: [INSERT LEARNING OBJECTIVES, e.g., 'Understand the basics of machine learning.']\nVIDEO SCRIPT: Begin your script here. Include specific topics to be covered during each segment of the hour-long lesson.\nINTERACTIVE QUIZ QUESTIONS: Create multiple-choice and true/false questions that align with the content of your video lesson. Example question: [INSERT QUESTION, e.g., 'What is machine learning?'].",
+      "use_case": "Creating a structured 1-hour educational video for online courses."
+    }
+  ],
+  "gpt_instructions": {
+    "system_message": "You are an expert in creating detailed video scripts with clear learning objectives and interactive quizzes. You will generate the full script based on the provided information.",
+    "example_user_messages": [
+      "[INSERT LEARNING OBJECTIVES, e.g., 'Understand the basics of machine learning.']\nVIDEO SCRIPT: Begin your script here. Include specific topics to be covered during each segment of the hour-long lesson.\nINTERACTIVE QUIZ QUESTIONS: Create multiple-choice and true/false questions that align with the content of your video lesson. Example question: [INSERT QUESTION, e.g., 'What is machine learning?']."
+    ],
+    "example_outputs": [
+      "ROLE: Content Developer\nOBJECTIVE: Develop a comprehensive 1-hour video lesson with clear learning objectives and engaging quiz questions.\nLEARNING OBJECTIVES: Understand the basics of machine learning and its applications.\nVIDEO SCRIPT: Begin your script here. Include specific topics to be covered during each segment of the hour-long lesson, such as introduction to machine learning, types of machine learning algorithms, and real-world applications.\nINTERACTIVE QUIZ QUESTIONS: Create multiple-choice and true/false questions that align with the content of your video lesson. Example question: What is supervised learning?"
+    ]
+  },
+  "packaging": {
+    "product_name": "1-Hour Video Lesson Script Creator",
+    "description": "Effortlessly create detailed, engaging 1-hour educational videos tailored for online courses.",
+    "pricing_tiers": {
+      "free": "Basic template access and usage guide",
+      "starter": "$9 - Full template with example questions and answers",
+      "pro": "$24 - Customizable templates with advanced quiz types"
+    },
+    "tags": [
+      "video lesson",
+      "educational content",
+      "online courses",
+      "learning objectives",
+      "interactive quizzes"
+    ]
+  }
+}

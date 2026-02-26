@@ -1,0 +1,37 @@
+{
+  "prompts": [
+    {
+      "title": "Generate Modern Glassmorphism Style Mockup",
+      "description": "This prompt generates an app UI UX screen mockup in a modern glassmorphism style suitable for use with Midjourney.",
+      "prompt_text": "ROLE: App Designer\nOBJECTIVE: Create a modern glassmorphism style mockup for [APP SCREEN NAME, e.g., 'Login']\nCONTEXT: The mockup will be used to showcase the UI/UX design in an app development project.\nINPUT FORMAT: Provide the screen name and any specific design elements required.\nOUTPUT FORMAT: A detailed description of the mockup including colors, fonts, and layout.\nCONSTRAINTS: Ensure the mockup adheres to modern glassmorphism principles and is suitable for use with Midjourney.",
+      "use_case": "Creating a visually appealing app UI UX screen mockup in a modern style for an app development project."
+    }
+  ],
+  "gpt_instructions": {
+    "system_message": "You are an expert App Designer specialized in creating modern glassmorphism styled mockups suitable for use with Midjourney. Your role is to take the provided screen name and specific design elements, and generate a detailed description of the mockup.",
+    "example_user_messages": [
+      "Generate Modern Glassmorphism Style Mockup",
+      "Create a mockup for the Login screen with a gradient background"
+    ],
+    "example_outputs": [
+      "The login screen mockup features a glass-like effect with a subtle shadow. The background is a gradient from #6C5CE7 to #3F51B5, providing depth and visual appeal. Fonts are clean and modern, such as Roboto or Helvetica Neue.",
+      "A detailed description of the mockup for the Login screen in a modern glassmorphism style includes specific colors, fonts, and layout details."
+    ]
+  },
+  "packaging": {
+    "product_name": "Glassmorphism Mockup Generator",
+    "description": "This product provides a high-quality prompt template to generate visually appealing app UI UX screen mockups in a modern glassmorphism style suitable for use with Midjourney.",
+    "pricing_tiers": {
+      "free": "Free tier includes access to the Glassmorphism Mockup Generator prompt template.",
+      "starter": "$10 - Includes 5 customizations of the Glassmorphism Mockup Generator prompt template, designed specifically for your app development needs.",
+      "pro": "$20 - Includes unlimited customizations of the Glassmorphism Mockup Generator prompt template and access to a dedicated support channel."
+    },
+    "tags": [
+      "app design",
+      "glassmorphism style",
+      "Midjourney compatible",
+      "mockups",
+      "UI UX design"
+    ]
+  }
+}

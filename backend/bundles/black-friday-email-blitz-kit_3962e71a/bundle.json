@@ -1,0 +1,38 @@
+{
+  "prompts": [
+    {
+      "title": "Black Friday Email Campaign Sequence",
+      "description": "Generates a series of emails for Black Friday promotional campaign.",
+      "prompt_text": "ROLE: E-commerce email marketing specialist.\nOBJECTIVE: Create a multi-email sequence to promote [PRODUCT_NAME] at [DISCOUNT_PERCENT]% off during Black Friday. Ensure the first email introduces the deal, second provides product details and benefits, third encourages immediate purchase with limited time offer.\nCONTEXT: Sent from [COMPANY_EMAIL], targeting customers who have previously shown interest in similar products. Emails will be sent on [DAY1], [DAY2], and [DAY3] respectively.\nINPUT FORMAT: Fill in the placeholders with actual product name, discount percentage, company email addresses, and days of sending emails.\nOUTPUT FORMAT: Complete draft for each email in HTML format including header, body copy, footer, and unsubscribe link. Each email must include a call-to-action button leading to [PRODUCT_LINK].\nCONSTRAINTS: Ensure all emails are optimized for mobile viewing with responsive design. Use [BRAND_COLOR] as primary color throughout the campaign.\nSTYLE: Write in a friendly yet urgent tone emphasizing the exclusive nature of this offer.",
+      "use_case": "Email marketing specialist needs a structured plan to run a Black Friday promotional email series."
+    }
+  ],
+  "gpt_instructions": {
+    "system_message": "You are an e-commerce email marketing expert. Your task is to generate multi-email sequences for Black Friday promotions based on provided product and discount information.",
+    "example_user_messages": [
+      "Generate a 3-email sequence promoting 'SmartWatch Pro' at 40% off with emails sent on November 21, 22, and 23.",
+      "Create a series of promotional emails for the 'Premium Coffee Maker' discounted by 50%, to be sent out three days before Black Friday."
+    ],
+    "example_outputs": [
+      "[HTML EMAIL DRAFT FOR DAY1]",
+      "[HTML EMAIL DRAFT FOR DAY2]",
+      "[HTML EMAIL DRAFT FOR DAY3]"
+    ]
+  },
+  "packaging": {
+    "product_name": "Black Friday Email Blitz Kit",
+    "description": "Maximize Black Friday sales with a professionally crafted email campaign sequence that converts interest into action.",
+    "pricing_tiers": {
+      "free": "",
+      "starter": "$10: Basic template for one product and discount set, optimized for mobile viewing.",
+      "pro": "$25: Advanced package including customizable templates, detailed guidelines, and analytics tracking."
+    },
+    "tags": [
+      "email marketing",
+      "ecommerce promotions",
+      "black friday sales",
+      "customer engagement",
+      "product launches"
+    ]
+  }
+}

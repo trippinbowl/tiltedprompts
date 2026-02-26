@@ -1,0 +1,123 @@
+{
+  "prompts": [
+    {
+      "title": "Instagram Caption for Product Launch",
+      "description": "Craft a captivating caption to announce your latest product launch.",
+      "prompt_text": "[Brand Name] is proud to introduce our newest [Product Category]. Elevate your style with quality and craftsmanship. #NewArrival #StyleStatement",
+      "use_case": "Marketing - Product Launch Announcement"
+    },
+    {
+      "title": "Reels Script for Behind-the-Scenes Content",
+      "description": "Create a script to showcase the behind-the-scenes of your production process.",
+      "prompt_text": "Welcome to [Brand Name]! 🎬 Today, we're taking you behind the scenes and showing how our amazing team brings quality products to life. Stay tuned for more insights into our world! #BehindTheScenes",
+      "use_case": "Content - Behind-the-Scenes Content Ideas"
+    },
+    {
+      "title": "Carousel Post Idea for Product Showcase",
+      "description": "Generate ideas for a carousel post that highlights your products in various ways.",
+      "prompt_text": "[Brand Name] presents the [Product Category] collection. Swipe through to see our latest styles and designs that make life better. #StyleYourLife",
+      "use_case": "Marketing - Product Showcase"
+    },
+    {
+      "title": "Story Engagement Prompt for Customer Testimonials",
+      "description": "Write a prompt to encourage customers to share their testimonials in your Instagram Stories.",
+      "prompt_text": "We value your feedback, [Target Audience]! Share your thoughts on our latest products by tapping the link below. We can't wait to hear from you! #CustomerLove #Feedback",
+      "use_case": "Marketing - Customer Testimonial Templates"
+    },
+    {
+      "title": "Hashtag Strategy Prompt for Brand Building",
+      "description": "Create a strategy prompt that helps build your brand through relevant and engaging hashtags.",
+      "prompt_text": "[Brand Name] is all about making life better with quality products. Use our unique hashtags to join the conversation and share how [Product Category] enhances your lifestyle. #My[BrandName]Life",
+      "use_case": "Marketing - Hashtag Strategy Prompts"
+    },
+    {
+      "title": "Bio Optimization Prompt for Brand Description",
+      "description": "Optimize your Instagram bio by writing a compelling description that highlights what makes [Brand Name] unique.",
+      "prompt_text": "[Brand Name]: Elevate Your Style with Quality Products 🛍✨ We're dedicated to making life better through our innovative products. Follow us to see how we make a difference every day. #ElevateWithUs",
+      "use_case": "Marketing - Bio Optimization"
+    },
+    {
+      "title": "Instagram Caption for Reel on Product Benefits",
+      "description": "Write an engaging caption that highlights the benefits of your product in a reel.",
+      "prompt_text": "[Brand Name] brings you products with unique benefits. Swipe up to see how our [Product Category] can transform your life for the better. #BenefitOfTheDay",
+      "use_case": "Content - Reel Captions"
+    },
+    {
+      "title": "Carousel Post Idea for Product Comparison",
+      "description": "Generate ideas for a carousel post that compares different products within your brand.",
+      "prompt_text": "[Brand Name] presents the [Product Category] comparison. Swipe through to see which product is right for you based on features and benefits. #CompareAndChoose",
+      "use_case": "Marketing - Product Comparison"
+    },
+    {
+      "title": "Story Engagement Prompt for Feedback Requests",
+      "description": "Write a prompt that encourages followers to provide feedback on your products or services through Instagram Stories.",
+      "prompt_text": "[Brand Name] wants your opinion! Share what you think about our latest [Product Category]. Your feedback helps us improve and serve you better. #FeedbackFriday",
+      "use_case": "Marketing - Feedback Requests"
+    },
+    {
+      "title": "Content Calendar Prompt for Weekly Themes",
+      "description": "Generate a prompt that suggests weekly themes to keep your content calendar engaging.",
+      "prompt_text": "[Brand Name] is all about bringing newness every week. Check out our theme ideas and plan your content accordingly: #TrendTuesday, #InnovateWednesday, #InspireThursday, #StyleFriday",
+      "use_case": "Content - Content Calendar Generation"
+    },
+    {
+      "title": "Instagram Caption for Product Review Post",
+      "description": "Write an engaging caption that invites followers to share their thoughts on a product review post.",
+      "prompt_text": "[Brand Name] is here with another [Product Category] review. Share your thoughts in the comments below and let us know what you think! #ReviewItNow",
+      "use_case": "Content - Product Review Post Captions"
+    },
+    {
+      "title": "Story Engagement Prompt for Customer Appreciation",
+      "description": "Write a prompt that expresses appreciation towards customers who have supported [Brand Name].",
+      "prompt_text": "[Brand Name] would like to take a moment to thank our wonderful [Target Audience] community. Your support makes us better every day. #CustomerAppreciationDay",
+      "use_case": "Marketing - Customer Appreciation"
+    },
+    {
+      "title": "Hashtag Strategy Prompt for Trending Topics",
+      "description": "Create a strategy prompt that suggests hashtags related to trending topics in your niche.",
+      "prompt_text": "[Brand Name] is all about staying relevant. Use our trending hashtag ideas to join the conversation and stay ahead: #TrendingNow, #StayInformed, #JoinTheConvo",
+      "use_case": "Marketing - Hashtag Strategy Prompts"
+    },
+    {
+      "title": "Bio Optimization Prompt for Call-to-Action",
+      "description": "Optimize your Instagram bio by adding a call-to-action that encourages followers to engage with [Brand Name].",
+      "prompt_text": "[Brand Name]: Quality products, amazing experiences 🛍✨ Swipe up now to shop or tap the link below to get in touch. We can't wait to hear from you! #ShopWithUs",
+      "use_case": "Marketing - Bio Optimization"
+    },
+    {
+      "title": "Instagram Caption for Behind-the-Scenes Reel",
+      "description": "Write an engaging caption that invites followers to explore a behind-the-scenes reel of your production process.",
+      "prompt_text": "[Brand Name] invites you to take a peek behind the scenes and see how our quality products are made. Swipe up now to watch! #BehindTheScenesReel",
+      "use_case": "Content - Behind-the-Scenes Reels"
+    }
+  ],
+  "gpt_instructions": {
+    "system_message": "You are an Instagram content creation assistant for small businesses in India, specializing in creating engaging and trendy content. Your task is to generate a week's worth of high-quality posts (captions, stories, reels) for [Brand Name] based on the provided requirements.",
+    "example_user_messages": [
+      "I need captions for 5 products in my collection",
+      "Create story prompts that engage our audience and encourage interaction",
+      "Generate scripts for 3 different types of Instagram Reels"
+    ],
+    "example_outputs": [
+      "1. Product A: Craft your style with [Product Category] - #StyleYourWay\n2. Product B: Elevate everyday moments with [Product Category] - #ElevateEveryday\n3. Product C: Unleash creativity through [Product Category] - #UnleashCreativity\n4. Product D: Bring quality to your home with [Product Category] - #QualityHome\n5. Product E: Transform your life with [Product Category] - #TransformYourLife",
+      "1. Behind-the-Scenes Story Prompt: Show the making of our latest product and ask followers to share their thoughts on it.\n2. Customer Testimonial Story Prompt: Encourage customers to leave testimonials about their experience with [Brand Name].\n3. Product Showcase Story Prompt: Feature a quick video showcasing different products in your collection.",
+      "1. How-to Reel Script: Show how to use our product [Product Category] effectively.\n2. Tutorial Reel Script: Teach followers how to achieve an amazing look using our [Product Category].\n3. Educational Reel Script: Provide information on the benefits of using our [Product Category] in your daily routine."
+    ]
+  },
+  "packaging": {
+    "product_name": "Instagram Success Kit",
+    "description": "The Instagram Success Kit is a comprehensive resource for small businesses and D2C brands looking to elevate their social media presence. It includes tailored prompts, GPT instructions, and content calendar ideas designed specifically for Indian SMBs in various niches.",
+    "pricing_tiers": {
+      "free": "Free tier includes basic templates and sample posts",
+      "starter": "$10 - Get 25+ copy-paste ready Instagram prompts and GPT instructions to streamline your content creation process",
+      "pro": "$25 - Access all features of the starter tier plus a customizable content calendar template for weekly planning"
+    },
+    "tags": [
+      "Instagram Content Creation",
+      "Social Media Marketing",
+      "Brand Building",
+      "Content Calendar Generation",
+      "GPT Instructions"
+    ]
+  }
+}

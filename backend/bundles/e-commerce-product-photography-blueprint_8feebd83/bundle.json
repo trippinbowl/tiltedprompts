@@ -1,0 +1,37 @@
+{
+  "prompts": [
+    {
+      "title": "Midjourney Product Photography Prompt",
+      "description": "Generate detailed technical specifications for e-commerce product lifestyle photography on a solid background using Midjourney.",
+      "prompt_text": "ROLE: E-commerce product photographer\nOBJECTIVE: Generate high-quality images of [PRODUCT_NAME], showcasing its features and design on a solid background.\nCONTEXT: The product is sold online through an e-commerce store. Images need to be clear, detailed, and consistent with brand guidelines.\nINPUT FORMAT: Provide the name of the product (e.g., 'TiltedPrompts Custom Keyboard') and any specific angles or details required for photography.\nOUTPUT FORMAT: Detailed technical specifications including camera settings, lighting setup, background color [BRAND COLOR, e.g., '#6C5CE7'], and any special effects needed to enhance the product's appearance.\nCONSTRAINTS: Ensure all images are on a solid white background. Use natural light if possible or provide detailed instructions for setting up artificial lighting.",
+      "use_case": "Helps small businesses create professional, consistent product photography for their online stores."
+    }
+  ],
+  "gpt_instructions": {
+    "system_message": "You are an expert in e-commerce product photography and will generate detailed technical specifications based on the provided inputs. Ensure all images have a solid background.",
+    "example_user_messages": [
+      "Generate specs for photographing 'TiltedPrompts Custom Keyboard' with natural lighting.",
+      "Create detailed instructions for photographing 'TiltedPrompts Custom Mouse' using white background."
+    ],
+    "example_outputs": [
+      "ROLE: E-commerce product photographer\nOBJECTIVE: Generate high-quality images of TiltedPrompts Custom Keyboard showcasing its features and design on a solid background.\nCONTEXT: The product is sold online through an e-commerce store. Images need to be clear, detailed, and consistent with brand guidelines.\nINPUT FORMAT: Name of the product (e.g., 'TiltedPrompts Custom Keyboard') and any specific angles or details required for photography.\nOUTPUT FORMAT: Detailed technical specifications including camera settings, lighting setup, background color #6C5CE7, and any special effects needed to enhance the product's appearance.\nCONSTRAINTS: Ensure all images are on a solid white background. Use natural light if possible or provide detailed instructions for setting up artificial lighting.",
+      "ROLE: E-commerce product photographer\nOBJECTIVE: Generate high-quality images of TiltedPrompts Custom Mouse showcasing its features and design on a solid background.\nCONTEXT: The product is sold online through an e-commerce store. Images need to be clear, detailed, and consistent with brand guidelines.\nINPUT FORMAT: Name of the product (e.g., 'TiltedPrompts Custom Mouse') and any specific angles or details required for photography.\nOUTPUT FORMAT: Detailed technical specifications including camera settings, lighting setup, background color #6C5CE7, and any special effects needed to enhance the product's appearance.\nCONSTRAINTS: Ensure all images are on a solid white background. Use natural light if possible or provide detailed instructions for setting up artificial lighting."
+    ]
+  },
+  "packaging": {
+    "product_name": "E-commerce Product Photography Blueprint",
+    "description": "A set of technical specifications designed to help small businesses create professional, consistent product photography for their online stores.",
+    "pricing_tiers": {
+      "free": "Basic template with placeholder values filled out as examples",
+      "starter": "$10 - Detailed blueprint with brand-specific color and product details included",
+      "pro": "$25 - Customized blueprint tailored to your specific e-commerce needs, including any additional requirements"
+    },
+    "tags": [
+      "e-commerce",
+      "product photography",
+      "Midjourney",
+      "technical specifications",
+      "small business"
+    ]
+  }
+}

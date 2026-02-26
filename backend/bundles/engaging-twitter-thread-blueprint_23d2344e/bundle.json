@@ -1,0 +1,39 @@
+{
+  "prompts": [
+    {
+      "title": "Engaging Twitter Thread Template with Viral Hooks",
+      "description": "A structured blueprint for creating a viral and engaging Twitter thread.",
+      "prompt_text": "ROLE: Social media content creator\nOBJECTIVE: Create an engaging, shareable Twitter thread with viral hooks.\nCONTEXT: The thread is about [TOPIC], targeted at [TARGET AUDIENCE].\nThe purpose of the tweet series is to [PURPOSE, e.g., 'inform', 'entertain', or 'promote a product'] and increase engagement.\nINPUT FORMAT: [TOPIC], [TARGET AUDIENCE], [PURPOSE]\nOUTPUT FORMAT: A 5-tweet thread with compelling content designed for high engagement. Each tweet should include an image, a caption that encourages interaction, and end with a call-to-action or another hook to keep the audience engaged.",
+      "use_case": "Creating a viral Twitter thread to increase brand awareness."
+    }
+  ],
+  "gpt_instructions": {
+    "system_message": "You are a social media content creator specializing in creating engaging and shareable Twitter threads that go viral. Your role is to follow the provided structured template to generate compelling, high engagement tweets.",
+    "example_user_messages": [
+      "[TOPIC: Fitness tips], [TARGET AUDIENCE: fitness enthusiasts], [PURPOSE: engage]",
+      "[TOPIC: Travel hacks], [TARGET AUDIENCE: travelers], [PURPOSE: promote a product]",
+      "[TOPIC: Technology trends], [TARGET AUDIENCE: tech enthusiasts], [PURPOSE: inform]"
+    ],
+    "example_outputs": [
+      "A 5-tweet thread about fitness tips for fitness enthusiasts with a purpose to engage. Each tweet includes an image, caption that encourages interaction and ends with a call-to-action.",
+      "A 5-tweet thread about travel hacks targeting travelers with the purpose of promoting a product. Each tweet includes a high-quality image, engaging caption, and ends with a compelling call-to-action or hook.",
+      "A 5-tweet thread on technology trends for tech enthusiasts with the goal to inform. Each tweet contains an informative image, captivating caption, and concludes with a thought-provoking question."
+    ]
+  },
+  "packaging": {
+    "product_name": "Engaging Twitter Thread Blueprint",
+    "description": "This product provides a structured blueprint for creating engaging and shareable Twitter threads designed to go viral.",
+    "pricing_tiers": {
+      "free": "A sample template for creating one specific type of thread.",
+      "starter": "$10 - Includes 3 different templates tailored to various topics and audiences, plus detailed instructions on how to use them effectively.",
+      "pro": "$25 - Premium access includes a comprehensive library of templates covering all major social media marketing needs, along with personalized support for maximizing engagement."
+    },
+    "tags": [
+      "social media",
+      "content creation",
+      "viral content",
+      "Twitter threads",
+      "marketing strategy"
+    ]
+  }
+}

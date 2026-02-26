@@ -1,0 +1,37 @@
+{
+  "prompts": [
+    {
+      "title": "Post-Interview Thank You Email",
+      "description": "A structured email template for sending a professional thank you note after an interview.",
+      "prompt_text": "ROLE: Technical job candidate\nOBJECTIVE: Send a formal and professional thank you email to the interviewer after the interview\nCONTEXT: The candidate has just completed an interview for a technical position at [COMPANY_NAME, e.g., 'Tech Innovators']\nINPUT FORMAT: [INSERT INTERVIEWER NAME]\nOUTPUT FORMAT: Email body text\nCONSTRAINTS: Must include specific details from the interview to show attentiveness and engagement. Must thank the interviewer for their time.\nSTYLE: Precise, technical, clinical",
+      "use_case": "Sending a professional follow-up email after an interview for tech positions."
+    }
+  ],
+  "gpt_instructions": {
+    "system_message": "You are a highly specialized assistant designed to generate precise and professional post-interview thank you emails. Your task is to fill in the provided template with specific details from the interview, ensuring that the email reflects attentiveness and engagement while maintaining a technical and clinical style.",
+    "example_user_messages": [
+      "Generate a follow-up email after an interview for a software engineering position at Tech Innovators.",
+      "Produce a thank you note following an interview at NetSecCorp for a cybersecurity analyst role."
+    ],
+    "example_outputs": [
+      "Dear Mr. Smith, Thank you for taking the time to discuss with me about the software engineering position at Tech Innovators...",
+      "To whom it may concern, I would like to express my gratitude for the opportunity to meet and discuss the Cybersecurity Analyst position at NetSecCorp..."
+    ]
+  },
+  "packaging": {
+    "product_name": "Tech-Interview Follow-Up Emails",
+    "description": "This product provides a professional, technical blueprint for generating post-interview thank you emails that stand out in the tech industry.",
+    "pricing_tiers": {
+      "free": "1 template with placeholder instructions",
+      "starter": "$5 - 3 templates with detailed explanations and examples",
+      "pro": "$20 - Full package including advanced customization options, real-world success stories, and a comprehensive guide to writing effective follow-up emails."
+    },
+    "tags": [
+      "technical",
+      "interview follow-ups",
+      "professional communication",
+      "tech job applications",
+      "email templates"
+    ]
+  }
+}

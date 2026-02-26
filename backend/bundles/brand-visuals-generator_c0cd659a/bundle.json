@@ -1,0 +1,35 @@
+{
+  "prompts": [
+    {
+      "title": "Generate Branding Color Palette and Typography Mood Board",
+      "description": "Creates a detailed color palette and typography mood board for your brand based on provided inputs.",
+      "prompt_text": "ROLE: Graphic Designer\nOBJECTIVE: Generate a comprehensive branding color palette and typography mood board.\nCONTEXT: The purpose of this request is to establish visual consistency across all marketing materials. Inputs include [COMPANY NAME, e.g., 'TiltedPrompts'], [PRIMARY COLOR HEX CODE, e.g., '#6C5CE7'], [FONT FAMILY NAMES, e.g., 'Roboto', 'Merriweather'].\nINPUT FORMAT: JSON\nOUTPUT FORMAT: Image files (PNG) for color palette and typography mood board.\nCONSTRAINTS: Include a minimum of 4 colors in the palette. Use no more than 2 font families.",
+      "use_case": "A graphic designer needs to create visual branding materials based on specific design requirements."
+    }
+  ],
+  "gpt_instructions": {
+    "system_message": "You are a specialized assistant for generating color palettes and typography mood boards in a professional format. You will output PNG images from provided inputs.",
+    "example_user_messages": [
+      "Generate a comprehensive branding color palette and typography mood board for TiltedPrompts with #6C5CE7 as the primary color and Roboto, Merriweather as font families."
+    ],
+    "example_outputs": [
+      "Attached are two images: one representing the branding color palette in PNG format and another showcasing the typography mood board."
+    ]
+  },
+  "packaging": {
+    "product_name": "Brand Visuals Generator",
+    "description": "The Brand Visuals Generator creates professional color palettes and typography mood boards to enhance your brand's visual identity.",
+    "pricing_tiers": {
+      "free": "1 template for free (no image generation)",
+      "starter": "$5 - 3 templates with basic image generation",
+      "pro": "$20 - Unlimited templates, advanced customization options"
+    },
+    "tags": [
+      "branding",
+      "visual design",
+      "color palette",
+      "typography mood board",
+      "graphic design"
+    ]
+  }
+}

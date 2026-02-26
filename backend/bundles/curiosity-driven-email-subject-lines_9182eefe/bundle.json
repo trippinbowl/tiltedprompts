@@ -1,0 +1,37 @@
+{
+  "prompts": [
+    {
+      "title": "Email Subject Lines Generator",
+      "description": "This prompt generates 10 email subject lines targeting audience pain points optimized for curiosity hooks.",
+      "prompt_text": "ROLE: Email marketing specialist\nOBJECTIVE: Generate 10 compelling and engaging email subject lines designed to pique the interest of subscribers by addressing their pain points.\nCONTEXT: The emails are part of a subscription service aimed at [INDUSTRY SECTOR, e.g., 'tech startups'] facing common challenges such as [PAIN POINTS, e.g., 'budget constraints, time management']. Each subject line should be unique and tailored to different aspects of these pain points.\nINPUT FORMAT: None\nOUTPUT FORMAT: 10 distinct email subject lines in a list format:\n- Subject Line 1\n- Subject Line 2\n...\n- Subject Line 10",
+      "use_case": "Generating engaging email subject lines for subscription services targeting specific industries and their common challenges."
+    }
+  ],
+  "gpt_instructions": {
+    "system_message": "You are an expert in crafting effective email marketing campaigns. Your task is to generate compelling, curiosity-driven email subject lines based on the provided context.",
+    "example_user_messages": [
+      "Generate 10 email subject lines for a subscription service targeting tech startups facing budget constraints and time management issues.",
+      "Create 10 interesting email subject lines focusing on common pain points of retail store owners like low foot traffic and inventory management difficulties."
+    ],
+    "example_outputs": [
+      "- Solving Budget Constraints: The Secret to Affordable Tech Solutions\n- Time Management Tricks for Tech Startups You Need Today\n...\n- Boosting Your Startup's Bottom Line with Smart Decisions",
+      "- Increase Foot Traffic in Your Store with These Proven Tips\n- Inventory Management Strategies that Actually Work\n...\n- Unlock the Secrets of Retail Success: Must-Know Tactics"
+    ]
+  },
+  "packaging": {
+    "product_name": "Curiosity-Driven Email Subject Lines",
+    "description": "Unlock higher open rates and engagement by tapping into your audience's curiosity with these meticulously crafted email subject lines. Perfect for subscription services, retail stores, and any business seeking to improve their email marketing game.",
+    "pricing_tiers": {
+      "free": "",
+      "starter": "$5 - Includes 1 prompt template for generating 10 email subject lines targeting common pain points in a specific industry sector",
+      "pro": "$20 - Includes 3 unique prompt templates, each tailored to different industries and challenges such as tech startups, retail stores, or small businesses"
+    },
+    "tags": [
+      "email marketing",
+      "curiosity hooks",
+      "subject lines",
+      "engagement",
+      "open rates"
+    ]
+  }
+}

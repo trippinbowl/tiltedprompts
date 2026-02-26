@@ -1,0 +1,37 @@
+{
+  "prompts": [
+    {
+      "title": "Generate Case Study from Interview Notes",
+      "description": "Convert rough interview notes into a detailed case study for client testimonials.",
+      "prompt_text": "ROLE: Case Study Writer\nOBJECTIVE: Convert rough client interview notes into a structured, detailed case study.\nCONTEXT: [CLIENT_NAME], a small business owner in the IT industry, was interviewed about their experience with our services. The interview notes are unstructured and need to be transformed into a compelling story for marketing purposes.\nINPUT FORMAT: Unstructured text from the interview transcript.\nOUTPUT FORMAT: A detailed case study that includes an introduction, problem statement, solution provided by [COMPANY_NAME], results achieved, and conclusion. Use bullet points for clarity.\nCONSTRAINTS: Ensure all information is accurate to the notes provided; no assumptions should be made without verification.\nSTYLE: Professional, concise, factual.",
+      "use_case": "Converting unstructured interview data into a structured case study for marketing purposes."
+    }
+  ],
+  "gpt_instructions": {
+    "system_message": "Act as an expert in converting raw interview notes into detailed case studies. Your output should be professional and accurate to the notes provided, with no assumptions made without verification.",
+    "example_user_messages": [
+      "Convert these rough interview notes about [CLIENT_NAME]'s experience with our services into a structured case study.",
+      "Take this unstructured text from an interview with [CLIENT_NAME] in the IT industry and create a detailed case study for marketing purposes."
+    ],
+    "example_outputs": [
+      "CASE STUDY: [CLIENT_NAME]\nIntroduction:\n- Small business owner in the IT industry\nProblem Statement:\n- [PROBLEM_STATEMENT], leading to decreased productivity and customer satisfaction\nSolution Provided by [COMPANY_NAME]:\n- [SOLUTION_DESCRIPTION] that improved efficiency and service quality\nResults Achieved:\n- [RESULTS_ACHIEVED]\nConclusion:\n- [CONCLUSION]\n",
+      "CASE STUDY: [CLIENT_NAME]'s Experience with [COMPANY_NAME]\nIntroduction:\n- [INTRODUCTION_TEXT]\nProblem Statement:\n- [PROBLEM_STATEMENT], affecting business growth and customer retention\nSolution Provided by [COMPANY_NAME]:\n- [SOLUTION_DESCRIPTION] that addressed the issues faced\nResults Achieved:\n- [RESULTS_ACHIEVED], leading to improved business performance\nConclusion:\n- [CONCLUSION]\n"
+    ]
+  },
+  "packaging": {
+    "product_name": "Case Study Story Generator",
+    "description": "Transform rough client interview notes into compelling case studies with our expert-designed prompts. Perfect for small businesses looking to showcase success stories.",
+    "pricing_tiers": {
+      "free": "",
+      "starter": "$10: 5 detailed case study templates, no support",
+      "pro": "$20: Unlimited access to all templates, plus email support"
+    },
+    "tags": [
+      "case studies",
+      "client testimonials",
+      "interview notes",
+      "marketing content",
+      "small business tools"
+    ]
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "prompts": [
+    {
+      "title": "Digital Product Onboarding Email Sequence",
+      "description": "Creates an email welcome sequence for new digital product users.",
+      "prompt_text": "ROLE: Digital Product Onboarding Specialist\nOBJECTIVE: Create a multi-part email onboarding sequence\nCONTEXT: [PRODUCT_NAME], [COMPANY_NAME]\nINPUT FORMAT: [PART_NUMBER], [EMAIL_SUBJECT_LINE], [BODY_TEXT]\nOUTPUT FORMAT: [PART_NUMBER]: [EMAIL_SUBJECT_LINE],\n[BODY_TEXT]\nSTYLE: Formal, informative, welcoming,\nBRAND COLOR: [BRAND_COLOR, e.g., #6C5CE7]\nSTEP 1: Introduce the product and its features\nSTEP 2: Provide a step-by-step guide on how to use it\nSTEP 3: Encourage feedback and support availability\nERROR HANDLING: If user does not open emails,\nsuggest A/B testing email times, personalization",
+      "use_case": "Creating an initial engagement sequence for digital product users"
+    }
+  ],
+  "gpt_instructions": {
+    "system_message": "You are a specialized assistant focused on creating structured email sequences for digital products. Your output must adhere to the provided template format.",
+    "example_user_messages": [
+      "Create an onboarding email sequence for Product X"
+    ],
+    "example_outputs": [
+      "ROLE: Digital Product Onboarding Specialist\nOBJECTIVE: Create a multi-part email onboarding sequence\nCONTEXT: Product X, Company A\nINPUT FORMAT: [PART_NUMBER], [EMAIL_SUBJECT_LINE], [BODY_TEXT]\nOUTPUT FORMAT: [PART_NUMBER]: [EMAIL_SUBJECT_LINE],\n[BODY_TEXT]\nSTYLE: Formal, informative, welcoming,\nBRAND COLOR: #6C5CE7\nSTEP 1: Introduce the product and its features\nSTEP 2: Provide a step-by-step guide on how to use it\nSTEP 3: Encourage feedback and support availability"
+    ]
+  },
+  "packaging": {
+    "product_name": "Digital Onboarding Email Wizard",
+    "description": "A structured template for creating effective digital product onboarding email sequences, ensuring users are engaged from the start.",
+    "pricing_tiers": {
+      "free": "Free download of a single prompt template.",
+      "starter": "$5 - Download 5 unique templates tailored to different types of digital products.",
+      "pro": "$20 - Access to all available templates plus ongoing updates and new additions."
+    },
+    "tags": [
+      "email marketing",
+      "digital product launch",
+      "customer engagement",
+      "onboarding sequence",
+      "small business tools"
+    ]
+  }
+}

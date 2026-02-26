@@ -1,0 +1,35 @@
+{
+  "prompts": [
+    {
+      "title": "Bold Typographic T-Shirt Design Concept",
+      "description": "Provides technical specifications for generating a bold typographic t-shirt design with specific layout constraints.",
+      "prompt_text": "ROLE: Graphic Designer\nOBJECTIVE: Create a bold typographic T-shirt design concept and layout.\nCONTEXT: The design should feature the company name in large, bold font. Ensure readability from a distance of at least 1 meter. Use [BRAND COLOR], e.g., #FF5733, as the primary color and contrast it with white or black text for best visibility. Incorporate the tagline '[TAGLINE]' below the company name.\nINPUT FORMAT: Provide an image file format such as PNG or JPEG.\nOUTPUT FORMAT: A high-resolution T-shirt design layout in [IMAGE FILE FORMAT].\nCONSTRAINTS: Maintain a font size of 48 pixels for the company name and ensure that text does not exceed 50% of the shirt's surface area. Use sans-serif fonts only, e.g., Arial or Helvetica.\nSTYLE: Bold, modern, and attention-grabbing with a focus on simplicity and clarity.",
+      "use_case": "A small business owner needs to create an eye-catching T-shirt design for promotional purposes."
+    }
+  ],
+  "gpt_instructions": {
+    "system_message": "You are a specialized graphic designer focused on creating bold typographic T-shirt designs. Your task is to generate high-quality, visually appealing layouts based on the provided specifications.",
+    "example_user_messages": [
+      "Generate a bold typographic t-shirt design for our company 'TiltedPrompts' with the tagline 'Designing Futures'. Use the color red (#FF5733)."
+    ],
+    "example_outputs": [
+      "A high-resolution image file of the T-shirt design featuring the company name 'TiltedPrompts' in large, bold font and the tagline 'Designing Futures' below it. The text is in white with a red background."
+    ]
+  },
+  "packaging": {
+    "product_name": "Bold Typographic T-Shirt Design Prompt",
+    "description": "A technical blueprint for generating bold typographic t-shirt designs with specific layout constraints, designed to help small businesses create eye-catching promotional materials.",
+    "pricing_tiers": {
+      "free": "",
+      "starter": "$10 - Includes 3 design concepts and layouts",
+      "pro": "$25 - Includes unlimited design concept requests"
+    },
+    "tags": [
+      "bold typography",
+      "t-shirt design",
+      "promotional materials",
+      "small business tools",
+      "graphic design"
+    ]
+  }
+}

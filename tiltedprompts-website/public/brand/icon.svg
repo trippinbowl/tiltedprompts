@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="brand-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7c3aed"/>
+      <stop offset="100%" stop-color="#06d6a0"/>
+    </linearGradient>
+  </defs>
+  <!-- Two tilted parallelograms forming a forward-leaning chevron -->
+  <path d="M18 48L30 8L42 8L30 48Z" fill="url(#brand-gradient)" opacity="0.9"/>
+  <path d="M30 48L42 8L54 8L42 48Z" fill="url(#brand-gradient)" opacity="0.6"/>
+</svg>
