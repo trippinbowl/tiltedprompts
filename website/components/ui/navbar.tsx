@@ -76,7 +76,7 @@ const navLinks = [
     { name: "Pricing", href: "/pricing" },
 ];
 
-export function Navbar() {
+export function Navbar({ user }: { user?: any }) {
     const [isScrolled, setIsScrolled] = React.useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
     const [activeDropdown, setActiveDropdown] = React.useState<string | null>(null);
@@ -97,11 +97,10 @@ export function Navbar() {
     return (
         <>
             <header
-                className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-5xl transition-all duration-500 ${
-                    isScrolled
-                        ? "bg-background/80 backdrop-blur-2xl shadow-2xl shadow-black/20 border border-white/[0.08]"
-                        : "bg-background/40 backdrop-blur-xl border border-white/[0.05]"
-                } rounded-full`}
+                className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-5xl transition-all duration-500 ${isScrolled
+                    ? "bg-background/80 backdrop-blur-2xl shadow-2xl shadow-black/20 border border-white/[0.08]"
+                    : "bg-background/40 backdrop-blur-xl border border-white/[0.05]"
+                    } rounded-full`}
             >
                 <div className="px-4 sm:px-6 h-14 flex items-center justify-between">
                     {/* Logo */}
@@ -129,18 +128,16 @@ export function Navbar() {
                             >
                                 <Link
                                     href={link.href}
-                                    className={`relative text-[13px] font-medium transition-colors px-3 py-2 rounded-full flex items-center gap-1 hover:text-foreground ${
-                                        pathname?.startsWith(link.href)
-                                            ? "text-foreground"
-                                            : "text-muted-foreground"
-                                    }`}
+                                    className={`relative text-[13px] font-medium transition-colors px-3 py-2 rounded-full flex items-center gap-1 hover:text-foreground ${pathname?.startsWith(link.href)
+                                        ? "text-foreground"
+                                        : "text-muted-foreground"
+                                        }`}
                                 >
                                     {link.name}
                                     {link.hasDropdown && (
                                         <ChevronDown
-                                            className={`w-3 h-3 opacity-50 transition-transform duration-200 ${
-                                                activeDropdown === link.name ? "rotate-180" : ""
-                                            }`}
+                                            className={`w-3 h-3 opacity-50 transition-transform duration-200 ${activeDropdown === link.name ? "rotate-180" : ""
+                                                }`}
                                         />
                                     )}
                                     {/* Active indicator line */}
@@ -201,21 +198,35 @@ export function Navbar() {
                             <Sun className="h-4 w-4 dark:hidden" />
                             <Moon className="h-4 w-4 hidden dark:block" />
                         </button>
-                        <Link
-                            href="/login"
-                            className="text-[13px] font-medium text-muted-foreground hover:text-foreground transition-colors px-3 py-1.5"
-                        >
-                            Login
-                        </Link>
-                        <Link
-                            href="/register"
-                            className="relative inline-flex h-8 items-center justify-center overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
-                        >
-                            <span className="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#6366f1_0%,#a78bfa_50%,#6366f1_100%)]" />
-                            <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-background px-4 text-[13px] font-semibold text-foreground backdrop-blur-3xl transition-colors hover:bg-background/80">
-                                Get Started
-                            </span>
-                        </Link>
+                        {user ? (
+                            <Link
+                                href="/members"
+                                className="relative inline-flex h-8 items-center justify-center overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
+                            >
+                                <span className="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#6366f1_0%,#a78bfa_50%,#6366f1_100%)]" />
+                                <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-background px-4 text-[13px] font-semibold text-foreground backdrop-blur-3xl transition-colors hover:bg-background/80">
+                                    Dashboard
+                                </span>
+                            </Link>
+                        ) : (
+                            <>
+                                <Link
+                                    href="/login"
+                                    className="text-[13px] font-medium text-muted-foreground hover:text-foreground transition-colors px-3 py-1.5"
+                                >
+                                    Login
+                                </Link>
+                                <Link
+                                    href="/register"
+                                    className="relative inline-flex h-8 items-center justify-center overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
+                                >
+                                    <span className="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#6366f1_0%,#a78bfa_50%,#6366f1_100%)]" />
+                                    <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-background px-4 text-[13px] font-semibold text-foreground backdrop-blur-3xl transition-colors hover:bg-background/80">
+                                        Get Started
+                                    </span>
+                                </Link>
+                            </>
+                        )}
                     </div>
 
                     {/* Mobile Menu Toggle */}
@@ -295,20 +306,32 @@ export function Navbar() {
 
                             <div className="h-px bg-border my-4" />
 
-                            <Link
-                                href="/login"
-                                className="text-lg font-medium text-muted-foreground py-2"
-                                onClick={() => setIsMobileMenuOpen(false)}
-                            >
-                                Login
-                            </Link>
-                            <Link
-                                href="/register"
-                                className="w-full text-center bg-primary text-primary-foreground py-3.5 rounded-full font-semibold mt-2 text-base"
-                                onClick={() => setIsMobileMenuOpen(false)}
-                            >
-                                Get Started
-                            </Link>
+                            {user ? (
+                                <Link
+                                    href="/members"
+                                    className="w-full text-center bg-primary text-primary-foreground py-3.5 rounded-full font-semibold mt-2 text-base"
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                >
+                                    Go to Dashboard
+                                </Link>
+                            ) : (
+                                <>
+                                    <Link
+                                        href="/login"
+                                        className="text-lg font-medium text-muted-foreground py-2"
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                    >
+                                        Login
+                                    </Link>
+                                    <Link
+                                        href="/register"
+                                        className="w-full text-center bg-primary text-primary-foreground py-3.5 rounded-full font-semibold mt-2 text-base"
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                    >
+                                        Get Started
+                                    </Link>
+                                </>
+                            )}
                         </motion.nav>
                     </motion.div>
                 )}

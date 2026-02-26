@@ -8,27 +8,58 @@ export default function UpgradeButton() {
     const [joined, setJoined] = useState(false);
     const pathname = usePathname();
 
+    const loadRazorpayScript = () => {
+        return new Promise((resolve) => {
+            const script = document.createElement("script");
+            script.src = "https://checkout.razorpay.com/v1/checkout.js";
+            script.onload = () => resolve(true);
+            script.onerror = () => resolve(false);
+            document.body.appendChild(script);
+        });
+    };
+
     const handleUpgrade = async () => {
         try {
             setLoading(true);
 
-            // --- STRIPE CHECKOUT FLAG (COMMENTED FOR SOFT LAUNCH) ---
-            /*
-            const response = await fetch('/api/checkout', {
+            // Load script dynamically
+            const res = await loadRazorpayScript();
+            if (!res) {
+                alert("Razorpay SDK failed to load. Are you online?");
+                setLoading(false);
+                return;
+            }
+
+            // Create Order via Server
+            const orderResponse = await fetch('/api/razorpay/order', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ returnPath: pathname }),
+                body: JSON.stringify({ amount: 50000 }) // E.g., INR 500.00
             });
-            if (!response.ok) throw new Error('Failed to create checkout session');
-            const { url } = await response.json();
-            if (url) window.location.href = url;
-            */
 
-            // --- SOFT LAUNCH WAITLIST FLOW ---
-            const response = await fetch('/api/waitlist', { method: 'POST' });
-            if (!response.ok) throw new Error('Waitlist join failed');
+            if (!orderResponse.ok) throw new Error('Failed to create Razorpay Order');
+            const orderData = await orderResponse.json();
 
-            setJoined(true);
+            // Open Razorpay Checkout Window
+            const options = {
+                key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || "",
+                amount: orderData.amount,
+                currency: orderData.currency,
+                name: "Tilted Prompts",
+                description: "Pro Tier Upgrade",
+                image: "https://tiltedprompts.com/logo-icon.svg",
+                order_id: orderData.id,
+                handler: function (response: any) {
+                    setJoined(true);
+                },
+                theme: {
+                    color: "#6366f1" // primary color
+                }
+            };
+
+            const paymentObject = new (window as any).Razorpay(options);
+            paymentObject.open();
+
             setLoading(false);
 
         } catch (error) {
