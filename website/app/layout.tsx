@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
@@ -14,6 +14,13 @@ const jetbrainsMono = JetBrains_Mono({
   variable: "--font-mono",
   display: "swap",
 });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
 
 export const metadata: Metadata = {
   title: "TiltedPrompts — Shared Memory & Tools for AI Teammates",
@@ -45,7 +52,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${jetbrainsMono.variable} antialiased min-h-screen bg-background font-sans grain-overlay`}>
+      <body className={`${inter.variable} ${jetbrainsMono.variable} antialiased min-h-screen w-full overflow-x-hidden bg-background font-sans grain-overlay`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

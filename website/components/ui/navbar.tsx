@@ -112,7 +112,7 @@ export function Navbar({ user }: { user?: any }) {
                             height={24}
                             className="w-6 h-6"
                         />
-                        <span className="text-base tracking-tight text-foreground hidden sm:block">
+                        <span className="text-base tracking-tight text-foreground">
                             <span className="font-normal">Tilted</span><span className="font-bold">Prompts</span>
                         </span>
                     </Link>
