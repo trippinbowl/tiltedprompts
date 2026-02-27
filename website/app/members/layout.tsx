@@ -39,6 +39,11 @@ export default function MembersLayout({
     const [userTier, setUserTier] = useState<string>("free");
     const [userInitials, setUserInitials] = useState<string>("..");
     const [isLoggingOut, setIsLoggingOut] = useState(false);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+    useEffect(() => {
+        setIsMobileMenuOpen(false);
+    }, [pathname]);
 
     useEffect(() => {
         async function loadProfile() {
@@ -74,8 +79,21 @@ export default function MembersLayout({
 
     return (
         <div className="flex h-screen overflow-hidden bg-background">
+            {/* Mobile overlay */}
+            {isMobileMenuOpen && (
+                <div
+                    className="fixed inset-0 bg-background/80 backdrop-blur-sm z-30 md:hidden"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                />
+            )}
+
             {/* ── Sidebar ── */}
-            <aside className={`${isCollapsed ? 'w-[72px]' : 'w-60'} bg-surface border-r border-white/[0.06] flex flex-col transition-all duration-300 relative z-20`}>
+            <aside className={`
+                fixed inset-y-0 left-0 z-40 transform transition-transform duration-300 md:relative md:translate-x-0
+                ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'}
+                ${isCollapsed ? 'md:w-[72px] w-64' : 'w-64 md:w-60'} 
+                bg-surface border-r border-white/[0.06] flex flex-col
+            `}>
 
                 {/* Logo header */}
                 <div
@@ -113,11 +131,10 @@ export default function MembersLayout({
                                 key={link.name}
                                 href={link.href}
                                 title={isCollapsed ? link.name : undefined}
-                                className={`relative flex items-center ${isCollapsed ? 'justify-center' : 'gap-3'} px-3 py-2 rounded-lg text-sm font-medium transition-all ${
-                                    isActive
-                                        ? "bg-white/[0.06] text-foreground"
-                                        : "text-muted-foreground hover:bg-white/[0.03] hover:text-foreground"
-                                }`}
+                                className={`relative flex items-center ${isCollapsed ? 'justify-center' : 'gap-3'} px-3 py-2 rounded-lg text-sm font-medium transition-all ${isActive
+                                    ? "bg-white/[0.06] text-foreground"
+                                    : "text-muted-foreground hover:bg-white/[0.03] hover:text-foreground"
+                                    }`}
                             >
                                 {/* Active pill indicator */}
                                 {isActive && (
@@ -135,11 +152,10 @@ export default function MembersLayout({
                     {!isCollapsed ? (
                         <>
                             {/* Tier badge */}
-                            <div className={`px-3 py-2.5 rounded-lg border ${
-                                isPro
-                                    ? 'bg-gradient-to-r from-purple-500/5 to-pink-500/5 border-purple-500/15'
-                                    : 'bg-white/[0.02] border-white/[0.06]'
-                            }`}>
+                            <div className={`px-3 py-2.5 rounded-lg border ${isPro
+                                ? 'bg-gradient-to-r from-purple-500/5 to-pink-500/5 border-purple-500/15'
+                                : 'bg-white/[0.02] border-white/[0.06]'
+                                }`}>
                                 <div className="flex items-center justify-between">
                                     <div>
                                         <p className="text-[10px] text-muted-foreground uppercase tracking-wider">Plan</p>
@@ -203,12 +219,20 @@ export default function MembersLayout({
             </aside>
 
             {/* ── Main Content ── */}
-            <main className="flex-1 overflow-y-auto">
+            <main className="flex-1 overflow-y-auto w-full">
                 {/* Glass header bar */}
-                <header className="h-14 border-b border-white/[0.06] flex items-center justify-between px-8 bg-background/60 backdrop-blur-xl sticky top-0 z-10">
-                    <h2 className="text-base font-semibold text-foreground">
-                        {sidebarLinks.find(link => link.href === pathname)?.name || "Dashboard Hub"}
-                    </h2>
+                <header className="h-14 border-b border-white/[0.06] flex items-center justify-between px-4 md:px-8 bg-background/60 backdrop-blur-xl sticky top-0 z-10">
+                    <div className="flex items-center gap-3">
+                        <button
+                            onClick={() => setIsMobileMenuOpen(true)}
+                            className="p-2 -ml-2 text-foreground hover:bg-white/[0.05] rounded-lg md:hidden"
+                        >
+                            <Menu className="w-5 h-5" />
+                        </button>
+                        <h2 className="text-base font-semibold text-foreground truncate max-w-[200px] sm:max-w-none">
+                            {sidebarLinks.find(link => link.href === pathname)?.name || "Dashboard"}
+                        </h2>
+                    </div>
                     <div className="flex items-center gap-3">
                         {/* User avatar with gradient ring */}
                         <div className="relative">
@@ -219,7 +243,7 @@ export default function MembersLayout({
                         </div>
                     </div>
                 </header>
-                <div className="p-8 max-w-7xl mx-auto">
+                <div className="p-4 md:p-8 max-w-7xl mx-auto">
                     {children}
                 </div>
             </main>

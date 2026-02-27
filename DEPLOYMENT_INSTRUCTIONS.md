@@ -37,13 +37,35 @@ RAZORPAY_WEBHOOK_SECRET=your_custom_webhook_secret_string
 
 ---
 
-## 🌐 Step 3: Link `tiltedprompts.ai`
-Once the deployment finishes (takes about 2 mins), Vercel will give you a temporary `.vercel.app` URL. 
-Let's link your sleek premium domain:
-1. Go to your new project's **Settings** on Vercel.
+## 🌐 Step 3: Link `tiltedprompts.ai` via Hostinger
+Once the deployment finishes (takes about 2 mins), Vercel will give you a temporary `.vercel.app` URL. Let's link your sleek premium domain `tiltedprompts.ai`:
+
+1. Go to your new project on Vercel and click **Settings** (top menu).
 2. Click **Domains** on the left menu.
 3. Type `tiltedprompts.ai` and click **Add**.
-4. Vercel will give you specific DNS records (usually an `A` record pointing to `76.76.21.21` or a `CNAME` pointing to `cname.vercel-dns.com`).
-5. Go to wherever you bought your domain (GoDaddy, Namecheap, Cloudflare, etc.), open the **DNS Settings**, and add exactly what Vercel tells you to.
+   *(Vercel will recommend adding both `tiltedprompts.ai` and `www.tiltedprompts.ai`. Choose the recommended option so it redirects properly.)*
+4. Vercel will show an "Invalid Configuration" error message. **This is normal!** It will give you two DNS records to add.
+5. **Open a new tab** and log in to your **Hostinger Account**.
+6. Click on **Domains**, and select `tiltedprompts.ai`.
+7. Click on **DNS / Nameservers** on the left-hand sidebar.
+8. Scroll down to **Manage DNS records**. You need to add exactly what Vercel gave you:
 
-Your site will be live worldwide in less than 15 minutes! 🎉
+   **Record 1 (The A Record - for `tiltedprompts.ai`):**
+   - Type: `A`
+   - Name: `@`
+   - Points to: `76.76.21.21` (Verify this IP on Vercel's screen)
+   - TTL: Default (or 14400)
+   - *Click Add Record.*
+
+   **Record 2 (The CNAME Record - for `www.tiltedprompts.ai`):**
+   - Type: `CNAME`
+   - Name: `www`
+   - Points to: `cname.vercel-dns.com`
+   - TTL: Default (or 14400)
+   - *Click Add Record.*
+
+   *(Note: If Hostinger already has an `A` record for `@` or a `CNAME` for `www` pointing to something else, like a parked page, **Delete** or **Edit** the existing ones instead of making duplicates!)*
+
+9. Go back to your Vercel tab. Within a few minutes, the red "Invalid Configuration" text will spin and turn into a green checkmark indicating a **Valid Configuration**.
+
+Your site will be live worldwide! 🎉

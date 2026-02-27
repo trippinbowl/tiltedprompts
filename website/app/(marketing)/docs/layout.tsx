@@ -69,7 +69,7 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
     return (
         <div className="min-h-screen pt-28 pb-20">
             <div className="container mx-auto px-4">
-                <div className="flex gap-8 max-w-7xl mx-auto">
+                <div className="flex flex-col lg:flex-row gap-8 max-w-7xl mx-auto">
                     {/* Sidebar */}
                     <aside className="hidden lg:block w-64 shrink-0">
                         <div className="sticky top-28">
@@ -87,11 +87,10 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
                                         <Link
                                             key={link.href}
                                             href={link.href}
-                                            className={`group relative flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm transition-all duration-200 ${
-                                                isActive
+                                            className={`group relative flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm transition-all duration-200 ${isActive
                                                     ? "bg-primary/10 text-foreground font-semibold"
                                                     : "text-muted-foreground hover:text-foreground hover:bg-white/[0.03]"
-                                            }`}
+                                                }`}
                                         >
                                             {/* Active pill indicator */}
                                             {isActive && (
@@ -105,11 +104,10 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
                                                 </span>
                                             </div>
                                             <ChevronRight
-                                                className={`w-3 h-3 ml-auto opacity-0 -translate-x-1 transition-all ${
-                                                    isActive
+                                                className={`w-3 h-3 ml-auto opacity-0 -translate-x-1 transition-all ${isActive
                                                         ? "opacity-60 translate-x-0"
                                                         : "group-hover:opacity-40 group-hover:translate-x-0"
-                                                }`}
+                                                    }`}
                                             />
                                         </Link>
                                     );
@@ -156,11 +154,10 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
                                     <Link
                                         key={link.href}
                                         href={link.href}
-                                        className={`shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-colors whitespace-nowrap ${
-                                            isActive
+                                        className={`shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-colors whitespace-nowrap ${isActive
                                                 ? "bg-primary/15 text-foreground border border-primary/30"
                                                 : "bg-secondary/40 text-muted-foreground border border-border hover:text-foreground"
-                                        }`}
+                                            }`}
                                     >
                                         {link.name}
                                     </Link>
