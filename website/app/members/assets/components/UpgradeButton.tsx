@@ -1,14 +1,29 @@
 'use client';
 
-import { useState } from 'react';
-import { usePathname, useRouter } from 'next/navigation';
+import { useState, useEffect, Suspense, useRef } from 'react';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Loader2, CheckCircle2 } from 'lucide-react';
 
-export default function UpgradeButton() {
+
+function UpgradeButtonInner() {
     const [loading, setLoading] = useState(false);
     const [success, setSuccess] = useState(false);
     const router = useRouter();
+    const searchParams = useSearchParams();
+    const autoCheckout = searchParams.get('checkout') === 'true';
+    const hasFiredAuto = useRef(false);
+
+    useEffect(() => {
+        if (autoCheckout && !hasFiredAuto.current) {
+            hasFiredAuto.current = true;
+            const t = setTimeout(() => {
+                handleUpgrade();
+            }, 600);
+            return () => clearTimeout(t);
+        }
+    }, [autoCheckout]);
+
 
     const loadRazorpayScript = () => {
         return new Promise((resolve) => {
@@ -120,5 +135,13 @@ export default function UpgradeButton() {
                 )}
             </button>
         </div>
+    );
+}
+
+export default function UpgradeButton() {
+    return (
+        <Suspense fallback={<div className="w-full h-12 bg-white/[0.02] border border-white/[0.06] rounded-xl animate-pulse min-w-[200px]" />}>
+            <UpgradeButtonInner />
+        </Suspense>
     );
 }

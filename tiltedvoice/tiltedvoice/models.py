@@ -123,3 +123,52 @@ class AppSettings:
     auto_copy: bool = True
     energy_threshold: float = 0.01
     silence_ms: int = 1200
+    onboarding_complete: bool = False
+    selected_device: str = ""
+
+    def to_dict(self) -> Dict[str, Any]:
+        """Serialize settings to a dict for JSON persistence."""
+        return {
+            "model": self.model.value,
+            "language": self.language,
+            "recording_mode": self.recording_mode.value,
+            "hotkeys": {
+                "push_to_talk": self.hotkeys.push_to_talk,
+                "toggle": self.hotkeys.toggle,
+            },
+            "auto_paste": self.auto_paste,
+            "auto_copy": self.auto_copy,
+            "energy_threshold": self.energy_threshold,
+            "silence_ms": self.silence_ms,
+            "onboarding_complete": self.onboarding_complete,
+            "selected_device": self.selected_device,
+        }
+
+    @classmethod
+    def from_dict(cls, data: Dict[str, Any]) -> "AppSettings":
+        """Deserialize settings from a dict, using defaults for missing keys."""
+        defaults = cls()
+        try:
+            model = WhisperModel(data.get("model", defaults.model.value))
+        except ValueError:
+            model = defaults.model
+        try:
+            mode = RecordingMode(data.get("recording_mode", defaults.recording_mode.value))
+        except ValueError:
+            mode = defaults.recording_mode
+        hotkey_data = data.get("hotkeys", {})
+        return cls(
+            model=model,
+            language=data.get("language", defaults.language),
+            recording_mode=mode,
+            hotkeys=HotkeyConfig(
+                push_to_talk=hotkey_data.get("push_to_talk", defaults.hotkeys.push_to_talk),
+                toggle=hotkey_data.get("toggle", defaults.hotkeys.toggle),
+            ),
+            auto_paste=data.get("auto_paste", defaults.auto_paste),
+            auto_copy=data.get("auto_copy", defaults.auto_copy),
+            energy_threshold=float(data.get("energy_threshold", defaults.energy_threshold)),
+            silence_ms=int(data.get("silence_ms", defaults.silence_ms)),
+            onboarding_complete=data.get("onboarding_complete", defaults.onboarding_complete),
+            selected_device=data.get("selected_device", defaults.selected_device),
+        )

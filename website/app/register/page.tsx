@@ -1,20 +1,39 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, Suspense } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import { createClient } from '@/utils/supabase/client'
 import { motion } from 'framer-motion'
 import { Loader2, CheckCircle2 } from 'lucide-react'
 
-export default function RegisterPage() {
+function RegisterContent() {
     const router = useRouter()
+    const searchParams = useSearchParams()
+    const isCheckoutRedirect = searchParams.get('redirect') === 'checkout'
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [loading, setLoading] = useState(false)
     const [errorMsg, setErrorMsg] = useState('')
     const [success, setSuccess] = useState(false)
+    const [verifyEmail, setVerifyEmail] = useState(false)
+
+    const handleGoogleLogin = async () => {
+        setLoading(true)
+        setErrorMsg('')
+        const supabase = createClient()
+        const { error } = await supabase.auth.signInWithOAuth({
+            provider: 'google',
+            options: {
+                redirectTo: `${window.location.origin}/auth/callback?next=${isCheckoutRedirect ? '/members/settings?checkout=true' : '/members'}`
+            }
+        })
+        if (error) {
+            setErrorMsg(error.message)
+            setLoading(false)
+        }
+    }
 
     const handleSignup = async (e: React.FormEvent) => {
         e.preventDefault()
@@ -22,7 +41,7 @@ export default function RegisterPage() {
         setErrorMsg('')
 
         const supabase = createClient()
-        const { error } = await supabase.auth.signUp({
+        const { data, error } = await supabase.auth.signUp({
             email,
             password,
         })
@@ -33,13 +52,24 @@ export default function RegisterPage() {
             return
         }
 
+        // Check if email confirmation is required (session is null)
+        if (data?.session === null) {
+            setVerifyEmail(true)
+            setLoading(false)
+            return
+        }
+
         // Success animation triggers
         setSuccess(true)
         setLoading(false)
 
-        // Wait a beat before redirecting to members area
+        // Wait a beat before redirecting to members area or checkout
         setTimeout(() => {
-            router.push('/members')
+            if (isCheckoutRedirect) {
+                router.push('/members/settings?checkout=true')
+            } else {
+                router.push('/members')
+            }
             router.refresh()
         }, 800)
     }
@@ -105,11 +135,11 @@ export default function RegisterPage() {
 
                     <div className="p-8 rounded-2xl border border-border/50 bg-surface/50 backdrop-blur-xl relative overflow-hidden">
 
-                        {/* Success Overlay Fill */}
+                        {/* Success Overlay Fill (Dashboard Redirect) */}
                         <motion.div
                             initial={false}
                             animate={{ opacity: success ? 1 : 0 }}
-                            className="absolute inset-0 bg-primary/10 backdrop-blur-sm z-20 flex flex-col items-center justify-center pt-8 border-t-2 border-primary"
+                            className="absolute inset-0 bg-primary/10 backdrop-blur-sm z-30 flex flex-col items-center justify-center pt-8 border-t-2 border-primary"
                             style={{ pointerEvents: success ? 'auto' : 'none' }}
                         >
                             <motion.div
@@ -122,9 +152,54 @@ export default function RegisterPage() {
                             <p className="text-muted-foreground text-sm">Redirecting to dashboard...</p>
                         </motion.div>
 
+                        {/* Verify Email Overlay */}
+                        <motion.div
+                            initial={false}
+                            animate={{ opacity: verifyEmail ? 1 : 0 }}
+                            className="absolute inset-0 bg-surface/90 backdrop-blur-md z-20 flex flex-col items-center justify-center pt-8 border-t-2 border-emerald-500 p-8 text-center"
+                            style={{ pointerEvents: verifyEmail ? 'auto' : 'none' }}
+                        >
+                            <motion.div
+                                animate={verifyEmail ? { scale: [0.5, 1.2, 1] } : { scale: 0 }}
+                                transition={{ duration: 0.4, type: "spring" }}
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-emerald-400 mb-4 drop-shadow-lg"><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg>
+                            </motion.div>
+                            <p className="font-bold text-foreground text-xl mb-2">Check your inbox</p>
+                            <p className="text-muted-foreground text-sm mb-6">We've sent a magic link to <span className="font-semibold text-foreground">{email}</span>. Please click the link to verify your account.</p>
+
+                            <button
+                                onClick={() => setVerifyEmail(false)}
+                                className="h-10 px-4 flex items-center justify-center border border-border/50 bg-white/[0.02] hover:bg-white/[0.05] text-muted-foreground rounded-lg text-sm font-medium transition-all"
+                            >
+                                Back to sign up
+                            </button>
+                        </motion.div>
+
                         <form onSubmit={handleSignup} className="flex flex-col gap-1 text-foreground">
                             <h1 className="text-2xl font-bold mb-1">Create Account</h1>
                             <p className="text-sm text-muted-foreground mb-6">Start building with TiltedPrompts today.</p>
+
+                            <button
+                                type="button"
+                                onClick={handleGoogleLogin}
+                                disabled={loading || success || verifyEmail}
+                                className="h-11 mb-6 flex items-center justify-center gap-2 border border-border/50 bg-[#1e1e1e] hover:bg-[#252525] text-foreground rounded-lg text-sm font-semibold transition-all shadow-sm disabled:opacity-70"
+                            >
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M22.56 12.25C22.56 11.47 22.49 10.72 22.36 10H12V14.26H17.92C17.66 15.63 16.88 16.81 15.71 17.59V20.34H19.28C21.36 18.42 22.56 15.6 22.56 12.25Z" fill="#4285F4" />
+                                    <path d="M12 23C14.97 23 17.46 22.02 19.28 20.34L15.71 17.59C14.72 18.25 13.46 18.66 12 18.66C9.17 18.66 6.78 16.75 5.86 14.16H2.18V17.02C3.99 20.61 7.71 23 12 23Z" fill="#34A853" />
+                                    <path d="M5.86 14.16C5.63 13.48 5.5 12.76 5.5 12C5.5 11.24 5.63 10.52 5.86 9.84V6.98H2.18C1.43 8.48 1 10.18 1 12C1 13.82 1.43 15.52 2.18 17.02L5.86 14.16Z" fill="#FBBC05" />
+                                    <path d="M12 5.34C13.62 5.34 15.07 5.9 16.21 6.99L19.36 3.84C17.46 2.07 14.97 1 12 1C7.71 1 3.99 3.39 2.18 6.98L5.86 9.84C6.78 7.25 9.17 5.34 12 5.34Z" fill="#EA4335" />
+                                </svg>
+                                Continue with Google
+                            </button>
+
+                            <div className="flex items-center gap-3 mb-6">
+                                <div className="flex-1 h-px bg-border/50" />
+                                <span className="text-xs text-muted-foreground uppercase tracking-wider">Or email</span>
+                                <div className="flex-1 h-px bg-border/50" />
+                            </div>
 
                             <label className="text-sm font-medium mb-1.5" htmlFor="email">Email</label>
                             <input
@@ -153,15 +228,13 @@ export default function RegisterPage() {
                             <div className="flex flex-col gap-3">
                                 <button
                                     type="submit"
-                                    disabled={loading || success}
+                                    disabled={loading || success || verifyEmail}
                                     className="h-11 flex items-center justify-center bg-primary text-primary-foreground hover:bg-primary/90 rounded-lg text-sm font-semibold transition-all shadow-sm disabled:opacity-70"
                                 >
                                     {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : 'Sign Up'}
                                 </button>
 
                                 <div className="flex items-center gap-3 my-1">
-                                    <div className="flex-1 h-px bg-border/50" />
-                                    <span className="text-xs text-muted-foreground">or</span>
                                     <div className="flex-1 h-px bg-border/50" />
                                 </div>
 
@@ -194,5 +267,13 @@ export default function RegisterPage() {
                 </motion.div>
             </div>
         </div>
+    )
+}
+
+export default function RegisterPage() {
+    return (
+        <Suspense fallback={<div className="min-h-screen bg-background flex items-center justify-center"><Loader2 className="w-6 h-6 animate-spin text-muted-foreground" /></div>}>
+            <RegisterContent />
+        </Suspense>
     )
 }

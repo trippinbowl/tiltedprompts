@@ -139,24 +139,72 @@ def _settings_path() -> Path:
     return Path(os.environ.get("APPDATA", ".")) / "TiltedVoice" / "settings.json"
 
 
-def _load_theme_pref() -> str:
+def _load_settings_data() -> dict:
+    """Load raw settings dict from disk."""
     try:
-        data = json.loads(_settings_path().read_text(encoding="utf-8"))
-        name = data.get("theme", DEFAULT_THEME)
-        return name if name in THEMES else DEFAULT_THEME
+        return json.loads(_settings_path().read_text(encoding="utf-8"))
     except Exception:
-        return DEFAULT_THEME
+        return {}
 
 
-def _save_theme_pref(name: str):
+def _save_settings_data(data: dict):
+    """Write settings dict to disk."""
     p = _settings_path()
     try:
         p.parent.mkdir(parents=True, exist_ok=True)
-        data = {}
-        if p.exists():
-            data = json.loads(p.read_text(encoding="utf-8"))
-        data["theme"] = name
         p.write_text(json.dumps(data, indent=2), encoding="utf-8")
+    except Exception:
+        pass
+
+
+def _load_theme_pref() -> str:
+    name = _load_settings_data().get("theme", DEFAULT_THEME)
+    return name if name in THEMES else DEFAULT_THEME
+
+
+def _save_theme_pref(name: str):
+    data = _load_settings_data()
+    data["theme"] = name
+    _save_settings_data(data)
+
+
+def _load_app_settings() -> AppSettings:
+    """Load full AppSettings from disk, merging with defaults."""
+    data = _load_settings_data()
+    return AppSettings.from_dict(data)
+
+
+def _save_app_settings(settings: AppSettings, theme: str = ""):
+    """Save full AppSettings + theme to disk."""
+    data = settings.to_dict()
+    if theme:
+        data["theme"] = theme
+    else:
+        # Preserve existing theme
+        existing = _load_settings_data()
+        data["theme"] = existing.get("theme", DEFAULT_THEME)
+    _save_settings_data(data)
+
+
+def _history_path() -> Path:
+    return Path(os.environ.get("APPDATA", ".")) / "TiltedVoice" / "history.json"
+
+
+def _load_history() -> list:
+    """Load transcription history from disk."""
+    try:
+        return json.loads(_history_path().read_text(encoding="utf-8"))
+    except Exception:
+        return []
+
+
+def _save_history(history: list):
+    """Save transcription history to disk (capped at 500 entries)."""
+    p = _history_path()
+    try:
+        p.parent.mkdir(parents=True, exist_ok=True)
+        capped = history[-500:] if len(history) > 500 else history
+        p.write_text(json.dumps(capped, indent=2, ensure_ascii=False), encoding="utf-8")
     except Exception:
         pass
 
@@ -254,7 +302,7 @@ class TiltedVoiceApp(ctk.CTk):
         self._theme_name = _load_theme_pref()
         _current_theme = THEMES[self._theme_name]
 
-        self.settings = AppSettings()
+        self.settings = _load_app_settings()
         self._transcriber: Optional[Transcriber] = None
         self._recorder: Optional[VoiceRecorder] = None
         self._mic_manager = MicrophoneManager()
@@ -270,11 +318,11 @@ class TiltedVoiceApp(ctk.CTk):
         self._diag_lines: list[str] = []
         self._diag_peak: float = 0.0
         self._diag_rms_last: float = 0.0
-        self._history: list[dict] = []
+        self._history: list[dict] = _load_history()
         self._current_page = "Overview"
         self._nav_buttons: dict[str, ctk.CTkButton] = {}
 
-        self.title("BridgeVoice")
+        self.title("TiltedVoice")
         self.geometry("1024x768")
         self.minsize(960, 720)
         ctk.set_appearance_mode("dark")
@@ -305,7 +353,8 @@ class TiltedVoiceApp(ctk.CTk):
         self.after(400, self._start_tray)
         self.after(500, self._register_hotkeys)
         self.after(600, self._create_floating_ptt)
-        self.after(700, self._show_onboarding)
+        if not self.settings.onboarding_complete:
+            self.after(700, self._show_onboarding)
         self.protocol("WM_DELETE_WINDOW", self._on_close)
 
     @staticmethod
@@ -320,6 +369,10 @@ class TiltedVoiceApp(ctk.CTk):
     # Theme application
     # ==================================================================
 
+    def _persist_settings(self):
+        """Save all current settings to disk (debounce-safe to call frequently)."""
+        _save_app_settings(self.settings, theme=self._theme_name)
+
     def _apply_theme(self, name: str):
         global _current_theme
         if name not in THEMES:
@@ -327,16 +380,27 @@ class TiltedVoiceApp(ctk.CTk):
         self._theme_name = name
         _current_theme = THEMES[name]
         _save_theme_pref(name)
+        self._persist_settings()
         is_light = name == "Arctic"
         ctk.set_appearance_mode("light" if is_light else "dark")
         self._rebuild_full_ui()
 
     def _rebuild_full_ui(self):
+        # Destroy floating PTT before rebuild
+        if self._ptt_button:
+            try:
+                self._ptt_button.destroy()
+            except Exception:
+                pass
+            self._ptt_button = None
         for w in self.winfo_children():
             w.destroy()
         self._nav_buttons = {}
         self._build_ui()
         self._navigate(self._current_page)
+        # Re-init devices and re-create floating PTT with new theme
+        self.after(100, self._populate_devices)
+        self.after(200, self._create_floating_ptt)
 
     # ==================================================================
     # Window Movement & Controls
@@ -410,7 +474,7 @@ class TiltedVoiceApp(ctk.CTk):
         logo_frame.bind("<ButtonPress-1>", self._get_pos)
 
         ctk.CTkLabel(
-            logo_frame, text="\U000026a1 BridgeVoice",
+            logo_frame, text="\U000026a1 TiltedVoice",
             font=ctk.CTkFont(size=20, weight="bold"), text_color=T("text"), anchor="w",
         ).pack(fill="x", padx=20, pady=(20, 0))
 
@@ -707,12 +771,35 @@ class TiltedVoiceApp(ctk.CTk):
                                        scrollbar_button_hover_color=T("text_muted"))
         page.pack(fill="both", expand=True, padx=28, pady=20)
 
+        # Header row
+        hdr_row = ctk.CTkFrame(page, fg_color="transparent")
+        hdr_row.pack(fill="x", pady=(0, 8))
         ctk.CTkLabel(
-            page, text="History",
+            hdr_row, text="History",
             font=ctk.CTkFont(size=32, weight="bold"), text_color=T("text"), anchor="w",
-        ).pack(fill="x", pady=(0, 8))
+        ).pack(side="left")
+
+        if self._history:
+            # Export + Clear buttons
+            btn_frame = ctk.CTkFrame(hdr_row, fg_color="transparent")
+            btn_frame.pack(side="right")
+            ctk.CTkButton(
+                btn_frame, text="Export TXT", width=90, height=32,
+                fg_color=T("surface"), hover_color=T("card_hover"),
+                text_color=T("text_dim"), font=ctk.CTkFont(size=12),
+                corner_radius=8, border_width=1, border_color=T("border"),
+                command=self._export_history_txt,
+            ).pack(side="left", padx=(0, 6))
+            ctk.CTkButton(
+                btn_frame, text="Clear All", width=80, height=32,
+                fg_color=T("surface"), hover_color=T("error"),
+                text_color=T("text_dim"), font=ctk.CTkFont(size=12),
+                corner_radius=8, border_width=1, border_color=T("border"),
+                command=self._clear_history,
+            ).pack(side="left")
+
         ctk.CTkLabel(
-            page, text="Past transcriptions from this session.",
+            page, text=f"{len(self._history)} transcription(s) saved.",
             font=ctk.CTkFont(size=13), text_color=T("text_dim"), anchor="w",
         ).pack(fill="x", pady=(0, 18))
 
@@ -738,14 +825,84 @@ class TiltedVoiceApp(ctk.CTk):
                 hdr, text=f"#{len(self._history) - i}  {entry['time']}",
                 font=ctk.CTkFont(size=11), text_color=T("text_muted"),
             ).pack(side="left")
+            # Copy button per entry
+            entry_text = entry["text"]
+            ctk.CTkButton(
+                hdr, text="Copy", width=48, height=22,
+                fg_color=T("surface"), hover_color=T("card_hover"),
+                text_color=T("text_muted"), font=ctk.CTkFont(size=10),
+                command=lambda t=entry_text: self._copy_to_clipboard(t),
+            ).pack(side="right", padx=(6, 0))
             ctk.CTkLabel(
                 hdr, text=f"{entry['ms']}ms",
                 font=ctk.CTkFont(size=11), text_color=T("primary"),
             ).pack(side="right")
-            ctk.CTkLabel(
-                card, text=entry["text"], font=ctk.CTkFont(size=13),
-                text_color=T("text"), anchor="w", wraplength=550, justify="left",
-            ).pack(fill="x", padx=16, pady=(2, 14))
+            # Use CTkTextbox instead of label for proper wrapping
+            tb = ctk.CTkTextbox(
+                card, fg_color="transparent", text_color=T("text"),
+                font=ctk.CTkFont(size=13), height=60, wrap="word",
+                corner_radius=0, border_width=0, activate_scrollbars=False,
+            )
+            tb.pack(fill="x", padx=16, pady=(2, 14))
+            tb.insert("1.0", entry["text"])
+            tb.configure(state="disabled")
+
+    def _export_history_txt(self):
+        """Export history to a .txt file via save dialog."""
+        try:
+            from tkinter import filedialog
+            path = filedialog.asksaveasfilename(
+                defaultextension=".txt",
+                filetypes=[("Text files", "*.txt"), ("All files", "*.*")],
+                title="Export Transcription History",
+                initialfile="tiltedvoice_history.txt",
+            )
+            if not path:
+                return
+            lines = []
+            for i, entry in enumerate(self._history, 1):
+                lines.append(f"#{i}  {entry['time']}  ({entry['ms']}ms)")
+                lines.append(entry["text"])
+                lines.append("")
+            Path(path).write_text("\n".join(lines), encoding="utf-8")
+            self._set_status(f"Exported {len(self._history)} entries", T("success"))
+        except Exception as exc:
+            self._set_status(f"Export failed: {exc}", T("error"))
+
+    def _clear_history(self):
+        """Clear all history (with confirmation)."""
+        if not self._history:
+            return
+        # Simple confirmation via a top-level dialog
+        dialog = ctk.CTkToplevel(self)
+        dialog.title("Clear History")
+        dialog.geometry("340x140")
+        dialog.transient(self)
+        dialog.grab_set()
+        dialog.resizable(False, False)
+        dialog.configure(fg_color=T("bg"))
+        ctk.CTkLabel(
+            dialog, text=f"Delete all {len(self._history)} transcriptions?",
+            font=ctk.CTkFont(size=14, weight="bold"), text_color=T("text"),
+        ).pack(pady=(20, 10))
+        btn_row = ctk.CTkFrame(dialog, fg_color="transparent")
+        btn_row.pack(pady=10)
+        ctk.CTkButton(
+            btn_row, text="Cancel", width=100, fg_color=T("surface"),
+            hover_color=T("card_hover"), text_color=T("text_dim"),
+            command=dialog.destroy,
+        ).pack(side="left", padx=8)
+        def _confirm():
+            self._history.clear()
+            _save_history(self._history)
+            dialog.destroy()
+            self._navigate("History")
+            self._set_status("History cleared", T("success"))
+        ctk.CTkButton(
+            btn_row, text="Delete All", width=100, fg_color=T("error"),
+            hover_color="#dc2626", text_color="#ffffff",
+            command=_confirm,
+        ).pack(side="left", padx=8)
 
     # ------------------------------------------------------------------
     # Shortcuts page
@@ -804,22 +961,6 @@ class TiltedVoiceApp(ctk.CTk):
                 font=ctk.CTkFont(family="Consolas", size=14, weight="bold"),
                 text_color=T("primary") if current_key else T("text_muted"), height=40,
             ).pack(padx=24)
-            ctk.CTkLabel(
-                card, text=title,
-                font=ctk.CTkFont(size=14, weight="bold"), text_color=T("text"), anchor="w",
-            ).pack(fill="x", padx=18, pady=(16, 2))
-            ctk.CTkLabel(
-                card, text=desc,
-                font=ctk.CTkFont(size=12), text_color=T("text_dim"), anchor="w",
-            ).pack(fill="x", padx=18, pady=(0, 10))
-            key_frame = ctk.CTkFrame(card, fg_color=T("surface"), corner_radius=8,
-                                     border_width=1, border_color=T("border"))
-            key_frame.pack(fill="x", padx=18, pady=(0, 16))
-            ctk.CTkLabel(
-                key_frame, text=current_key,
-                font=ctk.CTkFont(family="Consolas", size=14, weight="bold"),
-                text_color=T("primary"), height=40,
-            ).pack(padx=14)
 
         _shortcut_card(
             "\U0001f3a4  Push-to-Talk",
@@ -902,10 +1043,16 @@ class TiltedVoiceApp(ctk.CTk):
         self._auto_copy_var = ctk.BooleanVar(value=self.settings.auto_copy)
         self._auto_paste_var = ctk.BooleanVar(value=self.settings.auto_paste)
 
-        _toggle_row(gen, "Auto-copy transcription to clipboard", self._auto_copy_var,
-                    lambda: setattr(self.settings, "auto_copy", self._auto_copy_var.get()))
-        _toggle_row(gen, "Auto-paste into active window", self._auto_paste_var,
-                    lambda: setattr(self.settings, "auto_paste", self._auto_paste_var.get()))
+        def _on_auto_copy():
+            self.settings.auto_copy = self._auto_copy_var.get()
+            self._persist_settings()
+
+        def _on_auto_paste():
+            self.settings.auto_paste = self._auto_paste_var.get()
+            self._persist_settings()
+
+        _toggle_row(gen, "Auto-copy transcription to clipboard", self._auto_copy_var, _on_auto_copy)
+        _toggle_row(gen, "Auto-paste into active window", self._auto_paste_var, _on_auto_paste)
         ctk.CTkFrame(gen, fg_color="transparent", height=8).pack()
 
         # -- Audio --
@@ -932,6 +1079,29 @@ class TiltedVoiceApp(ctk.CTk):
         ctk.CTkEntry(row2, textvariable=self._silence_var, width=90,
                       fg_color=T("surface"), border_color=T("border"),
                       text_color=T("text")).pack(side="right")
+
+        # Wire audio settings to persist on change
+        def _on_energy_change(*_args):
+            try:
+                val = float(self._energy_var.get())
+                if 0.0 <= val <= 1.0:
+                    self.settings.energy_threshold = val
+                    self._persist_settings()
+            except (ValueError, TypeError):
+                pass
+
+        def _on_silence_change(*_args):
+            try:
+                val = int(self._silence_var.get())
+                if 100 <= val <= 10000:
+                    self.settings.silence_ms = val
+                    self._persist_settings()
+            except (ValueError, TypeError):
+                pass
+
+        self._energy_var.trace_add("write", _on_energy_change)
+        self._silence_var.trace_add("write", _on_silence_change)
+
         ctk.CTkFrame(aud, fg_color="transparent", height=8).pack()
 
         # -- About --
@@ -994,11 +1164,11 @@ class TiltedVoiceApp(ctk.CTk):
             logo_img = ctk.CTkLabel(splash_frame, text="\U000026a1", font=ctk.CTkFont(size=64), text_color=T("primary"))
             logo_img.pack(side="left", padx=(0, 16))
             
-            ctk.CTkLabel(splash_frame, text="BridgeVoice",
+            ctk.CTkLabel(splash_frame, text="TiltedVoice",
                           font=ctk.CTkFont(size=48, weight="bold"),
                           text_color=T("text")).pack(side="left")
 
-            ctk.CTkLabel(center, text="by BridgeMind",
+            ctk.CTkLabel(center, text="by TiltedPrompts",
                           font=ctk.CTkFont(size=14),
                           text_color=T("text_dim")).pack(pady=(0, 40))
 
@@ -1017,7 +1187,7 @@ class TiltedVoiceApp(ctk.CTk):
 
             pill_badge = ctk.CTkFrame(center, fg_color=T("surface"), corner_radius=16, border_width=1, border_color=T("border"))
             pill_badge.pack(pady=(0, 24))
-            ctk.CTkLabel(pill_badge, text="\U000026a1 BridgeVoice", font=ctk.CTkFont(size=12, weight="bold"), text_color=T("text")).pack(padx=16, pady=6)
+            ctk.CTkLabel(pill_badge, text="\U000026a1 TiltedVoice", font=ctk.CTkFont(size=12, weight="bold"), text_color=T("text")).pack(padx=16, pady=6)
 
             ctk.CTkButton(
                 center, text="\U000026a1  Start Building  \u2192", height=56, corner_radius=16,
@@ -1026,11 +1196,11 @@ class TiltedVoiceApp(ctk.CTk):
                 command=lambda: self._onboarding_next(1),
             ).pack(fill="x", padx=40, pady=(0, 10))
             
-            ctk.CTkLabel(center, text="Signs in through BridgeMind in your browser", font=ctk.CTkFont(size=11), text_color=T("text_muted")).pack(pady=(16, 80))
+            ctk.CTkLabel(center, text="Part of the TiltedPrompts product suite", font=ctk.CTkFont(size=11), text_color=T("text_muted")).pack(pady=(16, 80))
             
             eco_badge = ctk.CTkFrame(center, fg_color="transparent", corner_radius=16, border_width=1, border_color=T("border"))
             eco_badge.pack(pady=(0, 24))
-            ctk.CTkLabel(eco_badge, text="\u25cf  BRIDGEMIND ECOSYSTEM", font=ctk.CTkFont(size=10, weight="bold"), text_color=T("text_dim")).pack(padx=16, pady=6)
+            ctk.CTkLabel(eco_badge, text="\u25cf  TILTEDPROMPTS ECOSYSTEM", font=ctk.CTkFont(size=10, weight="bold"), text_color=T("text_dim")).pack(padx=16, pady=6)
 
             ctk.CTkButton(
                 center, text="Skip", height=32,
@@ -1047,7 +1217,7 @@ class TiltedVoiceApp(ctk.CTk):
         elif step == 1:
             ctk.CTkLabel(center, text="\U0001f3a4",
                           font=ctk.CTkFont(size=32), text_color=T("primary")).pack(pady=(0, 8))
-            ctk.CTkLabel(center, text="Welcome to BridgeVoice",
+            ctk.CTkLabel(center, text="Welcome to TiltedVoice",
                           font=ctk.CTkFont(size=24, weight="bold"),
                           text_color=T("text")).pack(pady=(0, 4))
             ctk.CTkLabel(center, text="Choose a speech recognition model to get started",
@@ -1141,6 +1311,9 @@ class TiltedVoiceApp(ctk.CTk):
             self.unbind("<Escape>")
         except Exception:
             pass
+        # Mark onboarding complete so it doesn't show again
+        self.settings.onboarding_complete = True
+        self._persist_settings()
         try:
             self._set_status("Ready", T("text_dim"))
         except Exception:
@@ -1157,9 +1330,14 @@ class TiltedVoiceApp(ctk.CTk):
             if names:
                 if hasattr(self, "_mic_dropdown"):
                     self._mic_dropdown.configure(values=names)
-                default = self._mic_manager.get_default_device()
-                if default:
-                    self._mic_var.set(default["name"])
+                # Restore previously saved device if still available
+                saved = self.settings.selected_device
+                if saved and saved in names:
+                    self._mic_var.set(saved)
+                else:
+                    default = self._mic_manager.get_default_device()
+                    if default:
+                        self._mic_var.set(default["name"])
         except Exception as exc:
             logger.error("Failed to list devices: %s", exc)
 
@@ -1179,11 +1357,27 @@ class TiltedVoiceApp(ctk.CTk):
 
     def _on_mic_change(self, value):
         devs = self._mic_manager.list_devices()
+        device_idx = None
         for d in devs:
             if d["name"] == value:
-                if self._recorder:
-                    self._recorder._device_index = d["index"]
+                device_idx = d["index"]
                 break
+        # Stop recording if active (mic changed mid-recording)
+        if self._recording:
+            self._stop_recording()
+            self._set_status("Mic changed — restart recording when ready", T("warning"))
+        # Probe the new device in background
+        if device_idx is not None:
+            self._set_status("Probing mic\u2026", T("warning"))
+            def _probe():
+                self._mic_manager.probe_device(device_idx)
+                dtype = self._mic_manager.get_working_dtype(device_idx)
+                rate = self._mic_manager.get_working_sample_rate(device_idx)
+                self.after(0, lambda: self._set_status(f"Mic ready ({dtype}@{rate}Hz)", T("success")))
+            threading.Thread(target=_probe, daemon=True).start()
+        # Persist selected device
+        self.settings.selected_device = value
+        self._persist_settings()
 
     def _test_mic(self):
         self._set_status("Testing mic\u2026", T("warning"))
@@ -1214,6 +1408,7 @@ class TiltedVoiceApp(ctk.CTk):
             self._transcriber.unload()
             self._transcriber = None
         self._set_status(f"Model \u2192 {value}", T("primary"))
+        self._persist_settings()
 
     def _on_mode_change(self, value):
         try:
@@ -1227,6 +1422,7 @@ class TiltedVoiceApp(ctk.CTk):
         if self._recording:
             self._stop_recording()
         self._set_status(f"Mode \u2192 {value}", T("primary"))
+        self._persist_settings()
 
     # ==================================================================
     # Recording
@@ -1254,8 +1450,13 @@ class TiltedVoiceApp(ctk.CTk):
         self._diag_peak = 0.0
         self._diag_rms_last = 0.0
         self._append_diag(f"record_start mode={mode.value} mic='{selected_mic}' device_index={device_idx}")
-        audio_cfg = AudioConfig(energy_threshold=self.settings.energy_threshold)
-        self._recorder = VoiceRecorder(config=audio_cfg, device_index=device_idx, silence_ms=self.settings.silence_ms)
+        # Probe device for working dtype/sample rate (cached after first probe)
+        probed_dtype = self._mic_manager.probe_device(device_idx) if device_idx is not None else None
+        working_dtype = self._mic_manager.get_working_dtype(device_idx) if device_idx is not None else "float32"
+        working_rate = self._mic_manager.get_working_sample_rate(device_idx) if device_idx is not None else 16000
+        self._append_diag(f"device_probe dtype={working_dtype} rate={working_rate}")
+        audio_cfg = AudioConfig(sample_rate=working_rate, energy_threshold=self.settings.energy_threshold)
+        self._recorder = VoiceRecorder(config=audio_cfg, device_index=device_idx, silence_ms=self.settings.silence_ms, device_dtype=working_dtype)
 
         if mode == RecordingMode.AUTO:
             self._recorder.start_auto_listen(
@@ -1304,7 +1505,8 @@ class TiltedVoiceApp(ctk.CTk):
             self._set_status("No audio captured", T("warning"))
 
     def _on_audio_captured(self, audio: np.ndarray):
-        dur = len(audio) / 16000.0
+        sample_rate = self._recorder._config.sample_rate if self._recorder else 16000
+        dur = len(audio) / float(sample_rate)
         rms = float(np.sqrt(np.mean(audio ** 2)))
         peak = float(np.max(np.abs(audio))) if len(audio) else 0.0
         logger.info("Audio captured: %.2fs, rms=%.5f peak=%.5f", dur, rms, peak)
@@ -1399,6 +1601,7 @@ class TiltedVoiceApp(ctk.CTk):
         ms = int(result.processing_time_ms)
 
         self._history.append({"time": now, "ms": ms, "text": result.text, "wpm": result.words_per_minute})
+        _save_history(self._history)
 
         self._output.configure(state="normal")
         if self._transcription_count > 1:
@@ -1551,11 +1754,15 @@ class TiltedVoiceApp(ctk.CTk):
     def _register_hotkeys(self):
         try:
             import keyboard as kb
-            kb.add_hotkey(self.settings.hotkeys.push_to_talk, self._on_ptt_press, suppress=False)
-            kb.on_release_key("space", self._on_ptt_release, suppress=False)
+            ptt_key = self.settings.hotkeys.push_to_talk
+            kb.add_hotkey(ptt_key, self._on_ptt_press, suppress=False)
+            # Parse the last key from the PTT combo for release detection
+            # e.g. "ctrl+shift+space" → "space"
+            release_key = ptt_key.rsplit("+", 1)[-1].strip()
+            kb.on_release_key(release_key, self._on_ptt_release, suppress=False)
             kb.add_hotkey(self.settings.hotkeys.toggle, lambda: self.after(0, self._toggle_recording), suppress=False)
             self._hotkeys_registered = True
-            logger.info("Global hotkeys registered")
+            logger.info("Global hotkeys registered (PTT=%s, release=%s)", ptt_key, release_key)
         except Exception as exc:
             logger.error("Hotkey registration failed: %s", exc)
 

@@ -16,6 +16,22 @@ export default function LoginPage() {
     const [errorMsg, setErrorMsg] = useState('')
     const [success, setSuccess] = useState(false)
 
+    const handleGoogleLogin = async () => {
+        setLoading(true)
+        setErrorMsg('')
+        const supabase = createClient()
+        const { error } = await supabase.auth.signInWithOAuth({
+            provider: 'google',
+            options: {
+                redirectTo: `${window.location.origin}/auth/callback?next=/members`
+            }
+        })
+        if (error) {
+            setErrorMsg(error.message)
+            setLoading(false)
+        }
+    }
+
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault()
         setLoading(true)
@@ -125,6 +141,27 @@ export default function LoginPage() {
                         <form onSubmit={handleLogin} className="flex flex-col gap-1 text-foreground">
                             <h1 className="text-2xl font-bold mb-1">Welcome Back</h1>
                             <p className="text-sm text-muted-foreground mb-6">Sign in to your account to continue.</p>
+
+                            <button
+                                type="button"
+                                onClick={handleGoogleLogin}
+                                disabled={loading || success}
+                                className="h-11 mb-6 flex items-center justify-center gap-2 border border-border/50 bg-[#1e1e1e] hover:bg-[#252525] text-foreground rounded-lg text-sm font-semibold transition-all shadow-sm disabled:opacity-70"
+                            >
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M22.56 12.25C22.56 11.47 22.49 10.72 22.36 10H12V14.26H17.92C17.66 15.63 16.88 16.81 15.71 17.59V20.34H19.28C21.36 18.42 22.56 15.6 22.56 12.25Z" fill="#4285F4" />
+                                    <path d="M12 23C14.97 23 17.46 22.02 19.28 20.34L15.71 17.59C14.72 18.25 13.46 18.66 12 18.66C9.17 18.66 6.78 16.75 5.86 14.16H2.18V17.02C3.99 20.61 7.71 23 12 23Z" fill="#34A853" />
+                                    <path d="M5.86 14.16C5.63 13.48 5.5 12.76 5.5 12C5.5 11.24 5.63 10.52 5.86 9.84V6.98H2.18C1.43 8.48 1 10.18 1 12C1 13.82 1.43 15.52 2.18 17.02L5.86 14.16Z" fill="#FBBC05" />
+                                    <path d="M12 5.34C13.62 5.34 15.07 5.9 16.21 6.99L19.36 3.84C17.46 2.07 14.97 1 12 1C7.71 1 3.99 3.39 2.18 6.98L5.86 9.84C6.78 7.25 9.17 5.34 12 5.34Z" fill="#EA4335" />
+                                </svg>
+                                Continue with Google
+                            </button>
+
+                            <div className="flex items-center gap-3 mb-6">
+                                <div className="flex-1 h-px bg-border/50" />
+                                <span className="text-xs text-muted-foreground uppercase tracking-wider">Or email</span>
+                                <div className="flex-1 h-px bg-border/50" />
+                            </div>
 
                             <label className="text-sm font-medium mb-1.5" htmlFor="email">Email</label>
                             <input

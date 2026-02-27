@@ -72,7 +72,22 @@
       "Bash(powershell.exe -NoProfile -ExecutionPolicy Bypass -Command \"Get-Process python*,TiltedVoice -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue\")",
       "Bash(powershell.exe -NoProfile -ExecutionPolicy Bypass -File \"G:\\\\AI_Projects\\\\ai-agency\\\\tiltedvoice\\\\test_exe.ps1\")",
       "Bash(powershell.exe -NoProfile -ExecutionPolicy Bypass -Command \"& { Get-ChildItem -Path ''G:\\\\AI_Projects\\\\ai-agency\\\\tiltedvoice'' -Force -ErrorAction SilentlyContinue | Format-Table Name, PSIsContainer -AutoSize }\")",
-      "Bash(ls \"G:/AI_Projects/ai-agency/tiltedprompts-website/app/\\(marketing\\)\")"
+      "Bash(ls \"G:/AI_Projects/ai-agency/tiltedprompts-website/app/\\(marketing\\)\")",
+      "Bash(pip --version)",
+      "Bash(ls -la *.toml *.txt *.cfg)",
+      "Bash(/g/AI_Projects/ai-agency/tiltedvoice/.venv/Scripts/python.exe --version)",
+      "Bash(/g/AI_Projects/ai-agency/tiltedvoice/.venv/Scripts/pip.exe list)",
+      "Bash(/g/AI_Projects/ai-agency/tiltedvoice/.venv/Scripts/python.exe -c \":*)",
+      "Bash(.venv/Scripts/python.exe -m pytest tests/ -v --tb=long)",
+      "Bash(powershell -NoProfile -Command \"Get-ItemProperty ''HKCU:\\\\Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\CapabilityAccessManager\\\\ConsentStore\\\\microphone'' -ErrorAction SilentlyContinue | Select Value\")",
+      "Bash(powershell -NoProfile -Command \"Get-ItemProperty ''HKLM:\\\\SOFTWARE\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\CapabilityAccessManager\\\\ConsentStore\\\\microphone'' -ErrorAction SilentlyContinue | Select Value\")",
+      "Bash(powershell -NoProfile -Command \"systeminfo | Select-String ''OS Name|OS Version|System Type''\")",
+      "Bash(powershell -NoProfile -Command \"\\(Get-ChildItem ''HKLM:\\\\SOFTWARE\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\MMDevices\\\\Audio\\\\Capture'' -ErrorAction SilentlyContinue\\).Count\")",
+      "Bash(powershell -NoProfile:*)",
+      "Bash(/g/AI_Projects/ai-agency/tiltedvoice/.venv/Scripts/python.exe /g/AI_Projects/ai-agency/tiltedvoice/scripts/fix_audio.py)",
+      "Bash(PYTHONIOENCODING=utf-8 /g/AI_Projects/ai-agency/tiltedvoice/.venv/Scripts/python.exe -X utf8 /g/AI_Projects/ai-agency/tiltedvoice/scripts/fix_audio.py)",
+      "Bash(.venv/Scripts/python.exe -m pytest tests/ -v --tb=short)",
+      "Bash(.venvScriptspython.exe -m pytest tests/ -v --tb=short)"
     ]
   }
 }

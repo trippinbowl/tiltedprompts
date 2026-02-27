@@ -1,11 +1,19 @@
+'use client';
+
 import Link from 'next/link';
-import { Library, Workflow, Terminal, Box, Lock, Code2, Cpu, ArrowRight } from "lucide-react";
+import { Library, Workflow, Terminal, Box, Lock, Code2, Cpu, ArrowRight, Download } from "lucide-react";
+import { useUserTier } from '../contexts/UserTierContext';
 
 interface AssetCardProps {
     asset: any;
 }
 
 export default function AssetCard({ asset }: AssetCardProps) {
+    const { tier } = useUserTier();
+    const isProUser = tier === 'pro' || tier === 'agency';
+    // The asset is locked ONLY if it requires premium AND the user is not pro.
+    const isLocked = asset.is_premium && !isProUser;
+
     let categoryColor = "text-primary";
     let Icon = Library;
     let accentGradient = "from-primary to-accent";
@@ -51,12 +59,16 @@ export default function AssetCard({ asset }: AssetCardProps) {
                 {/* Header: badge + icon */}
                 <div className="flex items-center justify-between mb-4">
                     <div className="flex gap-2">
-                        {asset.is_premium ? (
+                        {isLocked ? (
                             <div className="relative overflow-hidden px-2.5 py-1 rounded-full bg-purple-500/10 text-purple-400 text-[10px] font-bold uppercase tracking-wider flex items-center gap-1">
                                 {/* Shimmer on pro badge */}
                                 <div className="absolute inset-0 -translate-x-full animate-shimmer bg-gradient-to-r from-transparent via-white/[0.08] to-transparent bg-[length:200%_auto]" />
                                 <Lock className="w-3 h-3 relative z-10" />
                                 <span className="relative z-10">Pro</span>
+                            </div>
+                        ) : asset.is_premium ? (
+                            <div className="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-[10px] font-bold uppercase tracking-wider flex items-center gap-1">
+                                <span className="relative z-10">Purchased</span>
                             </div>
                         ) : (
                             <div className="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-[10px] font-bold uppercase tracking-wider">
@@ -81,14 +93,17 @@ export default function AssetCard({ asset }: AssetCardProps) {
                 <div className="mt-auto">
                     <Link
                         href={`/members/assets/${asset.id}`}
-                        className={`w-full flex items-center justify-center gap-2 py-2.5 rounded-lg text-sm font-medium transition-all border ${
-                            asset.is_premium
-                                ? 'bg-white/[0.02] border-white/[0.06] text-muted-foreground group-hover:border-purple-500/30 group-hover:text-purple-400 group-hover:bg-purple-500/5'
-                                : 'bg-white/[0.02] border-white/[0.06] text-muted-foreground group-hover:border-emerald-500/30 group-hover:text-emerald-400 group-hover:bg-emerald-500/5'
-                        }`}
+                        className={`w-full flex items-center justify-center gap-2 py-2.5 rounded-lg text-sm font-medium transition-all border ${isLocked
+                            ? 'bg-white/[0.02] border-white/[0.06] text-muted-foreground group-hover:border-purple-500/30 group-hover:text-purple-400 group-hover:bg-purple-500/5'
+                            : 'bg-primary/10 border-primary/20 text-primary group-hover:border-primary/40 group-hover:bg-primary/20'
+                            }`}
                     >
-                        {asset.is_premium ? 'Upgrade to Access' : 'Access Bundle'}
-                        <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                        {isLocked ? 'Upgrade to Access' : 'View Details'}
+                        {isLocked ? (
+                            <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                        ) : (
+                            <Download className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                        )}
                     </Link>
                 </div>
             </div>

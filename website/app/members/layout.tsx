@@ -6,10 +6,11 @@ import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import {
     Library, Box, Cpu, Workflow,
-    Terminal, Settings, LogOut, Moon, Sun, Code2, LayoutDashboard, Menu
+    Terminal, Settings, LogOut, Moon, Sun, Code2, LayoutDashboard, Menu, Loader2
 } from "lucide-react";
 import { useTheme } from "next-themes";
 import { createClient } from "@/utils/supabase/client";
+import { UserTierProvider, useUserTier } from "./contexts/UserTierContext";
 
 const sidebarLinks = [
     { name: "Dashboard Hub", href: "/members", icon: LayoutDashboard, color: "text-foreground" },
@@ -27,19 +28,18 @@ const tierDisplay: Record<string, { label: string; color: string }> = {
     agency: { label: "Agency", color: "text-yellow-400" },
 };
 
-export default function MembersLayout({
-    children,
-}: {
-    children: React.ReactNode;
-}) {
+function LayoutContent({ children }: { children: React.ReactNode }) {
     const pathname = usePathname();
     const router = useRouter();
     const { setTheme, theme } = useTheme();
     const [isCollapsed, setIsCollapsed] = useState(false);
-    const [userTier, setUserTier] = useState<string>("free");
     const [userInitials, setUserInitials] = useState<string>("..");
     const [isLoggingOut, setIsLoggingOut] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+    // Consume global tier
+    const { tier: contextTier, loading: tierLoading } = useUserTier();
+    const userTier = contextTier || "free";
 
     useEffect(() => {
         setIsMobileMenuOpen(false);
@@ -53,16 +53,6 @@ export default function MembersLayout({
 
             const email = user.email || "";
             setUserInitials(email.substring(0, 2).toUpperCase());
-
-            const { data: profile } = await supabase
-                .from("profiles")
-                .select("tier")
-                .eq("id", user.id)
-                .single();
-
-            if (profile?.tier) {
-                setUserTier(profile.tier);
-            }
         }
         loadProfile();
     }, []);
@@ -156,9 +146,15 @@ export default function MembersLayout({
                                 <div className="flex items-center justify-between">
                                     <div>
                                         <p className="text-[10px] text-muted-foreground uppercase tracking-wider">Plan</p>
-                                        <p className={`text-sm font-bold ${tier.color}`}>{tier.label}</p>
+                                        {tierLoading ? (
+                                            <div className="flex items-center gap-1.5 mt-0.5">
+                                                <Loader2 className="w-3.5 h-3.5 animate-spin text-muted-foreground" />
+                                            </div>
+                                        ) : (
+                                            <p className={`text-sm font-bold ${tier.color}`}>{tier.label}</p>
+                                        )}
                                     </div>
-                                    {!isPro && (
+                                    {!isPro && !tierLoading && (
                                         <Link href="/pricing" className="text-xs font-semibold text-primary hover:underline">
                                             Upgrade
                                         </Link>
@@ -188,7 +184,7 @@ export default function MembersLayout({
                                     disabled={isLoggingOut}
                                     className="flex items-center justify-center p-2 rounded-lg text-muted-foreground hover:bg-destructive/10 hover:text-destructive transition-all border border-white/[0.06] disabled:opacity-50"
                                 >
-                                    <LogOut className="w-3.5 h-3.5" />
+                                    {isLoggingOut ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <LogOut className="w-3.5 h-3.5" />}
                                 </button>
                             </div>
                         </>
@@ -208,7 +204,7 @@ export default function MembersLayout({
                                 title="Log out"
                                 className="flex items-center justify-center p-2 rounded-lg text-muted-foreground hover:bg-destructive/10 hover:text-destructive transition-all disabled:opacity-50"
                             >
-                                <LogOut className="w-4 h-4" />
+                                {isLoggingOut ? <Loader2 className="w-4 h-4 animate-spin" /> : <LogOut className="w-4 h-4" />}
                             </button>
                         </div>
                     )}
@@ -245,5 +241,17 @@ export default function MembersLayout({
                 </div>
             </main>
         </div>
+    );
+}
+
+export default function MembersLayout({
+    children,
+}: {
+    children: React.ReactNode;
+}) {
+    return (
+        <UserTierProvider>
+            <LayoutContent>{children}</LayoutContent>
+        </UserTierProvider>
     );
 }
