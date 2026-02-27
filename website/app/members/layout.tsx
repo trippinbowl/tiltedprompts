@@ -96,9 +96,9 @@ export default function MembersLayout({
             `}>
 
                 {/* Logo header */}
-                <div
-                    className="h-14 flex items-center justify-between px-4 border-b border-white/[0.06] cursor-pointer hover:bg-white/[0.02] transition-colors"
-                    onClick={() => setIsCollapsed(!isCollapsed)}
+                <Link
+                    href="/"
+                    className="h-14 flex items-center justify-between px-4 border-b border-white/[0.06] cursor-pointer hover:bg-white/[0.02] transition-colors group"
                 >
                     <div className="flex items-center gap-2.5 overflow-hidden">
                         <Image
@@ -106,16 +106,13 @@ export default function MembersLayout({
                             alt="TiltedPrompts"
                             width={22}
                             height={22}
-                            className="w-[22px] h-[22px] shrink-0"
+                            className="w-[22px] h-[22px] shrink-0 group-hover:scale-105 transition-transform"
                         />
                         <span className={`font-sans font-bold text-sm tracking-tight whitespace-nowrap transition-all duration-300 ${isCollapsed ? 'opacity-0 w-0' : 'opacity-100'}`}>
-                            Members
+                            TiltedPrompts
                         </span>
                     </div>
-                    {!isCollapsed && (
-                        <Menu className="w-4 h-4 text-muted-foreground shrink-0" />
-                    )}
-                </div>
+                </Link>
 
                 {/* Navigation */}
                 <div className="flex-1 overflow-y-auto py-4 px-2 space-y-0.5 overflow-x-hidden">

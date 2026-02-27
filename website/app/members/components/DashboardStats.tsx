@@ -86,7 +86,7 @@ export default function DashboardStats({ stats }: DashboardStatsProps) {
                     <div className="flex items-center gap-2 px-4 py-2 rounded-xl border border-emerald-500/20 bg-emerald-500/5">
                         <TrendingUp className="w-4 h-4 text-emerald-400" />
                         <span className="text-sm font-bold text-emerald-400">+{newAll}</span>
-                        <span className="text-sm text-muted-foreground">added this week</span>
+                        <span className="text-sm text-muted-foreground">added this week (Mon-Sun)</span>
                     </div>
                 )}
             </div>

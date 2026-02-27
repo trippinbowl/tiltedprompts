@@ -9,10 +9,13 @@ export const revalidate = 0; // Ensure data is always fresh in development
 export default async function MembersDashboard() {
     const supabase = await createClient();
 
-    // Date 7 days ago for "new this week" counts
-    const oneWeekAgo = new Date();
-    oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
-    const weekAgoISO = oneWeekAgo.toISOString();
+    // Calculate the start of the current week (Monday at 00:00:00)
+    const now = new Date();
+    const dayOfWeek = now.getDay() || 7; // Convert Sunday (0) to 7
+    const startOfWeek = new Date(now);
+    startOfWeek.setHours(0, 0, 0, 0);
+    startOfWeek.setDate(now.getDate() - dayOfWeek + 1);
+    const weekAgoISO = startOfWeek.toISOString();
 
     // Fetch the 6 most recent library assets for the Hub
     const { data: assets, error } = await supabase
